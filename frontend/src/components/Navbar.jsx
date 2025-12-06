@@ -1,36 +1,48 @@
 import React, { useState } from "react";
-import "../App.css"
+import { Link } from "react-router-dom"; // import Link
+import "../App.css";
 
 export default function Navbar({ className }) {
-  const items = ["Home", "Trending fields", , "About", "Review us"];
+  const items = [
+    { name: "Home", path: "/" },
+    { name: "Trending fields", path: "/trending" },
+    { name: "About", path: "/about" },
+    { name: "Review us", path: "/reviews" },
+  ];
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav className={`${className} w-full py-4 px-6 sm:px-12 relative`}>
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <div className="">
-          {/* <img src={logo} alt="Logo" className="h-12 w-auto" /> */}
-          <h1 className="text text-bold text-[20px]">Career Advisor</h1>
+        <div>
+          <Link to="/">
+            <h1 className="text-white font-bold text-[20px]">Career Advisor</h1>
+          </Link>
         </div>
 
-        {/* Menu items (Desktop) */}
+        {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-12">
           {items.map((item) => (
-            <li
-              key={item}
-              className="text-white cursor-pointer hover:text-gray-300 text-xl font-medium"
-            >
-              {item}
+            <li key={item.name}>
+              <Link
+                to={item.path}
+                className="text-white cursor-pointer hover:text-gray-300 text-xl font-medium"
+              >
+                {item.name}
+              </Link>
             </li>
           ))}
         </ul>
 
-        {/* Get Started button (Desktop) */}
+        {/* Desktop Button */}
         <div className="hidden md:flex">
-          <button className="btn text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] text-center hover:bg-gray-200 transition ">
-            Get Started
-          </button>
+          <Link to="/signup">
+            <button className="btn text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] hover:bg-gray-200 transition">
+              Get Started
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -46,27 +58,28 @@ export default function Navbar({ className }) {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full  transition-all duration-300 overflow-hidden ${
+        className={`md:hidden absolute top-full left-0 w-full bg-black transition-all duration-300 overflow-hidden ${
           menuOpen ? "max-h-96" : "max-h-0"
         }`}
       >
         <ul className="flex flex-col space-y-4 py-4 text-center">
           {items.map((item) => (
-            <li
-              key={item}
-              className="text-white cursor-pointer hover:text-gray-300 text-xl font-medium"
-              onClick={() => setMenuOpen(false)}
-            >
-              {item}
+            <li key={item.name}>
+              <Link
+                to={item.path}
+                className="text-white cursor-pointer hover:text-gray-300 text-xl font-medium"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
             </li>
           ))}
           <li>
-            <button
-              className="bg-white text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] text-center hover:bg-gray-200 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              Get Started
-            </button>
+            <Link to="/login" onClick={() => setMenuOpen(false)}>
+              <button className="bg-white text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] hover:bg-gray-200 transition">
+                Get Started
+              </button>
+            </Link>
           </li>
         </ul>
       </div>

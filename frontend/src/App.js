@@ -1,17 +1,16 @@
-import Hero from './components/Hero';
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 export default function App() {
   return (
-    <div className="w-full min-h-screen relative bg-black">
-      {/* Navbar overlay */}
-      <Navbar className="absolute top-0 left-0 w-full z-20" />
-
-      {/* Hero section */}
-      <Hero />
-
-      {/* Optional content below Hero */}
-      {/* <div className="relative z-10">Other page content</div> */}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </Router>
   );
 }

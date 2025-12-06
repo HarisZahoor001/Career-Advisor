@@ -1,5 +1,6 @@
 import shadow1 from '../assets/s1.png';
 import robot from '../assets/robot.png';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
@@ -44,12 +45,12 @@ export default function Hero() {
           </p>
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 mt-4">
-            <button className="bg-white btn text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] text-center hover:bg-gray-200 transition">
+            <Link to="/login" className="bg-white btn text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] text-center hover:bg-gray-200 transition">
               Get Started
-            </button>
-            <button className="border-2 border-white text-white flex justify-center items-center font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] text-center hover:bg-black hover:text-white transition">
-              Get a Demo
-            </button>
+            </Link>
+            <Link to="/contact" className="border-2 border-white text-white flex justify-center items-center font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] text-center hover:bg-black hover:text-white transition">
+              Contact Us
+            </Link>
           </div>
         </div>
       </div>
