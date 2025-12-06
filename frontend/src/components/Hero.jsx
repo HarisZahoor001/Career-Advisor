@@ -36,7 +36,7 @@ export default function Hero() {
 
         {/* Text & Buttons */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6 md:gap-10 justify-center">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-[82px] font-bold leading-tight text-center">
+          <h1 className="text-white text-4xl animate-fadeUp sm:text-5xl md:text-[82px] font-bold leading-tight text-center">
             The Future of <br />
             The Next-Gen Chatbot
           </h1>
