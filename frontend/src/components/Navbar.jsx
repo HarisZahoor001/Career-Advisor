@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"; // import Link
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
+import { ACCESS_TOKEN } from "../constants";
 
 export default function Navbar({ className }) {
   const items = [
@@ -10,7 +11,21 @@ export default function Navbar({ className }) {
     { name: "Review us", path: "/reviews" },
   ];
 
+  const [isAuthorized, setIsAuthorized] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem(ACCESS_TOKEN);
+    setIsAuthorized(!!token);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem(ACCESS_TOKEN);
+    localStorage.removeItem("REFRESH_TOKEN");
+    setIsAuthorized(false);
+    navigate("/login");
+  };
 
   return (
     <nav className={`${className} w-full py-4 px-6 sm:px-12 relative`}>
@@ -38,11 +53,17 @@ export default function Navbar({ className }) {
 
         {/* Desktop Button */}
         <div className="hidden md:flex">
-          <Link to="/signup">
-            <button className="btn text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] hover:bg-gray-200 transition">
-              Get Started
-            </button>
-          </Link>
+          <Link to="logout/">
+              <button
+                onClick={() => {
+      
+                  setMenuOpen(false);
+                }}
+                className="bg-white text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] hover:bg-gray-200 transition"
+              >
+                Logout
+              </button>
+              </Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -75,11 +96,19 @@ export default function Navbar({ className }) {
             </li>
           ))}
           <li>
-            <Link to="/login" onClick={() => setMenuOpen(false)}>
-              <button className="bg-white text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] hover:bg-gray-200 transition">
-                Get Started
+            <Link to="logout/">
+              <button
+                onClick={() => {
+      
+                  setMenuOpen(false);
+                }}
+                className="bg-white text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] hover:bg-gray-200 transition"
+              >
+                Logout
               </button>
-            </Link>
+              </Link>
+            
+    
           </li>
         </ul>
       </div>
