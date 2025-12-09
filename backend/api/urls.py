@@ -1,10 +1,21 @@
 from django.urls import path
-from api.views import *
+from api.views import (
+    CreateUserProfile,
+    RetrieveUserProfile,
+    UpdateUserProfile,
+    DeleteUserProfile,
+    ListAllUsers
+)
 
 urlpatterns = [
-    path('users/create/',view=CreateUserProfile.as_view(),name="user_create"),
-    path('users/update/',view=UpdateUserProfile.as_view(),name="user_update"),
-    path('users/retrieve/',view=RetrieveUserProfile.as_view(),name="user_retrieve"),
-    path('users/delete/',view=DeleteUserProfile.as_view(),name="user_delete"),
-    path('users/',view=ListAllUsers.as_view(),name="users"),
+    # CREATE USER (Signup)
+    path('users/', CreateUserProfile.as_view(), name="user_create"),
+
+    # LIST ALL USERS
+    path('users/all/', ListAllUsers.as_view(), name="users"),
+
+    # LOGGED-IN USER ACTIONS
+    path('users/me/', RetrieveUserProfile.as_view(), name="user_retrieve"),
+    path('users/me/update/', UpdateUserProfile.as_view(), name="user_update"),
+    path('users/me/delete/', DeleteUserProfile.as_view(), name="user_delete"),
 ]
