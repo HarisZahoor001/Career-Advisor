@@ -9,6 +9,9 @@ import api from '../api';
 
 export default function ChatbotUI() {
 
+    
+    const OPENAI_API_KEY=process.env.REACT_APP_OPENAI_API_KEY;
+    const [sidebarOpen, setSidebarOpen] = useState(false);
     const [chatSliderOpen, setChatSliderOpen] = useState(false); 
     const hot_careers = ["AI Engineering", "Data Mining", "Data Science"];
     const [topic, setTopic] = useState("");

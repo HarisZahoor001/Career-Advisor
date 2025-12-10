@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
-import { ACCESS_TOKEN } from "../constants";
 
 export default function Navbar({ className }) {
   const items = [
@@ -10,23 +9,7 @@ export default function Navbar({ className }) {
     { name: "About", path: "/about" },
     { name: "Review us", path: "/reviews" },
   ];
-
-  const [isAuthorized, setIsAuthorized] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const token = localStorage.getItem(ACCESS_TOKEN);
-    setIsAuthorized(!!token);
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem(ACCESS_TOKEN);
-    localStorage.removeItem("REFRESH_TOKEN");
-    setIsAuthorized(false);
-    navigate("/login");
-  };
-
   return (
     <nav className={`${className} w-full py-4 px-6 sm:px-12 relative`}>
       <div className="flex items-center justify-between">
@@ -50,6 +33,7 @@ export default function Navbar({ className }) {
             </li>
           ))}
         </ul>
+
 
         {/* Desktop Button */}
         <div className="hidden md:flex">
@@ -107,8 +91,6 @@ export default function Navbar({ className }) {
                 Logout
               </button>
               </Link>
-            
-    
           </li>
         </ul>
       </div>

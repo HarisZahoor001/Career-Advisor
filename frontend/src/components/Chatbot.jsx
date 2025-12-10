@@ -7,6 +7,7 @@ export default function Chatbot() {
     const saved = localStorage.getItem("chatbot_messages");
     return saved ? JSON.parse(saved) : [];
   });
+  const OPENAI_API_KEY=process.env.REACT_APP_OPENAI_API_KEY;
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [error, setError] = useState(null);

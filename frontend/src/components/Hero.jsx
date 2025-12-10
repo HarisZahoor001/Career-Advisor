@@ -4,28 +4,8 @@ import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
-    <div className="w-full min-h-screen relative overflow-hidden bg-black">
-      {/* Grid background */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            repeating-linear-gradient(0deg, #d1d5db 0px, #d1d5db 1px, transparent 1px, transparent 100px),
-            repeating-linear-gradient(90deg, #d1d5db 0px, #d1d5db 1px, transparent 1px, transparent 100px)
-          `,
-          backgroundSize: '100px 100px',
-          opacity: 0.1,
-        }}
-      ></div>
-
-      {/* Shadow / overlay image */}
-      <div className="absolute inset-0 -ml-[2000px] ">
-        <img
-          src={shadow1}
-          alt="Shadow Overlay"
-          className="w-full h-full object-cover opacity-70"
-        />
-      </div>
+    <div className="w-full min-h-screen relative overflow-hidden">
+      
 
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center min-h-screen px-6 md:px-20 gap-10 md:gap-20">
