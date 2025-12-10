@@ -8,7 +8,7 @@ import { FaArrowUp, FaUser, FaRobot } from "react-icons/fa";
 import api from '../api';
 
 export default function ChatbotUI() {
-    const OPENAI_API_KEY = ''
+
     const [chatSliderOpen, setChatSliderOpen] = useState(false); 
     const hot_careers = ["AI Engineering", "Data Mining", "Data Science"];
     const [topic, setTopic] = useState("");
