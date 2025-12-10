@@ -20,7 +20,3 @@ module.exports = {
   },
   plugins: [],
 }
-
-{/*
-   const OPENAI_API_KEY = "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";
-  */}
