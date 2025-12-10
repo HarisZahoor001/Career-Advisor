@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import UserProfile
-from .serializers import UserProfileSerializer
+from .models import UserProfile,Careers
+from .serializers import UserProfileSerializer,CareersSerializer
 from rest_framework.permissions import AllowAny,IsAuthenticated
 
 # Create your views here.
@@ -38,3 +38,12 @@ class ListAllUsers(generics.ListAPIView):
     queryset=UserProfile.objects.all()
     serializer_class =UserProfileSerializer
     permission_classes=[AllowAny]
+
+
+''' Views for Careers '''
+
+class ListCareers(generics.ListAPIView):
+    queryset=Careers.objects.all()
+    serializer_class =CareersSerializer
+    permission_classes=[AllowAny]
+

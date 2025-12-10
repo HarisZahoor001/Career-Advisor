@@ -23,3 +23,12 @@ class UserProfile(models.Model):
         return self.full_name
 
 
+class Careers(models.Model):
+
+    name=models.CharField(max_length=255)
+    field=models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

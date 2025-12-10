@@ -4,7 +4,8 @@ from api.views import (
     RetrieveUserProfile,
     UpdateUserProfile,
     DeleteUserProfile,
-    ListAllUsers
+    ListAllUsers,
+    ListCareers
 )
 
 urlpatterns = [
@@ -18,4 +19,7 @@ urlpatterns = [
     path('users/me/', RetrieveUserProfile.as_view(), name="user_retrieve"),
     path('users/me/update/', UpdateUserProfile.as_view(), name="user_update"),
     path('users/me/delete/', DeleteUserProfile.as_view(), name="user_delete"),
+
+    # URL FOR CAREER
+    path('careers/', ListCareers.as_view(), name="list_career"),
 ]

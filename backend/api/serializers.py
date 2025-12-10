@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
-from .models import UserProfile
+from .models import UserProfile,Careers
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
@@ -89,3 +89,37 @@ class UserProfileSerializer(serializers.ModelSerializer):
             setattr(instance, attr, value)
         instance.save()
         return instance
+    
+
+class CareersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Careers
+        fields = [
+            "id",
+            "name",
+            "field",
+            "description",
+            "created_at"
+        ]
+        read_only_fields = ["id", "created_at"]
+        
+    def validate_name(self, value):
+        """
+        Validate that career name is unique
+        """
+        if Careers.objects.filter(name__iexact=value).exists():
+            raise serializers.ValidationError("Career with this name already exists")
+        return value
+        
+    def to_representation(self, instance):
+        """
+        Custom representation if needed
+        """
+        return {
+            "id": instance.id,
+            "name": instance.name,
+            "field": instance.field,
+            "description": instance.description,
+            "created_at": instance.created_at
+        }
+    
