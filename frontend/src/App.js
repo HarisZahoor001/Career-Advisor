@@ -5,6 +5,7 @@ import Signup from "./components/Signup";
 import Chatbot from "./components/Chatbot";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ChatbotUI from "./components/ChatbotUI";
+import Hero from "./components/Hero";
 
 function Logout() {
   localStorage.clear()
@@ -21,11 +22,11 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ProtectedRoute><ChatbotUI /></ProtectedRoute>} />
+        <Route path="/" element={<ProtectedRoute><Hero /></ProtectedRoute>} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/chat" element={<ProtectedRoute><Chatbot /></ProtectedRoute>} />
+        <Route path="/chat" element={<ProtectedRoute><ChatbotUI /></ProtectedRoute>} />
       </Routes>
     </Router>
   );

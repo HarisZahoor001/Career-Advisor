@@ -8,7 +8,7 @@ import { FaArrowUp, FaUser, FaRobot } from "react-icons/fa";
 import api from '../api';
 
 export default function ChatbotUI() {
-    const OPENAI_API_KEY = "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";
+    const OPENAI_API_KEY = "sks-proj-qOs7k67pRkQs7sRBYVM1RskQ-Nok8rGVVXwrs8dehrBC8-Ztps6_2xnIn8WV1uGHhRySWJdQ43T3BlbkFJv5p-LOD-GT1uy8JwckNPxPdTP6rftbLsy6D-D7goWh4-KB4-NuhWD9Ubpyk3dLqHgS-EN6txYA";
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [chatSliderOpen, setChatSliderOpen] = useState(false); 
@@ -19,23 +19,24 @@ export default function ChatbotUI() {
     const chatEndRef = useRef(null);
     const chatContainerRef = useRef(null);
     const [user,setUser]=useState(null);
+    
     // Scroll to bottom when messages change
     useEffect(() => {
         chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages, loading]);
 
     useEffect(() => {
-    const fetchUser = async () => {
-        try {
-            const response = await api.get('/users/me/'); // Replace with your route
-            setUser(response.data);
-            console.log('Fetched user:', response.data);
-        } catch (err) {
-            console.error('Failed to fetch user info', err);
-        }
-    };
-    fetchUser();
-}, []); 
+        const fetchUser = async () => {
+            try {
+                const response = await api.get('/users/me/');
+                setUser(response.data);
+                console.log('Fetched user:', response.data);
+            } catch (err) {
+                console.error('Failed to fetch user info', err);
+            }
+        };
+        fetchUser();
+    }, []); 
 
     const handleHotCareerClick = (career) => sendMessage(career);
 
@@ -159,7 +160,7 @@ export default function ChatbotUI() {
 
             {/* Main Chat Area */}
             <div className="relative z-10 flex-1 flex flex-col p-4 lg:p-6 w-full mt-10">
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-4 ">
                     <h2 className="text-white text-xl lg:text-2xl">Chat Area</h2>
                     
                     {/* Chat Slider Toggle Button */}
@@ -182,7 +183,7 @@ export default function ChatbotUI() {
                 </div>
 
                 {/* Chat Container with Slider */}
-                <div className="flex flex-col lg:flex-row flex-1 gap-4">
+                <div className="flex flex-col lg:flex-row flex-1 gap-4 ">
                     {/* Chat Messages Box - Slideable */}
                     <div 
                         ref={chatContainerRef}
@@ -192,8 +193,14 @@ export default function ChatbotUI() {
                                 : 'lg:w-full lg:translate-x-0 lg:opacity-100'
                         } flex flex-col transition-all duration-500 ease-in-out`}
                     >
-                        {/* Messages Container */}
-                        <div className="flex-1 chat_color rounded-xl p-4 flex flex-col gap-4 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800 min-h-[60vh] lg:min-h-[65vh]">
+                        {/* Messages Container with FIXED Scrollbar */}
+                        <div className="flex-1 chat_color rounded-xl p-4 flex flex-col gap-4 overflow-y-auto min-h-[60vh] lg:min-h-[65vh] chat-scrollbar"
+                            style={{
+                                scrollbarWidth: 'thin',
+                                scrollbarColor: '#6366F1 #1F2937',
+                            }}
+                        >
+                            
                             {messages.length === 0 && (
                                 <div className="flex flex-col items-center justify-center h-full text-center">
                                     <FaRobot className="text-gray-400 mb-4" size={48} />
@@ -405,6 +412,46 @@ export default function ChatbotUI() {
                     </button>
                 </div>
             </div>
+
+            {/* Add the scrollbar CSS to the global scope */}
+            <style jsx="true">{`
+                /* Chat scrollbar styling - This will apply globally */
+                .chat-scrollbar {
+                    overflow-y: auto !important;
+                }
+                
+                /* For WebKit browsers */
+                .chat-scrollbar::-webkit-scrollbar {
+                    width: 8px !important;
+                }
+                
+                .chat-scrollbar::-webkit-scrollbar-track {
+                    background: rgba(31, 41, 55, 0.5) !important;
+                    border-radius: 10px !important;
+                    margin: 4px 0 !important;
+                }
+                
+                .chat-scrollbar::-webkit-scrollbar-thumb {
+                    background: linear-gradient(180deg, #6366F1, #8B5CF6, #EC4899) !important;
+                    border-radius: 10px !important;
+                    border: 2px solid rgba(31, 41, 55, 0.3) !important;
+                }
+                
+                .chat-scrollbar::-webkit-scrollbar-thumb:hover {
+                    background: linear-gradient(180deg, #818CF8, #A78BFA, #F472B6) !important;
+                }
+                
+                /* Force scrollbar to always be visible */
+                .chat-scrollbar {
+                    scrollbar-width: thin !important;
+                    scrollbar-color: #6366F1 #1F2937 !important;
+                }
+                
+                /* Ensure the container has proper height for scrolling */
+                .chat-scrollbar {
+                    max-height: calc(65vh - 2rem) !important;
+                }
+            `}</style>
         </div>
     );
 }
