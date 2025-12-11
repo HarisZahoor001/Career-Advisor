@@ -5,13 +5,13 @@ import "../App.css";
 export default function Navbar({ className }) {
   const items = [
     { name: "Home", path: "/" },
-    { name: "Trending fields", path: "/trending" },
+    { name: "Jobs", path: "/jobs" },
     { name: "About", path: "/about" },
-    { name: "Review us", path: "/reviews" },
+    { name: "Contact", path: "/contact" },
   ];
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <nav className={`${className} w-full py-4 px-6 sm:px-12 relative`}>
+    <nav className={`${className} z-20 w-full py-4 px-6 sm:px-12 relative`}>
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div>

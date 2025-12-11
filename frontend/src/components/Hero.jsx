@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center min-h-screen px-6 md:px-20 gap-10 md:gap-20">
         {/* Robot Image */}
         <div className="flex-shrink-0">
-          <img className="h-64 sm:h-96 md:h-[600px] w-auto" src={robot} alt="Robot" />
+          <img className="h-64 sm:h-96 md:h-[600px] animate-fadeUp w-auto" src={robot} alt="Robot" />
         </div>
 
         {/* Text & Buttons */}
@@ -20,11 +20,11 @@ export default function Hero() {
             The Future of <br />
             The Next-Gen Chatbot
           </h1>
-          <p className="leading-tight text-white text-[18px] sm:text-[20px] md:text-[22px] text-center ">
+          <p className="leading-tight animate-fadeUp text-white text-[18px] sm:text-[20px] md:text-[22px] text-center ">
             Meet Aidy, the next-gen AI chatbot designed to enhance conversations with intuitive responses,<br /> seamless integration, and powerful automation.
           </p>
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 mt-4">
+          <div className="flex  animate-fadeUp flex-col sm:flex-row gap-4 sm:gap-10 mt-4">
             <Link to="/chat" className="bg-white btn text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] text-center hover:bg-gray-200 transition">
               Get Started
             </Link>

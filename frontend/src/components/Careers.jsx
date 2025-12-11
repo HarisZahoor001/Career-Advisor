@@ -6,6 +6,7 @@ export default function Careers() {
     const [careers, setCareers] = useState([]);
     const navigate = useNavigate();
 
+
     useEffect(() => {
         const fetchCareers = async () => {
             try {
@@ -20,7 +21,7 @@ export default function Careers() {
     }, []);
 
     return (
-        <div className="flex flex-col p-20">
+        <div className="flex flex-col p-20 relative z-20">
             <h1 className="text-white font-bold text-3xl">Careers</h1>
 
             <div className="flex flex-row mt-10 gap-6 flex-wrap">
@@ -39,7 +40,7 @@ export default function Careers() {
                             onClick={() =>
                                 navigate(`/chat?career=${encodeURIComponent(item.name)}`)
                             }
-                            className="mt-4 bg-white text-black px-4 py-2 rounded-lg hover:bg-gray-200"
+                            className="mt-4 btn text-black px-4 py-2 rounded-lg hover:bg-gray-200"
                         >
                             Learn More →
                         </button>
