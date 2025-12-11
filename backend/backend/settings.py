@@ -24,10 +24,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^qnm$#a$b0-&3yx1=^!tr%go%_4(q+b^-a%hf97aszokh!hntp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = [".vercel.app"]
-
+# Only include domain names without protocol
+ALLOWED_HOSTS = [
+    ".vercel.app",
+    "greenyellow-dragonfly-302803.hostingersite.com",
+    "localhost",  # for local development
+    "127.0.0.1",  # for local development
+]
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
