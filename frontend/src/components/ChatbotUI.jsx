@@ -6,21 +6,23 @@ import { HiUserCircle } from "react-icons/hi2";
 import { useState, useEffect, useRef } from 'react';
 import { FaArrowUp, FaUser, FaRobot } from "react-icons/fa";
 import api from '../api';
+import { useSearchParams } from "react-router-dom";
 
 export default function ChatbotUI() {
-
-    
-    const OPENAI_API_KEY=process.env.REACT_APP_OPENAI_API_KEY;
+    const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [chatSliderOpen, setChatSliderOpen] = useState(false); 
+    const [chatSliderOpen, setChatSliderOpen] = useState(false);
     const hot_careers = ["AI Engineering", "Data Mining", "Data Science"];
     const [topic, setTopic] = useState("");
     const [messages, setMessages] = useState([]);
     const [loading, setLoading] = useState(false);
     const chatEndRef = useRef(null);
     const chatContainerRef = useRef(null);
-    const [user,setUser]=useState(null);
-    
+    const [user, setUser] = useState(null);
+    const [searchParams] = useSearchParams();
+    const career = searchParams.get("career");
+    const [hasAutoSent, setHasAutoSent] = useState(false);
+
     // Scroll to bottom when messages change
     useEffect(() => {
         chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -37,7 +39,23 @@ export default function ChatbotUI() {
             }
         };
         fetchUser();
-    }, []); 
+    }, []);
+
+    // Handle career parameter and auto-send message
+    useEffect(() => {
+        if (career && !hasAutoSent && messages.length === 0) {
+            const careerQuestion = `Tell me about ${career} career. What skills are required, job prospects, salary range, and how to get started?`;
+            setTopic(careerQuestion);
+            
+            // Auto-send the message after a short delay
+            const timer = setTimeout(() => {
+                sendMessage(careerQuestion);
+                setHasAutoSent(true);
+            }, 800);
+            
+            return () => clearTimeout(timer);
+        }
+    }, [career, hasAutoSent, messages.length]);
 
     const handleHotCareerClick = (career) => sendMessage(career);
 
@@ -56,9 +74,17 @@ export default function ChatbotUI() {
 
     const sendMessage = async (message) => {
         // Add user message
-        setMessages(prev => [...prev, { sender: 'user', text: message, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }]);
+        setMessages(prev => [...prev, { 
+            sender: 'user', 
+            text: message, 
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) 
+        }]);
         // Add placeholder for AI
-        setMessages(prev => [...prev, { sender: 'ai', text: '', time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }]);
+        setMessages(prev => [...prev, { 
+            sender: 'ai', 
+            text: '', 
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) 
+        }]);
         setLoading(true);
 
         try {
@@ -71,10 +97,13 @@ export default function ChatbotUI() {
                 body: JSON.stringify({
                     model: "gpt-3.5-turbo",
                     messages: [
-                        { role: "system", content: "You are a helpful career advisor AI." },
+                        { 
+                            role: "system", 
+                            content: `You are a helpful career advisor AI. The user is asking about ${career || 'a career'}. Provide detailed, structured information about this career path.` 
+                        },
                         { role: "user", content: message }
                     ],
-                    max_tokens: 200
+                    max_tokens: 500
                 })
             });
 
@@ -83,7 +112,7 @@ export default function ChatbotUI() {
 
             // Simulate streaming by adding one character at a time
             for (let i = 0; i <= aiText.length; i++) {
-                await new Promise(r => setTimeout(r, 20));
+                await new Promise(r => setTimeout(r, 10));
                 setMessages(prev => {
                     const newMessages = [...prev];
                     newMessages[newMessages.length - 1].text = aiText.slice(0, i);
@@ -95,7 +124,7 @@ export default function ChatbotUI() {
             console.error(err);
             setMessages(prev => {
                 const newMessages = [...prev];
-                newMessages[newMessages.length - 1].text = "Error: Could not fetch response.";
+                newMessages[newMessages.length - 1].text = "Error: Could not fetch response. Please try again.";
                 return newMessages;
             });
         } finally {
@@ -141,9 +170,9 @@ export default function ChatbotUI() {
                     </Link>
                 </div>
                 <ul className="space-y-6">
-                    <li><Link className="flex items-center gap-3 text-white p-2 rounded-lg hover:bg-gray-700 transition" onClick={() => setSidebarOpen(false)}><IoHome size={20} /> Home</Link></li>
-                    <li><Link className="flex items-center gap-3 text-white p-2 rounded-lg hover:bg-gray-700 transition" onClick={() => setSidebarOpen(false)}><IoSettings size={20} /> Settings</Link></li>
-                    <li><Link to="logout/" className="flex items-center gap-3 text-white p-2 rounded-lg hover:bg-gray-700 transition" onClick={() => setSidebarOpen(false)}><IoLogOut size={20} /> Logout</Link></li>
+                    <li><Link to="/" className="flex items-center gap-3 text-white p-2 rounded-lg hover:bg-gray-700 transition" onClick={() => setSidebarOpen(false)}><IoHome size={20} /> Home</Link></li>
+                    <li><Link to="/settings" className="flex items-center gap-3 text-white p-2 rounded-lg hover:bg-gray-700 transition" onClick={() => setSidebarOpen(false)}><IoSettings size={20} /> Settings</Link></li>
+                    <li><Link to="/logout" className="flex items-center gap-3 text-white p-2 rounded-lg hover:bg-gray-700 transition" onClick={() => setSidebarOpen(false)}><IoLogOut size={20} /> Logout</Link></li>
                 </ul>
                 <h1 className='mt-7 text-white ml-3 font-bold text-xl'>Hot Careers</h1>
                 <ul className="space-y-6 mt-8">
@@ -163,9 +192,9 @@ export default function ChatbotUI() {
             <div className="relative z-10 flex-1 flex flex-col p-4 lg:p-6 w-full mt-10">
                 <div className="flex items-center justify-between mb-4 ">
                     <h2 className="text-white text-xl lg:text-2xl">Chat Area</h2>
-                    
+
                     {/* Chat Slider Toggle Button */}
-                    <button 
+                    <button
                         onClick={() => setChatSliderOpen(!chatSliderOpen)}
                         className="flex items-center gap-2 text-white bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition duration-300"
                     >
@@ -186,13 +215,12 @@ export default function ChatbotUI() {
                 {/* Chat Container with Slider */}
                 <div className="flex flex-col lg:flex-row flex-1 gap-4 ">
                     {/* Chat Messages Box - Slideable */}
-                    <div 
+                    <div
                         ref={chatContainerRef}
-                        className={`${
-                            chatSliderOpen 
-                                ? 'lg:w-3/5 lg:translate-x-0 lg:opacity-100' 
+                        className={`${chatSliderOpen
+                                ? 'lg:w-3/5 lg:translate-x-0 lg:opacity-100'
                                 : 'lg:w-full lg:translate-x-0 lg:opacity-100'
-                        } flex flex-col transition-all duration-500 ease-in-out`}
+                            } flex flex-col transition-all duration-500 ease-in-out`}
                     >
                         {/* Messages Container with FIXED Scrollbar */}
                         <div className="flex-1 chat_color rounded-xl p-4 flex flex-col gap-4 overflow-y-auto min-h-[60vh] lg:min-h-[65vh] chat-scrollbar"
@@ -201,7 +229,7 @@ export default function ChatbotUI() {
                                 scrollbarColor: '#6366F1 #1F2937',
                             }}
                         >
-                            
+
                             {messages.length === 0 && (
                                 <div className="flex flex-col items-center justify-center h-full text-center">
                                     <FaRobot className="text-gray-400 mb-4" size={48} />
@@ -209,7 +237,7 @@ export default function ChatbotUI() {
                                     <p className="text-gray-400 text-sm">Ask about careers or select from Hot Careers</p>
                                 </div>
                             )}
-                            
+
                             {messages.map((msg, idx) => (
                                 <div key={idx} className={`flex gap-3 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                                     {msg.sender === 'ai' && (
@@ -219,12 +247,12 @@ export default function ChatbotUI() {
                                             </div>
                                         </div>
                                     )}
-                                    
+
                                     <div className={`max-w-[80%] ${msg.sender === 'user' ? 'order-1' : 'order-2'}`}>
-                                        <div className={`rounded-2xl p-4 ${msg.sender === 'user' 
-                                            ? 'bg-gradient-to-r from-blue-600/20 to-blue-800/20 border border-blue-800/30' 
+                                        <div className={`rounded-2xl p-4 ${msg.sender === 'user'
+                                            ? 'bg-gradient-to-r from-blue-600/20 to-blue-800/20 border border-blue-800/30'
                                             : 'bg-gray-800/50 border border-gray-700/50'
-                                        }`}>
+                                            }`}>
                                             <div className="flex items-center gap-2 mb-2">
                                                 {msg.sender === 'user' ? (
                                                     <FaUser size={10} className="text-blue-400" />
@@ -239,7 +267,7 @@ export default function ChatbotUI() {
                                             <p className="text-white">{msg.text}</p>
                                         </div>
                                     </div>
-                                    
+
                                     {msg.sender === 'user' && (
                                         <div className="flex-shrink-0 order-3">
                                             <div className="w-8 h-8 rounded-full bg-gradient-to-r from-gray-700 to-gray-800 flex items-center justify-center border border-gray-700">
@@ -249,7 +277,7 @@ export default function ChatbotUI() {
                                     )}
                                 </div>
                             ))}
-                            
+
                             {loading && (
                                 <div className="flex gap-3 justify-start">
                                     <div className="flex-shrink-0">
@@ -279,7 +307,7 @@ export default function ChatbotUI() {
                                 value={topic}
                                 onChange={e => setTopic(e.target.value)}
                                 onKeyPress={handleKeyPress}
-                                placeholder="Type your message or select a hot career..."
+                                placeholder={career ? `Ask more about ${career}...` : "Type your message or select a hot career..."}
                                 className="chat_color text-white placeholder-gray-400 rounded-xl h-14 lg:h-16 p-4 pr-14 w-full focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent"
                             />
                             <button
@@ -294,11 +322,10 @@ export default function ChatbotUI() {
                     </div>
 
                     {/* Slider Panel - Opens when toggled */}
-                    <div className={`${
-                        chatSliderOpen 
-                            ? 'lg:w-2/5 lg:translate-x-0 lg:opacity-100 lg:block' 
+                    <div className={`${chatSliderOpen
+                            ? 'lg:w-2/5 lg:translate-x-0 lg:opacity-100 lg:block'
                             : 'lg:w-0 lg:translate-x-full lg:opacity-0 lg:hidden'
-                    } transition-all duration-500 ease-in-out overflow-hidden`}>
+                        } transition-all duration-500 ease-in-out overflow-hidden`}>
                         <div className="chat_color rounded-xl p-4 lg:p-6 h-full flex flex-col">
                             <div className="flex items-center justify-between mb-6">
                                 <h3 className="text-white text-lg lg:text-xl font-bold">Career Insights</h3>
@@ -306,7 +333,7 @@ export default function ChatbotUI() {
                                     Real-time
                                 </span>
                             </div>
-                            
+
                             {/* Slider Content */}
                             <div className="space-y-6 flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">
                                 {/* Stats Cards */}
@@ -319,7 +346,7 @@ export default function ChatbotUI() {
                                         <div className="h-full bg-gradient-to-r from-blue-500 to-purple-500 w-3/4"></div>
                                     </div>
                                 </div>
-                                
+
                                 {/* Quick Tips */}
                                 <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-xl p-4">
                                     <h4 className="text-white font-semibold mb-3">Quick Career Tips</h4>
@@ -338,7 +365,7 @@ export default function ChatbotUI() {
                                         </li>
                                     </ul>
                                 </div>
-                                
+
                                 {/* Trending Careers */}
                                 <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-xl p-4">
                                     <h4 className="text-white font-semibold mb-3">Trending Now</h4>
@@ -346,11 +373,10 @@ export default function ChatbotUI() {
                                         {["Prompt Engineering", "DevOps", "Cloud Security", "MLOps"].map((career, idx) => (
                                             <div key={idx} className="flex items-center justify-between p-3 bg-gray-900/30 rounded-lg hover:bg-gray-900/50 transition cursor-pointer">
                                                 <div className="flex items-center gap-3">
-                                                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                                                        idx === 0 ? 'bg-blue-500/20' : 
-                                                        idx === 1 ? 'bg-purple-500/20' : 
-                                                        idx === 2 ? 'bg-green-500/20' : 'bg-orange-500/20'
-                                                    }`}>
+                                                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${idx === 0 ? 'bg-blue-500/20' :
+                                                            idx === 1 ? 'bg-purple-500/20' :
+                                                                idx === 2 ? 'bg-green-500/20' : 'bg-orange-500/20'
+                                                        }`}>
                                                         <span className="text-xs font-bold text-white">{idx + 1}</span>
                                                     </div>
                                                     <span className="text-gray-200 text-sm">{career}</span>
@@ -360,7 +386,7 @@ export default function ChatbotUI() {
                                         ))}
                                     </div>
                                 </div>
-                                
+
                                 {/* Chat Stats */}
                                 <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-800/30 rounded-xl p-4">
                                     <h4 className="text-white font-semibold mb-3">Your Chat Stats</h4>
@@ -376,10 +402,10 @@ export default function ChatbotUI() {
                                     </div>
                                 </div>
                             </div>
-                            
+
                             {/* Slider Footer */}
                             <div className="mt-6 pt-4 border-t border-gray-800/50">
-                                <button 
+                                <button
                                     onClick={() => handleSendMessage("Give me career statistics and insights")}
                                     className="w-full py-3 bg-gradient-to-r from-blue-600/30 to-purple-600/30 hover:from-blue-600/40 hover:to-purple-600/40 border border-blue-800/30 rounded-xl text-white transition flex items-center justify-center gap-2"
                                 >
@@ -393,24 +419,32 @@ export default function ChatbotUI() {
 
                 {/* Quick Suggestions */}
                 <div className="mt-4 flex flex-wrap gap-2">
-                    <button 
+                    <button
                         onClick={() => handleSendMessage("What are the most in-demand skills right now?")}
                         className="text-sm text-gray-300 hover:text-white bg-gray-800/30 hover:bg-gray-800/50 px-4 py-2 rounded-lg transition border border-gray-800/50"
                     >
                         In-demand skills
                     </button>
-                    <button 
+                    <button
                         onClick={() => handleSendMessage("How do I start a career in tech?")}
                         className="text-sm text-gray-300 hover:text-white bg-gray-800/30 hover:bg-gray-800/50 px-4 py-2 rounded-lg transition border border-gray-800/50"
                     >
                         Starting in tech
                     </button>
-                    <button 
+                    <button
                         onClick={() => handleSendMessage("What programming languages should I learn?")}
                         className="text-sm text-gray-300 hover:text-white bg-gray-800/30 hover:bg-gray-800/50 px-4 py-2 rounded-lg transition border border-gray-800/50"
                     >
                         Programming languages
                     </button>
+                    {career && (
+                        <button
+                            onClick={() => handleSendMessage(`What certifications are needed for ${career}?`)}
+                            className="text-sm text-gray-300 hover:text-white bg-gray-800/30 hover:bg-gray-800/50 px-4 py-2 rounded-lg transition border border-gray-800/50"
+                        >
+                            Certifications for {career}
+                        </button>
+                    )}
                 </div>
             </div>
 

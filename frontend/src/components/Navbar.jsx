@@ -38,16 +38,16 @@ export default function Navbar({ className }) {
         {/* Desktop Button */}
         <div className="hidden md:flex">
           <Link to="logout/">
-              <button
-                onClick={() => {
-      
-                  setMenuOpen(false);
-                }}
-                className="bg-white text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] hover:bg-gray-200 transition"
-              >
-                Logout
-              </button>
-              </Link>
+            <button
+              onClick={() => {
+
+                setMenuOpen(false);
+              }}
+              className="bg-white text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] hover:bg-gray-200 transition"
+            >
+              Logout
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -63,9 +63,8 @@ export default function Navbar({ className }) {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full bg-black transition-all duration-300 overflow-hidden ${
-          menuOpen ? "max-h-96" : "max-h-0"
-        }`}
+        className={`md:hidden absolute top-full left-0 w-full bg-black transition-all duration-300 overflow-hidden ${menuOpen ? "max-h-96" : "max-h-0"
+          }`}
       >
         <ul className="flex flex-col space-y-4 py-4 text-center">
           {items.map((item) => (
@@ -83,14 +82,14 @@ export default function Navbar({ className }) {
             <Link to="logout/">
               <button
                 onClick={() => {
-      
+
                   setMenuOpen(false);
                 }}
                 className="bg-white text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] hover:bg-gray-200 transition"
               >
                 Logout
               </button>
-              </Link>
+            </Link>
           </li>
         </ul>
       </div>

@@ -20,7 +20,7 @@ export default function Home() {
       />
 
       {/* Shadow / overlay image */}
-      <div className="fixed inset-0 z-10">
+      <div className="fixed mr-auto inset-0 z-10">
         <img
           src={shadow1}
           alt="Shadow Overlay"
