@@ -41,7 +41,8 @@ EMAIL_HOST_USER = 'zeeshanaftababbasi@gmail.com'
 EMAIL_HOST_PASSWORD = 'pfscicwqifsujgdt' 
 DEFAULT_FROM_EMAIL = 'zeeshanaftababbasi@gmail.com'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'https://career-advisor-demo.vercel.app').split(',')
+# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,https://career-advisor-demo.vercel.app').split(',')
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -116,32 +117,32 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
-        'NAME': os.getenv('DB_NAME', 'CareerAdvisor'),
-        'USER': os.getenv('DB_USER', 'postgres'),
-        'PASSWORD': os.getenv('DB_PASSWORD', '548878447'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '5432'),
-        'OPTIONS': {
-            'sslmode': 'disable',
-        },
-    }
-}
 # DATABASES = {
 #     'default': {
 #         'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
-#         'NAME': os.getenv('DB_NAME', 'postgres'),
-#         'USER': os.getenv('DB_USER', 'postgres.arbfnatdtnlsatwiuejg'),
-#         'PASSWORD': os.getenv('DB_PASSWORD', '6WODl0BnHwIvXKm7'),
-#         'HOST': os.getenv('DB_HOST', 'aws-1-us-east-1.pooler.supabase.com'),
-#         'PORT': os.getenv('DB_PORT', '6543'),
+#         'NAME': os.getenv('DB_NAME', 'CareerAdvisor'),
+#         'USER': os.getenv('DB_USER', 'postgres'),
+#         'PASSWORD': os.getenv('DB_PASSWORD', '548878447'),
+#         'HOST': os.getenv('DB_HOST', 'localhost'),
+#         'PORT': os.getenv('DB_PORT', '5432'),
 #         'OPTIONS': {
-#             'sslmode': 'require',
+#             'sslmode': 'disable',
 #         },
 #     }
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
+        'NAME': os.getenv('DB_NAME', 'postgres'),
+        'USER': os.getenv('DB_USER', 'postgres.arbfnatdtnlsatwiuejg'),
+        'PASSWORD': os.getenv('DB_PASSWORD', '6WODl0BnHwIvXKm7'),
+        'HOST': os.getenv('DB_HOST', 'aws-1-us-east-1.pooler.supabase.com'),
+        'PORT': os.getenv('DB_PORT', '6543'),
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 

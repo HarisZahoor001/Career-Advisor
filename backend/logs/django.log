@@ -1476,3 +1476,64 @@ INFO 2026-02-03 16:08:28,887 basehttp 14200 14736 "POST /api/chat/ HTTP/1.1" 200
 INFO 2026-02-03 16:08:46,866 autoreload 14200 14356 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
 INFO 2026-02-03 16:08:47,713 autoreload 14588 5852 Watching for file changes with StatReloader
 INFO 2026-02-03 16:08:49,954 agents 14588 5852 DjangoSaver initialized successfully
+INFO 2026-02-03 16:09:34,076 basehttp 14588 9104 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:09:34,199 basehttp 14588 9104 "GET /api/messages/ HTTP/1.1" 200 19874
+INFO 2026-02-03 16:09:34,251 basehttp 14588 14568 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:09:34,597 basehttp 14588 14568 "GET /api/messages/ HTTP/1.1" 200 19874
+WARNING 2026-02-03 16:10:51,102 log 14588 14568 Bad Request: /api/clear-chat/
+WARNING 2026-02-03 16:10:51,103 basehttp 14588 14568 "POST /api/clear-chat/ HTTP/1.1" 400 39
+INFO 2026-02-03 16:10:55,852 basehttp 14588 14568 "GET /api/messages/ HTTP/1.1" 200 19874
+WARNING 2026-02-03 16:11:00,562 log 14588 14568 Bad Request: /api/clear-chat/
+WARNING 2026-02-03 16:11:00,563 basehttp 14588 14568 "POST /api/clear-chat/ HTTP/1.1" 400 39
+INFO 2026-02-03 16:11:29,351 agents 14588 14568 Cleared chat and profile for user 11
+INFO 2026-02-03 16:11:29,351 views 14588 14568 Cleared chat for user: Ali
+INFO 2026-02-03 16:11:29,352 basehttp 14588 14568 "POST /api/clear-chat/ HTTP/1.1" 200 77
+INFO 2026-02-03 16:11:32,595 basehttp 14588 14568 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:12:00,006 agents 14588 14568 Cleared chat and profile for user 11
+INFO 2026-02-03 16:12:00,007 views 14588 14568 Cleared chat for user: Ali
+INFO 2026-02-03 16:12:00,008 basehttp 14588 14568 "POST /api/clear-chat/ HTTP/1.1" 200 77
+INFO 2026-02-03 16:13:20,275 basehttp 14588 14568 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:13:20,320 basehttp 14588 9104 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:13:20,325 basehttp 14588 14568 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:13:20,477 basehttp 14588 9104 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:14:17,103 basehttp 14588 8028 "OPTIONS /careers/ HTTP/1.1" 200 0
+INFO 2026-02-03 16:14:17,104 basehttp 14588 8764 "OPTIONS /careers/ HTTP/1.1" 200 0
+INFO 2026-02-03 16:14:17,262 basehttp 14588 8028 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 16:14:17,304 basehttp 14588 8764 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 16:14:19,336 basehttp 14588 8764 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:14:19,382 basehttp 14588 8764 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:14:19,476 basehttp 14588 8028 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:14:19,523 basehttp 14588 8028 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:15:50,504 basehttp 14588 8028 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:15:50,557 basehttp 14588 8764 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:15:50,696 basehttp 14588 8028 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:15:50,948 basehttp 14588 8028 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:16:33,015 basehttp 14588 7900 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:16:33,147 basehttp 14588 7900 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:16:33,175 basehttp 14588 15056 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:16:33,423 basehttp 14588 7900 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:17:11,874 basehttp 14588 7900 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:17:12,049 basehttp 14588 7900 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:17:12,076 basehttp 14588 15056 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:17:12,232 basehttp 14588 15056 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:17:38,251 basehttp 14588 15056 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:17:38,391 basehttp 14588 15056 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:19:28,462 basehttp 14588 7420 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:19:28,574 basehttp 14588 15128 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:19:28,620 basehttp 14588 7420 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:19:28,694 basehttp 14588 15128 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:19:41,577 basehttp 14588 15128 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:19:41,630 basehttp 14588 15128 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:19:41,768 basehttp 14588 7420 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:19:41,883 basehttp 14588 7420 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:19:47,154 basehttp 14588 7420 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 16:19:53,153 basehttp 14588 7420 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 16:19:53,294 basehttp 14588 15128 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 16:52:29,812 autoreload 14588 5852 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\backend\settings.py changed, reloading.
+INFO 2026-02-03 16:53:58,288 autoreload 892 15968 Watching for file changes with StatReloader
+INFO 2026-02-03 16:54:00,773 agents 892 15968 DjangoSaver initialized successfully
+INFO 2026-02-03 16:55:10,220 autoreload 15344 1396 Watching for file changes with StatReloader
+INFO 2026-02-03 16:55:12,401 agents 15344 1396 DjangoSaver initialized successfully
+INFO 2026-02-03 16:55:31,721 agents 7840 9680 DjangoSaver initialized successfully
+INFO 2026-02-03 16:55:51,937 autoreload 15376 1932 Watching for file changes with StatReloader
+INFO 2026-02-03 16:55:53,951 agents 15376 1932 DjangoSaver initialized successfully
