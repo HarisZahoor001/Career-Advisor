@@ -41,7 +41,7 @@ EMAIL_HOST_USER = 'zeeshanaftababbasi@gmail.com'
 EMAIL_HOST_PASSWORD = 'pfscicwqifsujgdt' 
 DEFAULT_FROM_EMAIL = 'zeeshanaftababbasi@gmail.com'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'https://career-advisor-demo.vercel.app').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '.vercel.app').split(',')
 # ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,https://career-advisor-demo.vercel.app').split(',')
 
 REST_FRAMEWORK = {
