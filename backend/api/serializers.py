@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
-from .models import UserProfile,Careers
+from .models import UserProfile, Careers
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 import random
@@ -92,7 +92,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
             setattr(instance, attr, value)
         instance.save()
         return instance
-    
+
 
 class CareersSerializer(serializers.ModelSerializer):
     class Meta:
@@ -125,17 +125,7 @@ class CareersSerializer(serializers.ModelSerializer):
             "description": instance.description,
             "created_at": instance.created_at
         }
-    
-class UserProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = UserProfile
-        fields = '__all__'
-        read_only_fields = ['user']
 
-class CareersSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Careers
-        fields = '__all__'
 
 # Add these new password-related serializers at the end
 class ForgotPasswordSerializer(serializers.Serializer):
@@ -179,12 +169,9 @@ class ChangePasswordSerializer(serializers.Serializer):
                 "confirm_password": "Passwords do not match."
             })
         return attrs
-    
 
 
-# serializers.py
-from rest_framework import serializers
-
+# Chat-related serializers
 class ChatMessageSerializer(serializers.Serializer):
     """Serializer for chat messages"""
     message = serializers.CharField(
