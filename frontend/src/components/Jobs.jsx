@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import shadow1 from '../assets/s1.png';
 import Navbar from './Navbar';
+import api from '../api';
 
 export default function Jobs() {
-    const APP_ID = '69cf489d';
-    const API_KEY = 'fc11d0a0c326a4b958531d0c684992f6';
-    
     const [jobs, setJobs] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [searchQuery, setSearchQuery] = useState('software engineer');
@@ -16,29 +15,26 @@ export default function Jobs() {
 
     const fetchJobs = async (page = 1) => {
         setLoading(true);
+        setError(null);
         try {
-            const response = await fetch(
-                `https://api.adzuna.com/v1/api/jobs/${location}/search/${page}?` +
-                `app_id=${APP_ID}&` +
-                `app_key=${API_KEY}&` +
-                `results_per_page=${resultsPerPage}&` +
-                `what=${encodeURIComponent(searchQuery)}&` +
-                `content-type=application/json`
-            );
+            // Use backend endpoint instead of exposing API keys
+            const response = await api.get('/jobs/', {
+                params: {
+                    query: searchQuery,
+                    location: location,
+                    page: page,
+                    results_per_page: resultsPerPage
+                }
+            });
 
-            if (!response.ok) {
-                throw new Error(`API Error: ${response.status}`);
-            }
-
-            const data = await response.json();
-            
-            if (data.results) {
-                setJobs(data.results);
+            if (response.data && response.data.results) {
+                setJobs(response.data.results);
                 const estimatedTotalPages = Math.ceil(1000 / resultsPerPage);
                 setTotalPages(Math.min(estimatedTotalPages, 50));
             }
         } catch (error) {
             console.error('Error fetching jobs:', error);
+            setError('Unable to fetch jobs. Please try again later.');
             setJobs(getMockJobs());
             setTotalPages(5);
         } finally {

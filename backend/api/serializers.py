@@ -2,7 +2,10 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
 from .models import UserProfile,Careers
-
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
+import random
+import string
 
 class UserProfileSerializer(serializers.ModelSerializer):
     # Fields from the User model
@@ -123,3 +126,104 @@ class CareersSerializer(serializers.ModelSerializer):
             "created_at": instance.created_at
         }
     
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = '__all__'
+        read_only_fields = ['user']
+
+class CareersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Careers
+        fields = '__all__'
+
+# Add these new password-related serializers at the end
+class ForgotPasswordSerializer(serializers.Serializer):
+    email = serializers.EmailField(required=True)
+    
+    def validate_email(self, value):
+        return value
+
+class ResetPasswordSerializer(serializers.Serializer):
+    token = serializers.CharField(required=True, max_length=6)
+    new_password = serializers.CharField(
+        required=True, 
+        write_only=True,
+        validators=[validate_password]
+    )
+    confirm_password = serializers.CharField(required=True, write_only=True)
+    
+    def validate(self, attrs):
+        if attrs['new_password'] != attrs['confirm_password']:
+            raise serializers.ValidationError({
+                "confirm_password": "Passwords do not match."
+            })
+        return attrs
+
+class VerifyTokenSerializer(serializers.Serializer):
+    email = serializers.EmailField(required=True)
+    token = serializers.CharField(required=True, max_length=6)
+
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(required=True, write_only=True)
+    new_password = serializers.CharField(
+        required=True, 
+        write_only=True,
+        validators=[validate_password]
+    )
+    confirm_password = serializers.CharField(required=True, write_only=True)
+    
+    def validate(self, attrs):
+        if attrs['new_password'] != attrs['confirm_password']:
+            raise serializers.ValidationError({
+                "confirm_password": "Passwords do not match."
+            })
+        return attrs
+    
+
+
+# serializers.py
+from rest_framework import serializers
+
+class ChatMessageSerializer(serializers.Serializer):
+    """Serializer for chat messages"""
+    message = serializers.CharField(
+        required=True, 
+        max_length=2000,
+        trim_whitespace=True
+    )
+    
+    def validate_message(self, value):
+        """Validate message is not empty"""
+        if not value or value.isspace():
+            raise serializers.ValidationError("Message cannot be empty")
+        return value
+
+
+class ClearChatSerializer(serializers.Serializer):
+    """Serializer for clearing chat"""
+    confirm = serializers.BooleanField(
+        required=True,
+        help_text="Must be true to confirm clearing chat history"
+    )
+    
+    def validate_confirm(self, value):
+        """Validate confirmation"""
+        if not value:
+            raise serializers.ValidationError("You must confirm to clear chat history")
+        return value
+
+
+# Optional: Serializer for chat messages response
+class ChatMessageResponseSerializer(serializers.Serializer):
+    """Serializer for chat message response"""
+    type = serializers.CharField()
+    content = serializers.CharField()
+
+
+class ChatResponseSerializer(serializers.Serializer):
+    """Serializer for full chat response"""
+    response = serializers.CharField()
+    thread_id = serializers.CharField()
+    messages = ChatMessageResponseSerializer(many=True)
+    message_count = serializers.IntegerField()

@@ -7,6 +7,9 @@ import ChatbotUI from "./components/ChatbotUI";
 import Jobs from "./components/Jobs";
 import About from "./pages/About";
 import Contact from "./components/Contact";
+import Form from "./components/Form";
+import ForgotPassword from "./components/ForgotPassword";
+import ChangePassword from "./components/ChangePassword";
 
 function Logout() {
   localStorage.clear()
@@ -24,6 +27,14 @@ export default function App() {
         <Route path="/jobs" element={<ProtectedRoute><Jobs /></ProtectedRoute>} />
         <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
         <Route path="/contact" element={<ProtectedRoute><Contact isPage={true} /></ProtectedRoute>} />
+        <Route path="/login" element={<Form route="/api/auth/login/" method="login" />} />
+        <Route path="/signup" element={<Form route="/api/auth/register/" method="signup" />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/change-password" element={
+          <ProtectedRoute>
+            <ChangePassword />
+          </ProtectedRoute>
+        } />
       </Routes>
     </Router>
   );

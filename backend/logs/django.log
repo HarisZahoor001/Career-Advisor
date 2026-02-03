@@ -1,0 +1,1478 @@
+INFO 2026-02-03 12:42:43,632 autoreload 8940 12652 Watching for file changes with StatReloader
+INFO 2026-02-03 12:46:39,076 autoreload 720 12584 Watching for file changes with StatReloader
+INFO 2026-02-03 12:47:42,992 autoreload 720 12584 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\backend\settings.py changed, reloading.
+INFO 2026-02-03 12:47:43,564 autoreload 5876 1824 Watching for file changes with StatReloader
+INFO 2026-02-03 12:47:49,246 autoreload 5876 1824 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\backend\settings.py changed, reloading.
+INFO 2026-02-03 12:47:49,843 autoreload 14064 7584 Watching for file changes with StatReloader
+INFO 2026-02-03 12:47:56,628 autoreload 14064 7584 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\backend\settings.py changed, reloading.
+INFO 2026-02-03 12:47:57,181 autoreload 8432 1260 Watching for file changes with StatReloader
+INFO 2026-02-03 12:47:58,698 autoreload 8432 1260 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\backend\settings.py changed, reloading.
+INFO 2026-02-03 12:47:59,337 autoreload 6560 7492 Watching for file changes with StatReloader
+INFO 2026-02-03 12:48:06,093 autoreload 7624 7392 Watching for file changes with StatReloader
+INFO 2026-02-03 12:48:08,622 autoreload 7624 7392 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\backend\settings.py changed, reloading.
+INFO 2026-02-03 12:48:09,183 autoreload 5252 3188 Watching for file changes with StatReloader
+INFO 2026-02-03 12:48:52,232 autoreload 5252 3188 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\backend\settings.py changed, reloading.
+INFO 2026-02-03 12:48:52,803 autoreload 5428 11380 Watching for file changes with StatReloader
+INFO 2026-02-03 12:49:02,156 autoreload 3384 5752 Watching for file changes with StatReloader
+WARNING 2026-02-03 12:50:09,777 log 3384 752 Not Found: /
+WARNING 2026-02-03 12:50:09,778 basehttp 3384 752 "GET / HTTP/1.1" 404 4745
+WARNING 2026-02-03 12:50:09,886 log 3384 752 Not Found: /favicon.ico
+WARNING 2026-02-03 12:50:09,901 basehttp 3384 752 "GET /favicon.ico HTTP/1.1" 404 4796
+WARNING 2026-02-03 12:50:17,482 log 3384 752 Not Found: /usercreate
+WARNING 2026-02-03 12:50:17,483 basehttp 3384 752 "GET /usercreate HTTP/1.1" 404 4793
+INFO 2026-02-03 12:55:05,485 autoreload 3384 5752 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 12:55:06,341 autoreload 12068 7800 Watching for file changes with StatReloader
+INFO 2026-02-03 12:55:17,396 autoreload 12068 7800 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 12:55:17,972 autoreload 3320 11012 Watching for file changes with StatReloader
+INFO 2026-02-03 12:55:24,544 autoreload 3320 11012 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 12:55:25,107 autoreload 6404 5996 Watching for file changes with StatReloader
+INFO 2026-02-03 12:55:29,573 autoreload 6404 5996 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 12:55:30,217 autoreload 9240 12524 Watching for file changes with StatReloader
+INFO 2026-02-03 12:55:32,790 autoreload 9240 12524 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 12:55:33,372 autoreload 7012 10120 Watching for file changes with StatReloader
+INFO 2026-02-03 12:56:38,450 autoreload 7012 10120 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 12:56:39,081 autoreload 5204 9676 Watching for file changes with StatReloader
+INFO 2026-02-03 12:57:11,799 autoreload 5204 9676 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 12:57:12,382 autoreload 7144 14124 Watching for file changes with StatReloader
+INFO 2026-02-03 12:57:30,444 autoreload 7144 14124 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 12:57:31,061 autoreload 7088 7328 Watching for file changes with StatReloader
+INFO 2026-02-03 12:57:36,658 autoreload 7088 7328 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 12:57:37,289 autoreload 11556 10480 Watching for file changes with StatReloader
+INFO 2026-02-03 12:57:43,876 autoreload 11556 10480 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 12:57:44,505 autoreload 7596 12944 Watching for file changes with StatReloader
+INFO 2026-02-03 12:57:49,032 autoreload 7596 12944 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 12:57:49,602 autoreload 2096 7756 Watching for file changes with StatReloader
+INFO 2026-02-03 12:57:50,966 autoreload 2096 7756 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 12:57:51,633 autoreload 2480 11628 Watching for file changes with StatReloader
+INFO 2026-02-03 12:59:25,603 autoreload 2480 11628 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 12:59:26,307 autoreload 10084 12664 Watching for file changes with StatReloader
+INFO 2026-02-03 12:59:28,776 autoreload 10084 12664 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 12:59:29,370 autoreload 8672 10488 Watching for file changes with StatReloader
+INFO 2026-02-03 12:59:36,969 autoreload 8672 10488 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 12:59:37,593 autoreload 11716 12116 Watching for file changes with StatReloader
+INFO 2026-02-03 12:59:40,165 autoreload 11716 12116 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 12:59:40,704 autoreload 5392 12588 Watching for file changes with StatReloader
+INFO 2026-02-03 12:59:47,617 autoreload 8940 6516 Watching for file changes with StatReloader
+INFO 2026-02-03 13:00:53,028 basehttp 8940 3332 "OPTIONS /users/ HTTP/1.1" 200 0
+INFO 2026-02-03 13:00:53,934 basehttp 8940 3332 "POST /users/ HTTP/1.1" 201 257
+INFO 2026-02-03 13:01:02,012 basehttp 8940 3332 "OPTIONS /api/token/ HTTP/1.1" 200 0
+WARNING 2026-02-03 13:01:02,832 log 8940 3332 Unauthorized: /api/token/
+WARNING 2026-02-03 13:01:02,833 basehttp 8940 3332 "POST /api/token/ HTTP/1.1" 401 63
+WARNING 2026-02-03 13:01:10,781 log 8940 3332 Unauthorized: /api/token/
+WARNING 2026-02-03 13:01:10,782 basehttp 8940 3332 "POST /api/token/ HTTP/1.1" 401 63
+WARNING 2026-02-03 13:02:55,961 log 8940 3332 Unauthorized: /api/token/
+WARNING 2026-02-03 13:02:55,962 basehttp 8940 3332 "POST /api/token/ HTTP/1.1" 401 63
+WARNING 2026-02-03 13:03:19,201 log 8940 3332 Unauthorized: /api/token/
+WARNING 2026-02-03 13:03:19,202 basehttp 8940 3332 "POST /api/token/ HTTP/1.1" 401 63
+WARNING 2026-02-03 13:04:44,802 log 8940 3332 Bad Request: /users/
+WARNING 2026-02-03 13:04:44,803 basehttp 8940 3332 "POST /users/ HTTP/1.1" 400 83
+INFO 2026-02-03 13:04:49,163 basehttp 8940 3332 "POST /users/ HTTP/1.1" 201 253
+WARNING 2026-02-03 13:04:57,002 log 8940 3332 Unauthorized: /api/token/
+WARNING 2026-02-03 13:04:57,002 basehttp 8940 3332 "POST /api/token/ HTTP/1.1" 401 63
+INFO 2026-02-03 13:05:04,641 basehttp 8940 3332 "POST /api/token/ HTTP/1.1" 200 491
+INFO 2026-02-03 13:05:04,724 basehttp 8940 3332 "OPTIONS /careers/ HTTP/1.1" 200 0
+INFO 2026-02-03 13:05:04,726 basehttp 8940 3304 "OPTIONS /careers/ HTTP/1.1" 200 0
+INFO 2026-02-03 13:05:04,767 basehttp 8940 3332 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 13:05:04,803 basehttp 8940 3304 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 13:05:11,658 basehttp 8940 3304 "OPTIONS /users/me/ HTTP/1.1" 200 0
+INFO 2026-02-03 13:05:11,658 basehttp 8940 3332 "OPTIONS /users/me/ HTTP/1.1" 200 0
+INFO 2026-02-03 13:05:11,802 basehttp 8940 3332 "GET /users/me/ HTTP/1.1" 200 253
+INFO 2026-02-03 13:05:11,841 basehttp 8940 3304 "GET /users/me/ HTTP/1.1" 200 253
+INFO 2026-02-03 13:05:12,458 basehttp 8940 3304 "OPTIONS /chat/ HTTP/1.1" 200 0
+ERROR 2026-02-03 13:05:13,257 views 8940 3304 OpenAI API error: 401
+ERROR 2026-02-03 13:05:13,261 log 8940 3304 Service Unavailable: /chat/
+ERROR 2026-02-03 13:05:13,261 basehttp 8940 3304 "POST /chat/ HTTP/1.1" 503 39
+INFO 2026-02-03 13:05:16,589 basehttp 8940 3304 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 13:05:16,626 basehttp 8940 3332 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 13:05:17,426 basehttp 8940 3332 "OPTIONS /jobs/?query=software+engineer&location=us&page=1&results_per_page=20 HTTP/1.1" 200 0
+INFO 2026-02-03 13:05:17,426 basehttp 8940 3304 "OPTIONS /jobs/?query=software+engineer&location=us&page=1&results_per_page=20 HTTP/1.1" 200 0
+WARNING 2026-02-03 13:05:18,859 views 8940 3304 Adzuna API error: 401
+INFO 2026-02-03 13:05:18,861 basehttp 8940 3304 "GET /jobs/?query=software+engineer&location=us&page=1&results_per_page=20 HTTP/1.1" 200 367
+WARNING 2026-02-03 13:05:20,101 views 8940 3332 Adzuna API error: 401
+INFO 2026-02-03 13:05:20,103 basehttp 8940 3332 "GET /jobs/?query=software+engineer&location=us&page=1&results_per_page=20 HTTP/1.1" 200 367
+INFO 2026-02-03 13:05:22,079 basehttp 8940 3332 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 13:05:22,223 basehttp 8940 3304 "GET /careers/ HTTP/1.1" 200 3009
+WARNING 2026-02-03 13:05:39,565 views 8940 3304 Adzuna API error: 401
+INFO 2026-02-03 13:05:39,568 basehttp 8940 3304 "GET /jobs/?query=software+engineer&location=us&page=1&results_per_page=20 HTTP/1.1" 200 367
+WARNING 2026-02-03 13:05:40,910 views 8940 3332 Adzuna API error: 401
+INFO 2026-02-03 13:05:40,912 basehttp 8940 3332 "GET /jobs/?query=software+engineer&location=us&page=1&results_per_page=20 HTTP/1.1" 200 367
+WARNING 2026-02-03 13:05:44,709 views 8940 3332 Adzuna API error: 401
+INFO 2026-02-03 13:05:44,711 basehttp 8940 3332 "GET /jobs/?query=software+engineer&location=us&page=1&results_per_page=20 HTTP/1.1" 200 367
+WARNING 2026-02-03 13:05:45,950 views 8940 3304 Adzuna API error: 401
+INFO 2026-02-03 13:05:45,952 basehttp 8940 3304 "GET /jobs/?query=software+engineer&location=us&page=1&results_per_page=20 HTTP/1.1" 200 367
+INFO 2026-02-03 13:05:46,067 basehttp 8940 3304 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 13:05:46,107 basehttp 8940 3332 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 13:05:59,282 basehttp 8940 3332 "GET /users/me/ HTTP/1.1" 200 253
+INFO 2026-02-03 13:05:59,320 basehttp 8940 3304 "GET /users/me/ HTTP/1.1" 200 253
+ERROR 2026-02-03 13:06:03,454 views 8940 3304 OpenAI API error: 401
+ERROR 2026-02-03 13:06:03,457 log 8940 3304 Service Unavailable: /chat/
+ERROR 2026-02-03 13:06:03,457 basehttp 8940 3304 "POST /chat/ HTTP/1.1" 503 39
+WARNING 2026-02-03 13:06:08,059 log 8940 7908 Not Found: /
+WARNING 2026-02-03 13:06:08,060 basehttp 8940 7908 "GET / HTTP/1.1" 404 4745
+INFO 2026-02-03 13:06:13,885 autoreload 8940 6516 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 13:06:14,565 autoreload 5912 7596 Watching for file changes with StatReloader
+INFO 2026-02-03 13:06:36,897 autoreload 5912 7596 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 13:06:37,455 autoreload 9936 6812 Watching for file changes with StatReloader
+INFO 2026-02-03 13:06:46,068 autoreload 9936 6812 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 13:06:46,618 autoreload 7184 4296 Watching for file changes with StatReloader
+INFO 2026-02-03 13:06:49,169 autoreload 7184 4296 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 13:06:49,720 autoreload 12672 7492 Watching for file changes with StatReloader
+INFO 2026-02-03 13:07:01,584 autoreload 12672 7492 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 13:07:02,227 autoreload 1308 5104 Watching for file changes with StatReloader
+INFO 2026-02-03 13:07:24,496 autoreload 1308 5104 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\backend\settings.py changed, reloading.
+INFO 2026-02-03 13:07:25,145 autoreload 14216 7820 Watching for file changes with StatReloader
+INFO 2026-02-03 13:07:26,725 autoreload 14216 7820 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\backend\settings.py changed, reloading.
+INFO 2026-02-03 13:23:13,352 autoreload 8236 9820 Watching for file changes with StatReloader
+INFO 2026-02-03 13:23:16,799 basehttp 8236 7184 "OPTIONS /auth/forgot-password/ HTTP/1.1" 200 0
+INFO 2026-02-03 13:23:16,984 password_utils 8236 7184 Token stored for zeeshanaftababbasi1@gmail.com
+INFO 2026-02-03 13:23:21,112 password_utils 8236 7184 Reset email sent to zeeshanaftababbasi1@gmail.com
+INFO 2026-02-03 13:23:21,112 views 8236 7184 Password reset initiated for user: Ali
+INFO 2026-02-03 13:23:21,113 basehttp 8236 7184 "POST /auth/forgot-password/ HTTP/1.1" 200 92
+INFO 2026-02-03 13:24:09,143 basehttp 8236 10744 "OPTIONS /auth/verify-reset-token/ HTTP/1.1" 200 0
+INFO 2026-02-03 13:24:09,146 views 8236 10744 Reset token verified for email: zeeshanaftababbasi1@gmail.com
+INFO 2026-02-03 13:24:09,146 basehttp 8236 10744 "POST /auth/verify-reset-token/ HTTP/1.1" 200 98
+INFO 2026-02-03 13:24:32,265 basehttp 8236 2044 "OPTIONS /auth/reset-password/ HTTP/1.1" 200 0
+ERROR 2026-02-03 13:24:32,317 log 8236 2044 Internal Server Error: /auth/reset-password/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 335, in post
+    for stored_email, token_data in PasswordResetManager.password_reset_tokens.items():
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PasswordResetManager' has no attribute 'password_reset_tokens'
+ERROR 2026-02-03 13:24:32,324 basehttp 8236 2044 "POST /auth/reset-password/ HTTP/1.1" 500 101683
+ERROR 2026-02-03 13:24:41,234 log 8236 15308 Internal Server Error: /auth/reset-password/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 335, in post
+    for stored_email, token_data in PasswordResetManager.password_reset_tokens.items():
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PasswordResetManager' has no attribute 'password_reset_tokens'
+ERROR 2026-02-03 13:24:41,238 basehttp 8236 15308 "POST /auth/reset-password/ HTTP/1.1" 500 101683
+INFO 2026-02-03 13:25:31,541 autoreload 8236 9820 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 13:25:32,151 autoreload 8004 11284 Watching for file changes with StatReloader
+INFO 2026-02-03 13:25:37,883 autoreload 8004 11284 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 13:25:38,511 autoreload 6420 10832 Watching for file changes with StatReloader
+WARNING 2026-02-03 13:26:01,627 password_utils 6420 8 No token found for zeeshanaftababbasi1@gmail.com
+WARNING 2026-02-03 13:26:01,627 views 6420 8 Invalid reset token for email: zeeshanaftababbasi1@gmail.com
+WARNING 2026-02-03 13:26:01,628 log 6420 8 Bad Request: /auth/verify-reset-token/
+WARNING 2026-02-03 13:26:01,629 basehttp 6420 8 "POST /auth/verify-reset-token/ HTTP/1.1" 400 43
+INFO 2026-02-03 13:26:03,367 password_utils 6420 8 Token stored for zeeshanaftababbasi1@gmail.com
+INFO 2026-02-03 13:26:07,372 password_utils 6420 8 Reset email sent to zeeshanaftababbasi1@gmail.com
+INFO 2026-02-03 13:26:07,373 views 6420 8 Password reset initiated for user: Ali
+INFO 2026-02-03 13:26:07,373 basehttp 6420 8 "POST /auth/forgot-password/ HTTP/1.1" 200 92
+INFO 2026-02-03 13:26:16,926 views 6420 3344 Reset token verified for email: zeeshanaftababbasi1@gmail.com
+INFO 2026-02-03 13:26:16,926 basehttp 6420 3344 "POST /auth/verify-reset-token/ HTTP/1.1" 200 98
+ERROR 2026-02-03 13:26:19,825 log 6420 3344 Internal Server Error: /auth/reset-password/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 335, in post
+    for stored_email, token_data in PasswordResetManager.password_reset_tokens.items():
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PasswordResetManager' has no attribute 'password_reset_tokens'
+ERROR 2026-02-03 13:26:19,832 basehttp 6420 3344 "POST /auth/reset-password/ HTTP/1.1" 500 101683
+INFO 2026-02-03 13:26:50,338 autoreload 6420 10832 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 13:26:50,968 autoreload 11560 11632 Watching for file changes with StatReloader
+INFO 2026-02-03 13:27:10,233 autoreload 11560 11632 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\password_utils.py changed, reloading.
+INFO 2026-02-03 13:27:10,948 autoreload 7080 13208 Watching for file changes with StatReloader
+INFO 2026-02-03 13:27:22,967 autoreload 7080 13208 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 13:27:23,517 autoreload 2680 1836 Watching for file changes with StatReloader
+INFO 2026-02-03 13:27:55,209 autoreload 2680 1836 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 13:27:55,821 autoreload 10900 3320 Watching for file changes with StatReloader
+INFO 2026-02-03 13:28:03,531 autoreload 10900 3320 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 13:28:04,101 autoreload 7080 12508 Watching for file changes with StatReloader
+ERROR 2026-02-03 13:28:09,194 log 7080 5420 Internal Server Error: /auth/reset-password/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 335, in post
+    for stored_email, token_data in PasswordResetManager.password_reset_tokens.items():
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'property' object has no attribute 'items'
+ERROR 2026-02-03 13:28:09,198 basehttp 7080 5420 "POST /auth/reset-password/ HTTP/1.1" 500 101497
+ERROR 2026-02-03 13:28:11,745 log 7080 5420 Internal Server Error: /auth/reset-password/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 335, in post
+    for stored_email, token_data in PasswordResetManager.password_reset_tokens.items():
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'property' object has no attribute 'items'
+ERROR 2026-02-03 13:28:11,748 basehttp 7080 5420 "POST /auth/reset-password/ HTTP/1.1" 500 101497
+ERROR 2026-02-03 13:28:12,251 log 7080 5420 Internal Server Error: /auth/reset-password/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 335, in post
+    for stored_email, token_data in PasswordResetManager.password_reset_tokens.items():
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'property' object has no attribute 'items'
+ERROR 2026-02-03 13:28:12,254 basehttp 7080 5420 "POST /auth/reset-password/ HTTP/1.1" 500 101497
+ERROR 2026-02-03 13:28:12,410 log 7080 5420 Internal Server Error: /auth/reset-password/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 335, in post
+    for stored_email, token_data in PasswordResetManager.password_reset_tokens.items():
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'property' object has no attribute 'items'
+ERROR 2026-02-03 13:28:12,412 basehttp 7080 5420 "POST /auth/reset-password/ HTTP/1.1" 500 101497
+INFO 2026-02-03 13:28:25,072 autoreload 3736 11224 Watching for file changes with StatReloader
+INFO 2026-02-03 13:28:32,160 password_utils 3736 15160 Token stored for zeeshanaftababbasi1@gmail.com
+INFO 2026-02-03 13:28:36,275 password_utils 3736 15160 Reset email sent to zeeshanaftababbasi1@gmail.com
+INFO 2026-02-03 13:28:36,276 views 3736 15160 Password reset initiated for user: Ali
+INFO 2026-02-03 13:28:36,277 basehttp 3736 15160 "POST /auth/forgot-password/ HTTP/1.1" 200 92
+INFO 2026-02-03 13:28:46,861 views 3736 15160 Reset token verified for email: zeeshanaftababbasi1@gmail.com
+INFO 2026-02-03 13:28:46,862 basehttp 3736 15160 "POST /auth/verify-reset-token/ HTTP/1.1" 200 98
+ERROR 2026-02-03 13:28:48,415 log 3736 15160 Internal Server Error: /auth/reset-password/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 335, in post
+    for stored_email, token_data in PasswordResetManager.password_reset_tokens.items():
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'property' object has no attribute 'items'
+ERROR 2026-02-03 13:28:48,420 basehttp 3736 15160 "POST /auth/reset-password/ HTTP/1.1" 500 101497
+INFO 2026-02-03 13:29:55,280 autoreload 3736 11224 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\password_utils.py changed, reloading.
+INFO 2026-02-03 13:29:55,852 autoreload 10856 9080 Watching for file changes with StatReloader
+INFO 2026-02-03 13:29:57,390 autoreload 10856 9080 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\password_utils.py changed, reloading.
+INFO 2026-02-03 13:29:58,075 autoreload 7228 6552 Watching for file changes with StatReloader
+INFO 2026-02-03 13:30:21,465 autoreload 7228 6552 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 13:30:22,036 autoreload 8780 11780 Watching for file changes with StatReloader
+INFO 2026-02-03 13:30:51,414 autoreload 8780 11780 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 13:30:51,940 autoreload 3508 11056 Watching for file changes with StatReloader
+INFO 2026-02-03 13:30:56,448 autoreload 3508 11056 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 13:30:57,017 autoreload 8796 2184 Watching for file changes with StatReloader
+INFO 2026-02-03 13:31:28,479 autoreload 8796 2184 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 13:31:29,015 autoreload 9912 5884 Watching for file changes with StatReloader
+INFO 2026-02-03 13:31:44,055 autoreload 9912 5884 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 13:31:44,626 autoreload 7156 2096 Watching for file changes with StatReloader
+WARNING 2026-02-03 13:31:51,779 views 7156 14424 Password reset attempted with invalid token
+WARNING 2026-02-03 13:31:51,781 log 7156 14424 Bad Request: /auth/reset-password/
+WARNING 2026-02-03 13:31:51,781 basehttp 7156 14424 "POST /auth/reset-password/ HTTP/1.1" 400 32
+INFO 2026-02-03 13:31:56,908 password_utils 7156 14424 Token stored for zeeshanaftababbasi1@gmail.com
+INFO 2026-02-03 13:32:00,881 password_utils 7156 14424 Reset email sent to zeeshanaftababbasi1@gmail.com
+INFO 2026-02-03 13:32:00,881 views 7156 14424 Password reset initiated for user: Ali
+INFO 2026-02-03 13:32:00,882 basehttp 7156 14424 "POST /auth/forgot-password/ HTTP/1.1" 200 92
+INFO 2026-02-03 13:32:13,463 views 7156 14424 Reset token verified for email: zeeshanaftababbasi1@gmail.com
+INFO 2026-02-03 13:32:13,464 basehttp 7156 14424 "POST /auth/verify-reset-token/ HTTP/1.1" 200 98
+INFO 2026-02-03 13:32:16,072 password_utils 7156 14424 Token removed for zeeshanaftababbasi1@gmail.com
+INFO 2026-02-03 13:32:16,073 views 7156 14424 Password reset successful for user: Ali
+INFO 2026-02-03 13:32:16,073 basehttp 7156 14424 "POST /auth/reset-password/ HTTP/1.1" 200 81
+INFO 2026-02-03 13:32:29,020 basehttp 7156 14424 "POST /api/token/ HTTP/1.1" 200 491
+INFO 2026-02-03 13:32:29,208 basehttp 7156 14424 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 13:32:29,276 basehttp 7156 14432 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 13:46:23,343 autoreload 7156 2096 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 13:46:23,935 autoreload 8780 9820 Watching for file changes with StatReloader
+INFO 2026-02-03 13:46:25,520 autoreload 8780 9820 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 13:46:26,088 autoreload 14436 9700 Watching for file changes with StatReloader
+INFO 2026-02-03 13:46:28,678 autoreload 14436 9700 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 13:46:29,422 autoreload 7012 5928 Watching for file changes with StatReloader
+INFO 2026-02-03 13:46:32,092 autoreload 7012 5928 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 13:46:32,778 autoreload 15200 11724 Watching for file changes with StatReloader
+INFO 2026-02-03 14:04:43,076 autoreload 10972 5080 Watching for file changes with StatReloader
+INFO 2026-02-03 14:05:14,022 basehttp 10972 10404 "POST /api/token/ HTTP/1.1" 200 491
+INFO 2026-02-03 14:05:14,155 basehttp 10972 10404 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 14:05:14,198 basehttp 10972 10968 "GET /careers/ HTTP/1.1" 200 3009
+INFO 2026-02-03 14:05:16,440 basehttp 10972 10968 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 14:05:16,445 basehttp 10972 10968 "OPTIONS /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 200 0
+WARNING 2026-02-03 14:05:16,458 log 10972 10968 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:05:16,459 basehttp 10972 10968 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6768
+INFO 2026-02-03 14:05:16,485 basehttp 10972 10404 "GET /users/me/ HTTP/1.1" 200 206
+WARNING 2026-02-03 14:05:16,493 log 10972 10404 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:05:16,494 basehttp 10972 10404 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6768
+INFO 2026-02-03 14:05:21,896 basehttp 10972 10404 "OPTIONS /api/conversation/ HTTP/1.1" 200 0
+WARNING 2026-02-03 14:05:21,904 log 10972 10404 Not Found: /api/conversation/
+WARNING 2026-02-03 14:05:21,904 basehttp 10972 10404 "POST /api/conversation/ HTTP/1.1" 404 6731
+WARNING 2026-02-03 14:05:38,218 log 10972 14020 Not Found: /api/conversation/
+WARNING 2026-02-03 14:05:38,219 basehttp 10972 14020 "POST /api/conversation/ HTTP/1.1" 404 6731
+INFO 2026-02-03 14:05:43,539 basehttp 10972 14020 "GET /users/me/ HTTP/1.1" 200 206
+WARNING 2026-02-03 14:05:43,551 log 10972 14020 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:05:43,552 basehttp 10972 14020 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6768
+INFO 2026-02-03 14:05:43,589 basehttp 10972 7236 "GET /users/me/ HTTP/1.1" 200 206
+WARNING 2026-02-03 14:05:43,598 log 10972 7236 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:05:43,599 basehttp 10972 7236 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6768
+INFO 2026-02-03 14:05:54,151 basehttp 10972 7236 "OPTIONS /api/thread-messages/?thread_id=1 HTTP/1.1" 200 0
+WARNING 2026-02-03 14:05:54,157 log 10972 7236 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:05:54,157 basehttp 10972 7236 "GET /api/thread-messages/?thread_id=1 HTTP/1.1" 404 6751
+WARNING 2026-02-03 14:06:13,086 log 10972 7236 Not Found: /api/conversation/
+WARNING 2026-02-03 14:06:13,087 basehttp 10972 7236 "POST /api/conversation/ HTTP/1.1" 404 6731
+INFO 2026-02-03 14:07:13,381 autoreload 10972 5080 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:07:14,352 autoreload 12376 14632 Watching for file changes with StatReloader
+INFO 2026-02-03 14:07:23,991 autoreload 12376 14632 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 14:07:24,871 autoreload 5112 11436 Watching for file changes with StatReloader
+WARNING 2026-02-03 14:07:34,690 log 5112 14848 Not Found: /api/conversation/
+WARNING 2026-02-03 14:07:34,690 basehttp 5112 14848 "POST /api/conversation/ HTTP/1.1" 404 6731
+INFO 2026-02-03 14:07:49,255 autoreload 5112 11436 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:07:50,169 autoreload 5044 9168 Watching for file changes with StatReloader
+INFO 2026-02-03 14:08:02,774 autoreload 5044 9168 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:08:03,754 autoreload 4484 7756 Watching for file changes with StatReloader
+ERROR 2026-02-03 14:08:11,319 views 4484 15148 Conversation error: DjangoSaver.put() missing 1 required positional argument: 'new_versions'
+ERROR 2026-02-03 14:08:11,320 log 4484 15148 Internal Server Error: /api/conversation/
+ERROR 2026-02-03 14:08:11,321 basehttp 4484 15148 "POST /api/conversation/ HTTP/1.1" 500 42
+INFO 2026-02-03 14:09:02,637 autoreload 4484 7756 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:09:03,588 autoreload 6488 14148 Watching for file changes with StatReloader
+WARNING 2026-02-03 14:09:11,232 log 6488 8280 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:09:11,233 basehttp 6488 8280 "GET /api/thread-messages/?thread_id=1 HTTP/1.1" 404 6755
+ERROR 2026-02-03 14:09:23,736 views 6488 5156 Conversation error: DjangoSaver.put() missing 1 required positional argument: 'new_versions'
+ERROR 2026-02-03 14:09:23,737 log 6488 5156 Internal Server Error: /api/conversation/
+ERROR 2026-02-03 14:09:23,738 basehttp 6488 5156 "POST /api/conversation/ HTTP/1.1" 500 42
+INFO 2026-02-03 14:11:56,864 autoreload 6488 14148 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:11:57,774 autoreload 2764 2384 Watching for file changes with StatReloader
+INFO 2026-02-03 14:12:15,877 autoreload 2764 2384 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:12:16,513 autoreload 8720 12752 Watching for file changes with StatReloader
+INFO 2026-02-03 14:12:22,104 autoreload 8720 12752 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:12:22,721 autoreload 5752 8756 Watching for file changes with StatReloader
+INFO 2026-02-03 14:12:31,032 autoreload 5752 8756 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:12:31,946 autoreload 6124 8432 Watching for file changes with StatReloader
+INFO 2026-02-03 14:12:33,297 autoreload 6124 8432 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:12:33,902 autoreload 8308 9964 Watching for file changes with StatReloader
+INFO 2026-02-03 14:12:38,859 autoreload 8308 9964 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:12:39,740 autoreload 14548 14704 Watching for file changes with StatReloader
+INFO 2026-02-03 14:13:03,319 autoreload 14548 14704 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:13:04,210 autoreload 14448 13344 Watching for file changes with StatReloader
+INFO 2026-02-03 14:13:12,844 autoreload 14448 13344 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:13:13,759 autoreload 1800 11872 Watching for file changes with StatReloader
+INFO 2026-02-03 14:13:20,914 autoreload 1800 11872 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:13:21,752 autoreload 9392 14864 Watching for file changes with StatReloader
+INFO 2026-02-03 14:13:56,174 autoreload 9392 14864 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:13:57,143 autoreload 11008 4060 Watching for file changes with StatReloader
+INFO 2026-02-03 14:14:03,068 autoreload 11008 4060 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:14:03,839 autoreload 3544 6180 Watching for file changes with StatReloader
+INFO 2026-02-03 14:14:07,456 autoreload 3544 6180 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:14:08,063 autoreload 8876 11632 Watching for file changes with StatReloader
+INFO 2026-02-03 14:14:57,818 autoreload 8876 11632 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:14:58,424 autoreload 7640 8544 Watching for file changes with StatReloader
+INFO 2026-02-03 14:15:15,618 autoreload 7640 8544 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:15:16,282 autoreload 9856 7036 Watching for file changes with StatReloader
+INFO 2026-02-03 14:15:20,139 autoreload 9856 7036 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:15:20,889 autoreload 12740 7280 Watching for file changes with StatReloader
+INFO 2026-02-03 14:15:24,897 autoreload 12740 7280 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:15:25,803 autoreload 15168 2764 Watching for file changes with StatReloader
+INFO 2026-02-03 14:15:44,166 autoreload 15168 2764 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:15:45,092 autoreload 1836 5772 Watching for file changes with StatReloader
+INFO 2026-02-03 14:15:55,631 autoreload 1836 5772 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:15:56,512 autoreload 3308 8636 Watching for file changes with StatReloader
+INFO 2026-02-03 14:18:07,038 autoreload 3308 8636 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:18:08,110 autoreload 13804 8388 Watching for file changes with StatReloader
+INFO 2026-02-03 14:18:14,918 autoreload 5928 4572 Watching for file changes with StatReloader
+INFO 2026-02-03 14:18:26,400 autoreload 5928 4572 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:18:27,177 autoreload 14304 4168 Watching for file changes with StatReloader
+INFO 2026-02-03 14:18:33,658 basehttp 14304 12556 "GET /users/me/ HTTP/1.1" 200 206
+WARNING 2026-02-03 14:18:33,714 log 14304 12556 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:18:33,714 basehttp 14304 12556 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6772
+INFO 2026-02-03 14:18:33,754 basehttp 14304 5068 "GET /users/me/ HTTP/1.1" 200 206
+WARNING 2026-02-03 14:18:33,778 log 14304 5068 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:18:33,779 basehttp 14304 5068 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6772
+INFO 2026-02-03 14:18:42,549 views 14304 12436 Conversation - User: Ali, Thread: user_9_career_chat
+INFO 2026-02-03 14:18:42,550 basehttp 14304 12436 "POST /api/conversation/ HTTP/1.1" 200 1252
+INFO 2026-02-03 14:19:12,196 basehttp 14304 7156 "GET /users/me/ HTTP/1.1" 200 206
+WARNING 2026-02-03 14:19:12,209 log 14304 7156 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:19:12,210 basehttp 14304 7156 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6772
+INFO 2026-02-03 14:19:12,249 basehttp 14304 9168 "GET /users/me/ HTTP/1.1" 200 206
+WARNING 2026-02-03 14:19:12,276 log 14304 9168 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:19:12,283 basehttp 14304 9168 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6772
+WARNING 2026-02-03 14:19:15,571 log 14304 9168 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:19:15,571 basehttp 14304 9168 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6772
+INFO 2026-02-03 14:22:48,767 views 14304 9168 Conversation - User: Ali, Thread: user_9_1770110561170
+INFO 2026-02-03 14:22:48,767 basehttp 14304 9168 "POST /api/conversation/ HTTP/1.1" 200 1267
+WARNING 2026-02-03 14:23:25,231 log 14304 8672 Not Found: /user_create
+WARNING 2026-02-03 14:23:25,232 basehttp 14304 8672 "GET /user_create HTTP/1.1" 404 6716
+WARNING 2026-02-03 14:23:25,278 log 14304 8672 Not Found: /favicon.ico
+WARNING 2026-02-03 14:23:25,278 basehttp 14304 8672 "GET /favicon.ico HTTP/1.1" 404 6716
+INFO 2026-02-03 14:23:33,632 basehttp 14304 8672 "GET /users HTTP/1.1" 301 0
+WARNING 2026-02-03 14:23:33,690 log 14304 8800 Method Not Allowed: /users/
+WARNING 2026-02-03 14:23:33,690 basehttp 14304 8800 "GET /users/ HTTP/1.1" 405 9139
+INFO 2026-02-03 14:23:33,763 basehttp 14304 8800 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2026-02-03 14:23:34,044 basehttp 14304 9260 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+INFO 2026-02-03 14:23:34,044 basehttp 14304 15048 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+INFO 2026-02-03 14:23:34,045 basehttp 14304 8764 "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+INFO 2026-02-03 14:23:34,047 basehttp 14304 6008 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+INFO 2026-02-03 14:23:34,050 basehttp 14304 9260 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+INFO 2026-02-03 14:23:34,051 basehttp 14304 8764 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+INFO 2026-02-03 14:23:34,053 basehttp 14304 6008 "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+INFO 2026-02-03 14:23:34,053 basehttp 14304 15048 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2026-02-03 14:23:34,055 basehttp 14304 9260 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+INFO 2026-02-03 14:23:34,056 basehttp 14304 5240 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+INFO 2026-02-03 14:23:34,086 basehttp 14304 8800 "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+INFO 2026-02-03 14:23:57,369 basehttp 14304 9168 "GET /users/me/ HTTP/1.1" 200 206
+WARNING 2026-02-03 14:23:57,382 log 14304 9168 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:23:57,383 basehttp 14304 9168 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6772
+INFO 2026-02-03 14:24:07,291 basehttp 14304 15060 "GET /users/me/ HTTP/1.1" 200 206
+WARNING 2026-02-03 14:24:07,344 log 14304 15060 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:24:07,374 basehttp 14304 15060 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6772
+INFO 2026-02-03 14:24:07,406 basehttp 14304 4244 "GET /users/me/ HTTP/1.1" 200 206
+WARNING 2026-02-03 14:24:07,451 log 14304 4244 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:24:07,451 basehttp 14304 4244 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6772
+INFO 2026-02-03 14:24:19,934 views 14304 4244 Conversation - User: Ali, Thread: user_9_career_chat
+INFO 2026-02-03 14:24:19,935 basehttp 14304 4244 "POST /api/conversation/ HTTP/1.1" 200 1528
+WARNING 2026-02-03 14:24:55,232 log 14304 4244 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:24:55,232 basehttp 14304 4244 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6772
+WARNING 2026-02-03 14:25:04,149 log 14304 5288 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:25:04,150 basehttp 14304 5288 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6772
+INFO 2026-02-03 14:25:08,524 basehttp 14304 5288 "GET /users/me/ HTTP/1.1" 200 206
+WARNING 2026-02-03 14:25:08,539 log 14304 5288 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:25:08,540 basehttp 14304 5288 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6772
+INFO 2026-02-03 14:25:08,578 basehttp 14304 14964 "GET /users/me/ HTTP/1.1" 200 206
+WARNING 2026-02-03 14:25:08,589 log 14304 14964 Not Found: /api/thread-messages/
+WARNING 2026-02-03 14:25:08,589 basehttp 14304 14964 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 404 6772
+INFO 2026-02-03 14:27:21,425 autoreload 14304 4168 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:27:22,488 autoreload 9880 11560 Watching for file changes with StatReloader
+INFO 2026-02-03 14:27:52,888 autoreload 9880 11560 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 14:27:53,723 autoreload 15040 11864 Watching for file changes with StatReloader
+INFO 2026-02-03 14:28:09,932 autoreload 15040 11864 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 14:28:10,845 autoreload 7796 14772 Watching for file changes with StatReloader
+INFO 2026-02-03 14:28:18,279 autoreload 7796 14772 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:28:19,246 autoreload 11748 8712 Watching for file changes with StatReloader
+INFO 2026-02-03 14:28:23,645 autoreload 11748 8712 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:28:24,576 autoreload 15044 4936 Watching for file changes with StatReloader
+INFO 2026-02-03 14:30:51,299 basehttp 15044 3308 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 200 89
+INFO 2026-02-03 14:30:53,584 basehttp 15044 3308 "GET /api/thread-messages/?thread_id=user_9_career_chat HTTP/1.1" 200 89
+INFO 2026-02-03 14:31:11,242 basehttp 15044 10944 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 14:31:11,246 basehttp 15044 10944 "OPTIONS /api/thread-messages/ HTTP/1.1" 200 0
+INFO 2026-02-03 14:31:11,286 basehttp 15044 10944 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 14:31:26,556 basehttp 15044 10944 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 14:31:26,687 basehttp 15044 10944 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 14:31:26,695 basehttp 15044 14488 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 14:31:26,785 basehttp 15044 14488 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 14:31:38,720 views 15044 14488 User conversation - User: Ali, Thread: user_11_career_chat
+INFO 2026-02-03 14:31:38,721 basehttp 15044 14488 "POST /api/conversation/ HTTP/1.1" 200 210
+INFO 2026-02-03 14:31:39,821 basehttp 15044 14488 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 14:31:45,445 basehttp 15044 14488 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 14:31:45,537 basehttp 15044 14488 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 14:31:45,537 basehttp 15044 10944 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 14:31:45,617 basehttp 15044 10944 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 14:31:49,153 basehttp 15044 10944 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 14:31:55,045 views 15044 10944 User conversation - User: Ali, Thread: user_11_career_chat
+INFO 2026-02-03 14:31:55,045 basehttp 15044 10944 "POST /api/conversation/ HTTP/1.1" 200 207
+INFO 2026-02-03 14:31:56,127 basehttp 15044 10944 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 14:38:31,904 autoreload 15044 4936 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:38:32,887 autoreload 7360 14964 Watching for file changes with StatReloader
+INFO 2026-02-03 14:38:42,563 autoreload 7360 14964 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:38:43,552 autoreload 1412 12264 Watching for file changes with StatReloader
+INFO 2026-02-03 14:38:47,617 autoreload 1412 12264 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:38:48,598 autoreload 5412 14752 Watching for file changes with StatReloader
+INFO 2026-02-03 14:39:02,282 autoreload 5412 14752 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:39:03,089 autoreload 11676 5628 Watching for file changes with StatReloader
+INFO 2026-02-03 14:39:12,347 autoreload 11676 5628 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:39:13,382 autoreload 8784 14556 Watching for file changes with StatReloader
+INFO 2026-02-03 14:39:17,541 autoreload 8784 14556 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:39:18,570 autoreload 10264 15340 Watching for file changes with StatReloader
+INFO 2026-02-03 14:39:34,612 autoreload 10264 15340 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:39:35,614 autoreload 13084 6424 Watching for file changes with StatReloader
+INFO 2026-02-03 14:40:17,719 autoreload 13084 6424 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 14:40:18,607 autoreload 1716 10348 Watching for file changes with StatReloader
+INFO 2026-02-03 14:40:28,065 autoreload 1716 10348 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 14:40:29,025 autoreload 8784 14556 Watching for file changes with StatReloader
+INFO 2026-02-03 14:40:34,271 autoreload 8784 14556 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 14:40:35,161 autoreload 6184 14644 Watching for file changes with StatReloader
+INFO 2026-02-03 14:40:42,615 autoreload 6184 14644 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:40:43,556 autoreload 15140 2072 Watching for file changes with StatReloader
+INFO 2026-02-03 14:40:49,807 autoreload 15140 2072 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 14:40:50,849 autoreload 9620 6200 Watching for file changes with StatReloader
+INFO 2026-02-03 14:40:54,785 autoreload 9620 6200 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:40:55,569 autoreload 14292 4300 Watching for file changes with StatReloader
+INFO 2026-02-03 14:41:00,490 autoreload 14292 4300 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:41:01,356 autoreload 14788 14728 Watching for file changes with StatReloader
+INFO 2026-02-03 14:41:12,265 basehttp 14788 14840 "GET /ai/chat HTTP/1.1" 301 0
+ERROR 2026-02-03 14:41:12,542 log 14788 6456 Internal Server Error: /ai/chat/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: ai_chat() takes 0 positional arguments but 1 was given
+ERROR 2026-02-03 14:41:12,543 basehttp 14788 6456 "GET /ai/chat/ HTTP/1.1" 500 69621
+INFO 2026-02-03 14:41:30,776 autoreload 14788 14728 C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\urls\conf.py changed, reloading.
+INFO 2026-02-03 14:41:31,875 autoreload 11244 15268 Watching for file changes with StatReloader
+INFO 2026-02-03 14:41:49,502 autoreload 11244 15268 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 14:41:50,342 autoreload 6828 10332 Watching for file changes with StatReloader
+ERROR 2026-02-03 14:41:52,964 log 6828 2996 Internal Server Error: /ai/chat/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 592, in ai_chat
+    result = app.invoke({"messages": ["hello"]}, config=config)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\main.py", line 3071, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<10 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\main.py", line 2582, in stream
+    with SyncPregelLoop(
+         ~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<17 lines>...
+        cache_policy=self.cache_policy,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as loop:
+    ^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_loop.py", line 1138, in __exit__
+    return self.stack.__exit__(exc_type, exc_value, traceback)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 619, in __exit__
+    raise exc
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 604, in __exit__
+    if cb(*exc_details):
+       ~~^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_executor.py", line 117, in __exit__
+    task.result()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_loop.py", line 1034, in _checkpointer_put_after_previous
+    prev.result()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_executor.py", line 80, in done
+    task.result()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_loop.py", line 1036, in _checkpointer_put_after_previous
+    cast(BaseCheckpointSaver, self.checkpointer).put(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        config, checkpoint, metadata, new_versions
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\checkpoint\django\saver.py", line 192, in put
+    self.jsonplus_serde.dumps(get_checkpoint_metadata(config, metadata)).decode().replace("\\u0000", "")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'JsonPlusSerializer' object has no attribute 'dumps'
+ERROR 2026-02-03 14:41:52,975 basehttp 6828 2996 "GET /ai/chat/ HTTP/1.1" 500 163244
+ERROR 2026-02-03 14:41:54,611 log 6828 2996 Internal Server Error: /ai/chat/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 592, in ai_chat
+    result = app.invoke({"messages": ["hello"]}, config=config)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\main.py", line 3071, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<10 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\main.py", line 2582, in stream
+    with SyncPregelLoop(
+         ~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<17 lines>...
+        cache_policy=self.cache_policy,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as loop:
+    ^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_loop.py", line 1138, in __exit__
+    return self.stack.__exit__(exc_type, exc_value, traceback)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 619, in __exit__
+    raise exc
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 604, in __exit__
+    if cb(*exc_details):
+       ~~^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_executor.py", line 117, in __exit__
+    task.result()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_loop.py", line 1034, in _checkpointer_put_after_previous
+    prev.result()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_executor.py", line 80, in done
+    task.result()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_loop.py", line 1036, in _checkpointer_put_after_previous
+    cast(BaseCheckpointSaver, self.checkpointer).put(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        config, checkpoint, metadata, new_versions
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\checkpoint\django\saver.py", line 192, in put
+    self.jsonplus_serde.dumps(get_checkpoint_metadata(config, metadata)).decode().replace("\\u0000", "")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'JsonPlusSerializer' object has no attribute 'dumps'
+ERROR 2026-02-03 14:41:54,618 basehttp 6828 2996 "GET /ai/chat/ HTTP/1.1" 500 163042
+INFO 2026-02-03 14:45:02,734 autoreload 13208 10680 Watching for file changes with StatReloader
+ERROR 2026-02-03 14:45:07,411 log 13208 3472 Internal Server Error: /ai/chat/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 592, in ai_chat
+    result = app.invoke({"messages": ["hello"]}, config=config)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\main.py", line 3071, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<10 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\main.py", line 2582, in stream
+    with SyncPregelLoop(
+         ~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<17 lines>...
+        cache_policy=self.cache_policy,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as loop:
+    ^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_loop.py", line 1138, in __exit__
+    return self.stack.__exit__(exc_type, exc_value, traceback)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 619, in __exit__
+    raise exc
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 604, in __exit__
+    if cb(*exc_details):
+       ~~^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_executor.py", line 117, in __exit__
+    task.result()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_loop.py", line 1034, in _checkpointer_put_after_previous
+    prev.result()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_executor.py", line 80, in done
+    task.result()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\pregel\_loop.py", line 1036, in _checkpointer_put_after_previous
+    cast(BaseCheckpointSaver, self.checkpointer).put(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        config, checkpoint, metadata, new_versions
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\checkpoint\django\saver.py", line 192, in put
+    self.jsonplus_serde.dumps(get_checkpoint_metadata(config, metadata)).decode().replace("\\u0000", "")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'JsonPlusSerializer' object has no attribute 'dumps'
+ERROR 2026-02-03 14:45:07,421 basehttp 13208 3472 "GET /ai/chat/ HTTP/1.1" 500 163042
+INFO 2026-02-03 14:50:42,940 autoreload 13208 10680 C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\langgraph\checkpoint\django\saver.py changed, reloading.
+INFO 2026-02-03 14:50:43,841 autoreload 7244 11652 Watching for file changes with StatReloader
+ERROR 2026-02-03 14:50:50,350 log 7244 524 Internal Server Error: /ai/chat/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: The view api.views.ai_chat didn't return an HttpResponse object. It returned None instead.
+ERROR 2026-02-03 14:50:50,353 basehttp 7244 524 "GET /ai/chat/ HTTP/1.1" 500 74310
+INFO 2026-02-03 14:51:08,447 autoreload 7244 11652 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 14:51:09,298 autoreload 14416 15048 Watching for file changes with StatReloader
+ERROR 2026-02-03 14:51:12,238 log 14416 4320 Internal Server Error: /ai/chat/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\response.py", line 59, in rendered_content
+    assert renderer, ".accepted_renderer not set on Response"
+           ^^^^^^^^
+AssertionError: .accepted_renderer not set on Response
+ERROR 2026-02-03 14:51:12,241 basehttp 14416 4320 "GET /ai/chat/ HTTP/1.1" 500 77652
+INFO 2026-02-03 14:51:58,815 autoreload 14416 15048 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 14:51:59,786 autoreload 7296 6424 Watching for file changes with StatReloader
+INFO 2026-02-03 14:52:18,234 autoreload 7296 6424 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 14:52:19,204 autoreload 2072 15072 Watching for file changes with StatReloader
+INFO 2026-02-03 14:55:06,869 autoreload 2072 15072 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 14:55:07,753 autoreload 7492 10972 Watching for file changes with StatReloader
+INFO 2026-02-03 14:55:57,427 autoreload 7492 10972 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:55:58,441 autoreload 4984 14900 Watching for file changes with StatReloader
+INFO 2026-02-03 14:56:11,741 autoreload 4984 14900 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:56:12,589 autoreload 15308 14488 Watching for file changes with StatReloader
+INFO 2026-02-03 14:56:20,230 autoreload 15308 14488 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:56:20,910 autoreload 2096 1376 Watching for file changes with StatReloader
+INFO 2026-02-03 14:56:28,510 autoreload 2096 1376 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:56:29,112 autoreload 14420 6124 Watching for file changes with StatReloader
+INFO 2026-02-03 14:56:47,118 autoreload 14420 6124 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:56:47,855 autoreload 15164 4540 Watching for file changes with StatReloader
+INFO 2026-02-03 14:56:49,208 autoreload 15164 4540 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:56:49,897 autoreload 9156 14124 Watching for file changes with StatReloader
+INFO 2026-02-03 14:56:54,422 autoreload 9156 14124 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:56:54,997 autoreload 12152 5912 Watching for file changes with StatReloader
+INFO 2026-02-03 14:57:10,895 autoreload 12152 5912 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 14:57:11,521 autoreload 14816 13980 Watching for file changes with StatReloader
+WARNING 2026-02-03 14:57:34,847 log 14816 4996 Not Found: /
+WARNING 2026-02-03 14:57:34,848 basehttp 14816 4996 "GET / HTTP/1.1" 404 7994
+INFO 2026-02-03 14:57:37,808 basehttp 14816 4996 "GET /inspect-saver/ HTTP/1.1" 200 10540
+INFO 2026-02-03 14:57:37,833 basehttp 14816 4996 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2026-02-03 14:57:37,834 basehttp 14816 4996 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2026-02-03 14:57:37,835 basehttp 14816 15028 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2026-02-03 14:57:37,837 basehttp 14816 4996 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2026-02-03 14:57:37,838 basehttp 14816 15028 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2026-02-03 14:57:37,840 basehttp 14816 15028 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2026-02-03 14:57:37,840 basehttp 14816 4996 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2026-02-03 14:57:37,842 basehttp 14816 15028 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2026-02-03 14:57:37,842 basehttp 14816 4996 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2026-02-03 14:57:37,845 basehttp 14816 15028 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2026-02-03 14:57:37,845 basehttp 14816 4996 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2026-02-03 14:57:37,847 basehttp 14816 4996 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2026-02-03 14:58:02,702 test_view 14816 4996 Testing DjangoSaver directly
+INFO 2026-02-03 14:58:02,703 test_view 14816 4996 Attempting to save checkpoint...
+INFO 2026-02-03 14:58:02,703 test_view 14816 4996 Trying put method...
+INFO 2026-02-03 14:58:02,743 test_view 14816 4996 Put method succeeded: {'configurable': {'thread_id': 'test-thread-123', 'checkpoint_ns': 'test', 'checkpoint_id': 'test-checkpoint-1'}}
+INFO 2026-02-03 14:58:02,743 test_view 14816 4996 Trying to retrieve checkpoint...
+INFO 2026-02-03 14:58:02,749 basehttp 14816 4996 "GET /test-saver/ HTTP/1.1" 200 5756
+INFO 2026-02-03 14:58:09,341 test_view 14816 4996 Testing DjangoSaver directly
+INFO 2026-02-03 14:58:09,342 test_view 14816 4996 Attempting to save checkpoint...
+INFO 2026-02-03 14:58:09,342 test_view 14816 4996 Trying put method...
+INFO 2026-02-03 14:58:09,382 test_view 14816 4996 Put method succeeded: {'configurable': {'thread_id': 'test-thread-123', 'checkpoint_ns': 'test', 'checkpoint_id': 'test-checkpoint-1'}}
+INFO 2026-02-03 14:58:09,382 test_view 14816 4996 Trying to retrieve checkpoint...
+INFO 2026-02-03 14:58:09,389 basehttp 14816 4996 "GET /test-saver/ HTTP/1.1" 200 5756
+INFO 2026-02-03 14:58:24,735 test_view 14816 4996 Starting test_chat endpoint
+INFO 2026-02-03 14:58:24,735 test_view 14816 4996 Initializing DjangoSaver...
+INFO 2026-02-03 14:58:24,736 test_view 14816 4996 DjangoSaver initialized successfully
+INFO 2026-02-03 14:58:24,736 test_view 14816 4996 Building graph...
+INFO 2026-02-03 14:58:24,737 test_view 14816 4996 Compiling graph with checkpointer...
+INFO 2026-02-03 14:58:24,739 test_view 14816 4996 Graph compiled successfully
+INFO 2026-02-03 14:58:24,739 test_view 14816 4996 Using config: {'configurable': {'thread_id': 'conversation-1', 'checkpoint_ns': 'default'}}
+INFO 2026-02-03 14:58:24,739 test_view 14816 4996 Invoking graph...
+INFO 2026-02-03 14:58:24,778 test_view 14816 4996 Processing node with state: {'messages': ['hello']}
+INFO 2026-02-03 14:58:24,926 test_view 14816 4996 Graph result: {'messages': ['hello', 'processed']}
+INFO 2026-02-03 14:58:24,926 test_view 14816 4996 Running second invocation...
+INFO 2026-02-03 14:58:24,931 test_view 14816 4996 Processing node with state: {'messages': ['hello', 'processed', 'hello again']}
+INFO 2026-02-03 14:58:25,044 test_view 14816 4996 Second result: {'messages': ['hello', 'processed', 'hello again', 'processed']}
+INFO 2026-02-03 14:58:25,044 test_view 14816 4996 Trying to retrieve checkpoint...
+INFO 2026-02-03 14:58:25,045 test_view 14816 4996 Checkpoint retrieved: False
+INFO 2026-02-03 14:58:25,055 basehttp 14816 4996 "GET /test-chat/ HTTP/1.1" 200 7364
+INFO 2026-02-03 14:58:36,634 test_view 14816 4996 Starting test_chat endpoint
+INFO 2026-02-03 14:58:36,634 test_view 14816 4996 Initializing DjangoSaver...
+INFO 2026-02-03 14:58:36,634 test_view 14816 4996 DjangoSaver initialized successfully
+INFO 2026-02-03 14:58:36,635 test_view 14816 4996 Building graph...
+INFO 2026-02-03 14:58:36,635 test_view 14816 4996 Compiling graph with checkpointer...
+INFO 2026-02-03 14:58:36,637 test_view 14816 4996 Graph compiled successfully
+INFO 2026-02-03 14:58:36,637 test_view 14816 4996 Using config: {'configurable': {'thread_id': 'conversation-1', 'checkpoint_ns': 'default'}}
+INFO 2026-02-03 14:58:36,637 test_view 14816 4996 Invoking graph...
+INFO 2026-02-03 14:58:36,678 test_view 14816 4996 Processing node with state: {'messages': ['hello']}
+INFO 2026-02-03 14:58:36,811 test_view 14816 4996 Graph result: {'messages': ['hello', 'processed']}
+INFO 2026-02-03 14:58:36,811 test_view 14816 4996 Running second invocation...
+INFO 2026-02-03 14:58:36,815 test_view 14816 4996 Processing node with state: {'messages': ['hello', 'processed', 'hello again']}
+INFO 2026-02-03 14:58:36,953 test_view 14816 4996 Second result: {'messages': ['hello', 'processed', 'hello again', 'processed']}
+INFO 2026-02-03 14:58:36,953 test_view 14816 4996 Trying to retrieve checkpoint...
+INFO 2026-02-03 14:58:36,955 test_view 14816 4996 Checkpoint retrieved: False
+INFO 2026-02-03 14:58:36,959 basehttp 14816 4996 "POST /test-chat/ HTTP/1.1" 200 7365
+INFO 2026-02-03 15:02:43,844 autoreload 14816 13980 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:02:44,797 autoreload 8076 11396 Watching for file changes with StatReloader
+INFO 2026-02-03 15:02:51,098 autoreload 8076 11396 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:02:52,176 autoreload 7212 12988 Watching for file changes with StatReloader
+WARNING 2026-02-03 15:02:55,160 log 7212 8036 Unauthorized: /api/conversation/
+WARNING 2026-02-03 15:02:55,160 basehttp 7212 8036 "POST /api/conversation/ HTTP/1.1" 401 172
+INFO 2026-02-03 15:03:07,001 basehttp 7212 8036 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2026-02-03 15:03:07,002 basehttp 7212 4416 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2026-02-03 15:03:07,056 basehttp 7212 4416 "POST /api/token/refresh/ HTTP/1.1" 200 245
+INFO 2026-02-03 15:03:07,057 basehttp 7212 8036 "POST /api/token/refresh/ HTTP/1.1" 200 245
+INFO 2026-02-03 15:03:07,298 basehttp 7212 8036 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:03:07,436 basehttp 7212 4416 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:03:07,497 basehttp 7212 8036 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:03:07,638 basehttp 7212 4416 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:04:00,863 views 7212 4416 User conversation - User: Ali, Thread: user_11_career_chat
+INFO 2026-02-03 15:04:00,864 basehttp 7212 4416 "POST /api/conversation/ HTTP/1.1" 200 2911
+INFO 2026-02-03 15:05:21,443 basehttp 7212 4416 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:07:05,853 autoreload 7212 12988 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:07:06,825 autoreload 2996 14964 Watching for file changes with StatReloader
+INFO 2026-02-03 15:07:11,260 autoreload 2996 14964 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:07:12,487 autoreload 14700 14436 Watching for file changes with StatReloader
+INFO 2026-02-03 15:07:17,607 autoreload 14700 14436 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:07:18,603 autoreload 2680 11728 Watching for file changes with StatReloader
+INFO 2026-02-03 15:07:32,813 autoreload 2680 11728 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:07:33,831 autoreload 8660 7840 Watching for file changes with StatReloader
+INFO 2026-02-03 15:07:38,833 autoreload 8660 7840 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:07:39,711 autoreload 14832 2384 Watching for file changes with StatReloader
+INFO 2026-02-03 15:07:44,935 autoreload 14832 2384 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:07:45,769 autoreload 6516 15212 Watching for file changes with StatReloader
+INFO 2026-02-03 15:08:16,868 autoreload 6516 15212 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:08:17,742 autoreload 7344 14824 Watching for file changes with StatReloader
+INFO 2026-02-03 15:08:22,735 autoreload 7344 14824 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:08:23,642 autoreload 11628 15208 Watching for file changes with StatReloader
+INFO 2026-02-03 15:08:28,550 autoreload 11628 15208 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:08:29,446 autoreload 3108 2384 Watching for file changes with StatReloader
+INFO 2026-02-03 15:08:58,744 basehttp 3108 7340 "OPTIONS /users/me/ HTTP/1.1" 200 0
+INFO 2026-02-03 15:08:58,748 basehttp 3108 10320 "OPTIONS /users/me/ HTTP/1.1" 200 0
+INFO 2026-02-03 15:08:58,819 basehttp 3108 10320 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:08:58,820 basehttp 3108 7340 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:08:58,826 basehttp 3108 10320 "OPTIONS /api/thread-messages/ HTTP/1.1" 200 0
+INFO 2026-02-03 15:08:58,826 basehttp 3108 7340 "OPTIONS /api/thread-messages/ HTTP/1.1" 200 0
+INFO 2026-02-03 15:08:58,972 basehttp 3108 7340 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:08:58,990 basehttp 3108 10320 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:09:24,669 autoreload 3108 2384 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:09:25,558 autoreload 8716 8012 Watching for file changes with StatReloader
+INFO 2026-02-03 15:09:38,080 autoreload 8716 8012 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:09:38,896 autoreload 15308 8040 Watching for file changes with StatReloader
+INFO 2026-02-03 15:09:48,311 autoreload 15308 8040 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:09:49,202 autoreload 3264 15328 Watching for file changes with StatReloader
+WARNING 2026-02-03 15:10:02,258 log 3264 3912 Not Found: /api/conversation/
+WARNING 2026-02-03 15:10:02,259 basehttp 3264 3912 "POST /api/conversation/ HTTP/1.1" 404 6994
+WARNING 2026-02-03 15:10:46,240 log 3264 11076 Not Found: /api/conversation/
+WARNING 2026-02-03 15:10:46,240 basehttp 3264 11076 "GET /api/conversation/ HTTP/1.1" 404 6993
+WARNING 2026-02-03 15:10:46,281 log 3264 11076 Not Found: /favicon.ico
+WARNING 2026-02-03 15:10:46,282 basehttp 3264 11076 "GET /favicon.ico HTTP/1.1" 404 6975
+INFO 2026-02-03 15:11:07,123 autoreload 3264 15328 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:11:08,121 autoreload 15260 14576 Watching for file changes with StatReloader
+WARNING 2026-02-03 15:11:10,505 log 15260 15280 Unauthorized: /api/conversation/
+WARNING 2026-02-03 15:11:10,506 basehttp 15260 15280 "GET /api/conversation/ HTTP/1.1" 401 3842
+INFO 2026-02-03 15:11:10,533 basehttp 15260 15280 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2026-02-03 15:11:10,534 basehttp 15260 15280 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2026-02-03 15:11:10,536 basehttp 15260 15280 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2026-02-03 15:11:10,537 basehttp 15260 15280 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2026-02-03 15:11:10,538 basehttp 15260 15280 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2026-02-03 15:11:10,540 basehttp 15260 15280 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2026-02-03 15:11:10,541 basehttp 15260 15280 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2026-02-03 15:11:10,543 basehttp 15260 15280 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2026-02-03 15:11:10,545 basehttp 15260 15280 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2026-02-03 15:11:10,547 basehttp 15260 15280 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2026-02-03 15:11:10,550 basehttp 15260 15280 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2026-02-03 15:11:10,552 basehttp 15260 15280 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2026-02-03 15:11:21,743 autoreload 15260 14576 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:11:22,669 autoreload 7728 7944 Watching for file changes with StatReloader
+INFO 2026-02-03 15:11:33,164 autoreload 7728 7944 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:11:34,085 autoreload 14540 10164 Watching for file changes with StatReloader
+ERROR 2026-02-03 15:11:40,271 log 14540 7100 Internal Server Error: /api/conversation/
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\renderers.py", line 731, in render
+    context = self.get_context(data, accepted_media_type, renderer_context)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\renderers.py", line 662, in get_context
+    raw_data_post_form = self.get_raw_data_form(data, view, 'POST', request)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\renderers.py", line 558, in get_raw_data_form
+    serializer = view.get_serializer()
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\generics.py", line 112, in get_serializer
+    serializer_class = self.get_serializer_class()
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\generics.py", line 126, in get_serializer_class
+    assert self.serializer_class is not None, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ConversationView' should either include a `serializer_class` attribute, or override the `get_serializer_class()` method.
+ERROR 2026-02-03 15:11:40,275 basehttp 14540 7100 "GET /api/conversation/ HTTP/1.1" 500 103963
+INFO 2026-02-03 15:12:33,711 autoreload 14540 10164 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:12:34,673 autoreload 1392 14788 Watching for file changes with StatReloader
+INFO 2026-02-03 15:12:39,526 autoreload 1392 14788 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:12:40,410 autoreload 13916 8136 Watching for file changes with StatReloader
+INFO 2026-02-03 15:13:04,734 autoreload 13916 8136 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:13:05,588 autoreload 15028 12508 Watching for file changes with StatReloader
+INFO 2026-02-03 15:13:14,309 autoreload 15028 12508 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:13:15,234 autoreload 2540 14908 Watching for file changes with StatReloader
+WARNING 2026-02-03 15:13:18,573 log 2540 14724 Unauthorized: /api/conversation/
+WARNING 2026-02-03 15:13:18,574 basehttp 2540 14724 "GET /api/conversation/ HTTP/1.1" 401 3857
+INFO 2026-02-03 15:13:23,735 autoreload 2540 14908 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:13:24,635 autoreload 3196 3508 Watching for file changes with StatReloader
+INFO 2026-02-03 15:13:31,299 autoreload 3196 3508 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:13:32,306 autoreload 14488 8024 Watching for file changes with StatReloader
+WARNING 2026-02-03 15:13:34,783 log 14488 8768 Method Not Allowed: /api/conversation/
+WARNING 2026-02-03 15:13:34,784 basehttp 14488 8768 "GET /api/conversation/ HTTP/1.1" 405 5869
+INFO 2026-02-03 15:13:45,003 autoreload 14488 8024 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:13:46,034 autoreload 2288 8432 Watching for file changes with StatReloader
+ERROR 2026-02-03 15:13:49,149 views 2288 6460 Conversation error: JSON parse error - Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\parsers.py", line 66, in parse
+    return json.load(decoded_stream, parse_constant=parse_constant)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\utils\json.py", line 31, in load
+    return json.load(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+        cls=cls, object_hook=object_hook,
+        parse_float=parse_float, parse_int=parse_int,
+        parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 477, in conversation_view
+    message = request.data.get('message', '').strip()
+              ^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\request.py", line 221, in data
+    self._load_data_and_files()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\request.py", line 284, in _load_data_and_files
+    self._data, self._files = self._parse()
+                              ~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\request.py", line 359, in _parse
+    parsed = parser.parse(stream, media_type, self.parser_context)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\parsers.py", line 68, in parse
+    raise ParseError('JSON parse error - %s' % str(exc))
+rest_framework.exceptions.ParseError: JSON parse error - Expecting value: line 1 column 1 (char 0)
+ERROR 2026-02-03 15:13:49,181 log 2288 6460 Internal Server Error: /api/conversation/
+ERROR 2026-02-03 15:13:49,181 basehttp 2288 6460 "POST /api/conversation/ HTTP/1.1" 500 5865
+INFO 2026-02-03 15:14:07,152 autoreload 7640 11728 Watching for file changes with StatReloader
+WARNING 2026-02-03 15:14:10,626 log 7640 5044 Method Not Allowed: /api/conversation/
+WARNING 2026-02-03 15:14:10,626 basehttp 7640 5044 "GET /api/conversation/ HTTP/1.1" 405 5869
+ERROR 2026-02-03 15:14:13,786 views 7640 5044 Conversation error: JSON parse error - Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\parsers.py", line 66, in parse
+    return json.load(decoded_stream, parse_constant=parse_constant)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\utils\json.py", line 31, in load
+    return json.load(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+        cls=cls, object_hook=object_hook,
+        parse_float=parse_float, parse_int=parse_int,
+        parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 477, in conversation_view
+    message = request.data.get('message', '').strip()
+              ^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\request.py", line 221, in data
+    self._load_data_and_files()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\request.py", line 284, in _load_data_and_files
+    self._data, self._files = self._parse()
+                              ~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\request.py", line 359, in _parse
+    parsed = parser.parse(stream, media_type, self.parser_context)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\parsers.py", line 68, in parse
+    raise ParseError('JSON parse error - %s' % str(exc))
+rest_framework.exceptions.ParseError: JSON parse error - Expecting value: line 1 column 1 (char 0)
+ERROR 2026-02-03 15:14:13,794 log 7640 5044 Internal Server Error: /api/conversation/
+ERROR 2026-02-03 15:14:13,794 basehttp 7640 5044 "POST /api/conversation/ HTTP/1.1" 500 5865
+INFO 2026-02-03 15:14:37,913 autoreload 14980 5464 Watching for file changes with StatReloader
+ERROR 2026-02-03 15:15:01,109 views 14980 10424 Conversation error: JSON parse error - Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\parsers.py", line 66, in parse
+    return json.load(decoded_stream, parse_constant=parse_constant)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\utils\json.py", line 31, in load
+    return json.load(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+        cls=cls, object_hook=object_hook,
+        parse_float=parse_float, parse_int=parse_int,
+        parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py", line 477, in conversation_view
+    message = request.data.get('message', '').strip()
+              ^^^^^^^^^^^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\request.py", line 221, in data
+    self._load_data_and_files()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\request.py", line 284, in _load_data_and_files
+    self._data, self._files = self._parse()
+                              ~~~~~~~~~~~^^
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\request.py", line 359, in _parse
+    parsed = parser.parse(stream, media_type, self.parser_context)
+  File "C:\Users\Zeeshan\Desktop\Career-Advisor\venv\Lib\site-packages\rest_framework\parsers.py", line 68, in parse
+    raise ParseError('JSON parse error - %s' % str(exc))
+rest_framework.exceptions.ParseError: JSON parse error - Expecting value: line 1 column 1 (char 0)
+ERROR 2026-02-03 15:15:01,143 log 14980 10424 Internal Server Error: /api/conversation/
+ERROR 2026-02-03 15:15:01,144 basehttp 14980 10424 "POST /api/conversation/ HTTP/1.1" 500 5865
+INFO 2026-02-03 15:15:30,434 basehttp 14980 10424 "GET /api/thread-messages/ HTTP/1.1" 200 5660
+INFO 2026-02-03 15:15:42,703 basehttp 14980 10424 "GET /api/thread-messages/ HTTP/1.1" 200 5660
+INFO 2026-02-03 15:15:43,887 basehttp 14980 10424 "GET /api/thread-messages/ HTTP/1.1" 200 5660
+INFO 2026-02-03 15:15:45,797 basehttp 14980 10424 "GET /api/thread-messages/?format=json HTTP/1.1" 200 90
+INFO 2026-02-03 15:16:11,990 autoreload 14980 5464 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:16:12,896 autoreload 11652 12672 Watching for file changes with StatReloader
+INFO 2026-02-03 15:16:16,739 autoreload 11652 12672 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:16:17,669 autoreload 9880 7344 Watching for file changes with StatReloader
+INFO 2026-02-03 15:16:29,027 autoreload 9880 7344 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 15:16:29,836 autoreload 9000 12584 Watching for file changes with StatReloader
+INFO 2026-02-03 15:16:54,263 autoreload 9000 12584 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:16:55,146 autoreload 3084 9240 Watching for file changes with StatReloader
+INFO 2026-02-03 15:16:59,164 autoreload 3084 9240 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:17:00,046 autoreload 14976 9644 Watching for file changes with StatReloader
+INFO 2026-02-03 15:17:25,923 autoreload 14976 9644 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:17:26,820 autoreload 14168 10876 Watching for file changes with StatReloader
+INFO 2026-02-03 15:17:37,935 autoreload 14168 10876 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:17:38,712 autoreload 820 15264 Watching for file changes with StatReloader
+INFO 2026-02-03 15:17:44,602 autoreload 820 15264 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:17:45,389 autoreload 12708 4092 Watching for file changes with StatReloader
+INFO 2026-02-03 15:17:53,393 autoreload 8812 7352 Watching for file changes with StatReloader
+WARNING 2026-02-03 15:18:22,622 log 8812 592 Unauthorized: /api/thread-messages/
+WARNING 2026-02-03 15:18:22,623 basehttp 8812 592 "GET /api/thread-messages/ HTTP/1.1" 401 5204
+WARNING 2026-02-03 15:18:26,542 log 8812 592 Unauthorized: /api/thread-messages/
+WARNING 2026-02-03 15:18:26,542 basehttp 8812 592 "GET /api/thread-messages/ HTTP/1.1" 401 5204
+INFO 2026-02-03 15:18:32,025 views 8812 14600 Conversation - User: Ali, Thread: user_11_career_chat
+INFO 2026-02-03 15:18:32,026 basehttp 8812 14600 "POST /api/conversation/ HTTP/1.1" 200 1658
+INFO 2026-02-03 15:18:33,019 basehttp 8812 14600 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:18:38,309 basehttp 8812 14600 - Broken pipe from ('127.0.0.1', 60478)
+INFO 2026-02-03 15:18:40,052 basehttp 8812 9104 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:18:40,091 basehttp 8812 15204 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:18:40,154 basehttp 8812 15204 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:18:40,200 basehttp 8812 9104 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:18:46,094 basehttp 8812 9104 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:18:46,145 basehttp 8812 15204 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:18:46,146 basehttp 8812 9104 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:18:46,190 basehttp 8812 15204 "GET /api/thread-messages/ HTTP/1.1" 200 89
+WARNING 2026-02-03 15:19:35,461 log 8812 592 Unauthorized: /api/thread-messages/
+WARNING 2026-02-03 15:19:35,462 basehttp 8812 592 "GET /api/thread-messages/ HTTP/1.1" 401 5204
+INFO 2026-02-03 15:20:45,595 basehttp 8812 15204 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:20:45,643 basehttp 8812 9104 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:20:45,744 basehttp 8812 9104 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:20:45,788 basehttp 8812 15204 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:23:45,193 autoreload 8812 7352 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:23:46,163 autoreload 5296 676 Watching for file changes with StatReloader
+INFO 2026-02-03 15:25:05,584 autoreload 5296 676 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:25:06,486 autoreload 2992 5240 Watching for file changes with StatReloader
+INFO 2026-02-03 15:25:11,771 autoreload 2992 5240 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:25:12,674 autoreload 14496 7244 Watching for file changes with StatReloader
+INFO 2026-02-03 15:25:22,145 autoreload 14496 7244 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:25:23,149 autoreload 15048 11864 Watching for file changes with StatReloader
+INFO 2026-02-03 15:25:29,335 autoreload 15048 11864 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:25:30,220 autoreload 3916 10028 Watching for file changes with StatReloader
+INFO 2026-02-03 15:26:33,087 autoreload 3916 10028 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:26:34,022 autoreload 4616 12000 Watching for file changes with StatReloader
+INFO 2026-02-03 15:26:38,195 autoreload 4616 12000 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:26:39,049 autoreload 7280 14448 Watching for file changes with StatReloader
+INFO 2026-02-03 15:28:12,188 autoreload 7280 14448 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:28:13,114 autoreload 3856 3432 Watching for file changes with StatReloader
+INFO 2026-02-03 15:28:38,735 basehttp 3856 7356 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:28:38,927 basehttp 3856 7356 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:28:38,942 basehttp 3856 5156 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:28:38,995 basehttp 3856 5156 "GET /api/thread-messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:30:01,898 basehttp 3856 5156 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:30:02,005 basehttp 3856 5156 "OPTIONS /api/messages/ HTTP/1.1" 200 0
+WARNING 2026-02-03 15:30:02,033 log 3856 5156 Not Found: /api/messages/
+WARNING 2026-02-03 15:30:02,043 basehttp 3856 5156 "GET /api/messages/ HTTP/1.1" 404 6993
+INFO 2026-02-03 15:30:02,090 basehttp 3856 7356 "GET /users/me/ HTTP/1.1" 200 206
+WARNING 2026-02-03 15:30:02,134 log 3856 7356 Not Found: /api/messages/
+WARNING 2026-02-03 15:30:02,145 basehttp 3856 7356 "GET /api/messages/ HTTP/1.1" 404 6993
+INFO 2026-02-03 15:30:20,028 autoreload 3856 3432 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:30:20,982 autoreload 15108 15260 Watching for file changes with StatReloader
+INFO 2026-02-03 15:30:25,946 basehttp 15108 10092 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:30:26,035 basehttp 15108 5836 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:30:26,130 basehttp 15108 10092 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:30:26,231 basehttp 15108 5836 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:31:12,873 autoreload 15108 15260 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:31:13,721 autoreload 9280 1356 Watching for file changes with StatReloader
+INFO 2026-02-03 15:31:30,830 autoreload 9280 1356 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:31:31,717 autoreload 4968 2168 Watching for file changes with StatReloader
+INFO 2026-02-03 15:31:42,312 autoreload 4968 2168 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:31:43,161 autoreload 7296 9748 Watching for file changes with StatReloader
+INFO 2026-02-03 15:31:52,769 autoreload 7296 9748 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:31:53,667 autoreload 15356 13876 Watching for file changes with StatReloader
+INFO 2026-02-03 15:32:02,451 autoreload 15356 13876 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:32:03,341 autoreload 1472 11540 Watching for file changes with StatReloader
+INFO 2026-02-03 15:32:09,494 basehttp 1472 7700 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:32:09,670 basehttp 1472 10752 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:32:09,736 basehttp 1472 7700 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:32:09,970 basehttp 1472 10752 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:32:21,254 autoreload 14616 13808 Watching for file changes with StatReloader
+INFO 2026-02-03 15:32:25,143 basehttp 14616 10340 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:32:25,224 basehttp 14616 6180 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:32:25,346 basehttp 14616 10340 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:32:25,503 basehttp 14616 6180 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:33:10,621 autoreload 14616 13808 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:33:11,647 autoreload 4280 9472 Watching for file changes with StatReloader
+INFO 2026-02-03 15:33:17,269 basehttp 4280 14784 "POST /api/token/refresh/ HTTP/1.1" 200 245
+INFO 2026-02-03 15:33:17,275 basehttp 4280 7476 "POST /api/token/refresh/ HTTP/1.1" 200 245
+INFO 2026-02-03 15:33:17,519 basehttp 4280 7476 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:33:17,572 basehttp 4280 14784 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:33:17,671 basehttp 4280 7476 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:33:17,714 basehttp 4280 14784 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:37:44,513 autoreload 4280 9472 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:37:45,397 autoreload 2384 8308 Watching for file changes with StatReloader
+INFO 2026-02-03 15:39:10,075 autoreload 2384 8308 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:39:10,940 autoreload 11384 14392 Watching for file changes with StatReloader
+INFO 2026-02-03 15:39:22,538 autoreload 11384 14392 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:39:23,563 autoreload 15140 6376 Watching for file changes with StatReloader
+INFO 2026-02-03 15:39:27,355 basehttp 15140 9484 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:39:27,631 basehttp 15140 15020 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:39:27,735 basehttp 15140 9484 "GET /api/messages/ HTTP/1.1" 200 1632
+INFO 2026-02-03 15:39:27,819 basehttp 15140 15020 "GET /api/messages/ HTTP/1.1" 200 1632
+INFO 2026-02-03 15:39:48,256 basehttp 15140 15020 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:39:48,337 basehttp 15140 9484 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:39:48,423 basehttp 15140 15020 "GET /api/messages/ HTTP/1.1" 200 1632
+INFO 2026-02-03 15:39:48,543 basehttp 15140 9484 "GET /api/messages/ HTTP/1.1" 200 1632
+INFO 2026-02-03 15:39:50,362 basehttp 15140 9484 "OPTIONS /api/chat/ HTTP/1.1" 200 0
+WARNING 2026-02-03 15:39:50,370 log 15140 9484 Not Found: /api/chat/
+WARNING 2026-02-03 15:39:50,371 basehttp 15140 9484 "POST /api/chat/ HTTP/1.1" 404 6975
+INFO 2026-02-03 15:40:15,235 autoreload 15140 6376 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:40:16,124 autoreload 1404 5800 Watching for file changes with StatReloader
+INFO 2026-02-03 15:40:22,826 basehttp 1404 5628 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:40:22,938 basehttp 1404 14836 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:40:23,116 basehttp 1404 5628 "GET /api/messages/ HTTP/1.1" 200 1632
+INFO 2026-02-03 15:40:23,276 basehttp 1404 14836 "GET /api/messages/ HTTP/1.1" 200 1632
+INFO 2026-02-03 15:40:32,695 views 1404 14836 Conversation - User: Ali, Thread: user_11_career_chat
+INFO 2026-02-03 15:40:32,696 basehttp 1404 14836 "POST /api/chat/ HTTP/1.1" 200 7558
+INFO 2026-02-03 15:43:27,634 basehttp 1404 14836 "OPTIONS /api/clear-chat/ HTTP/1.1" 200 0
+WARNING 2026-02-03 15:43:27,683 log 1404 14836 Bad Request: /api/clear-chat/
+WARNING 2026-02-03 15:43:27,684 basehttp 1404 14836 "POST /api/clear-chat/ HTTP/1.1" 400 39
+INFO 2026-02-03 15:44:05,743 basehttp 1404 14836 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:44:05,796 basehttp 1404 5628 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:44:05,909 basehttp 1404 14836 "GET /api/messages/ HTTP/1.1" 200 5416
+INFO 2026-02-03 15:44:05,990 basehttp 1404 5628 "GET /api/messages/ HTTP/1.1" 200 5416
+INFO 2026-02-03 15:44:07,480 basehttp 1404 5628 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:44:07,530 basehttp 1404 14836 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:44:07,637 basehttp 1404 5628 "GET /api/messages/ HTTP/1.1" 200 5416
+INFO 2026-02-03 15:44:07,802 basehttp 1404 14836 "GET /api/messages/ HTTP/1.1" 200 5416
+WARNING 2026-02-03 15:44:13,543 log 1404 14836 Bad Request: /api/clear-chat/
+WARNING 2026-02-03 15:44:13,543 basehttp 1404 14836 "POST /api/clear-chat/ HTTP/1.1" 400 39
+INFO 2026-02-03 15:44:43,136 autoreload 1404 5800 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\urls.py changed, reloading.
+INFO 2026-02-03 15:44:43,984 autoreload 7192 11112 Watching for file changes with StatReloader
+INFO 2026-02-03 15:44:59,913 autoreload 7192 11112 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:45:00,810 autoreload 10680 3404 Watching for file changes with StatReloader
+WARNING 2026-02-03 15:45:04,540 log 10680 7888 Bad Request: /api/clear-chat/
+WARNING 2026-02-03 15:45:04,541 basehttp 10680 7888 "POST /api/clear-chat/ HTTP/1.1" 400 39
+INFO 2026-02-03 15:45:19,111 autoreload 10680 3404 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:45:19,963 autoreload 9484 10856 Watching for file changes with StatReloader
+WARNING 2026-02-03 15:46:47,385 log 9484 14492 Bad Request: /api/clear-chat/
+WARNING 2026-02-03 15:46:47,386 basehttp 9484 14492 "POST /api/clear-chat/ HTTP/1.1" 400 39
+WARNING 2026-02-03 15:47:09,839 log 9484 11820 Unauthorized: /api/clear-chat/
+WARNING 2026-02-03 15:47:09,840 basehttp 9484 11820 "GET /api/clear-chat/ HTTP/1.1" 401 3845
+INFO 2026-02-03 15:47:10,003 basehttp 9484 7476 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+INFO 2026-02-03 15:47:10,006 basehttp 9484 7476 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+INFO 2026-02-03 15:47:10,006 basehttp 9484 608 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+INFO 2026-02-03 15:47:10,010 basehttp 9484 14608 "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+INFO 2026-02-03 15:47:10,010 basehttp 9484 13220 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+INFO 2026-02-03 15:47:10,010 basehttp 9484 608 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+INFO 2026-02-03 15:47:10,011 basehttp 9484 7476 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2026-02-03 15:47:10,012 basehttp 9484 11676 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+INFO 2026-02-03 15:47:10,014 basehttp 9484 11820 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2026-02-03 15:47:10,017 basehttp 9484 608 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+INFO 2026-02-03 15:47:10,017 basehttp 9484 7476 "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+INFO 2026-02-03 15:47:10,023 basehttp 9484 7476 "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+WARNING 2026-02-03 15:47:10,090 log 9484 7476 Not Found: /favicon.ico
+WARNING 2026-02-03 15:47:10,090 basehttp 9484 7476 "GET /favicon.ico HTTP/1.1" 404 6964
+INFO 2026-02-03 15:47:39,939 autoreload 9484 10856 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 15:47:40,843 autoreload 3432 3020 Watching for file changes with StatReloader
+INFO 2026-02-03 15:47:43,190 agents 3432 3020 DjangoSaver initialized successfully
+INFO 2026-02-03 15:47:46,390 basehttp 3432 6516 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:47:46,496 basehttp 3432 12708 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:47:46,529 basehttp 3432 6516 "GET /api/messages/ HTTP/1.1" 200 5416
+INFO 2026-02-03 15:47:46,635 basehttp 3432 12708 "GET /api/messages/ HTTP/1.1" 200 5416
+INFO 2026-02-03 15:48:59,548 basehttp 3432 12708 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:48:59,667 basehttp 3432 12708 "GET /api/messages/ HTTP/1.1" 200 5416
+INFO 2026-02-03 15:48:59,668 basehttp 3432 6516 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:48:59,808 basehttp 3432 12708 "GET /api/messages/ HTTP/1.1" 200 5416
+INFO 2026-02-03 15:49:04,684 views 3432 12708 Conversation - User: Ali, Thread: user_11_career_chat
+INFO 2026-02-03 15:49:04,686 basehttp 3432 12708 "POST /api/chat/ HTTP/1.1" 200 11002
+INFO 2026-02-03 15:49:20,408 views 3432 12708 Conversation - User: Ali, Thread: user_11_career_chat
+INFO 2026-02-03 15:49:20,410 basehttp 3432 12708 "POST /api/chat/ HTTP/1.1" 200 22328
+INFO 2026-02-03 15:50:56,759 autoreload 3432 3020 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\views.py changed, reloading.
+INFO 2026-02-03 15:50:57,712 autoreload 15036 8020 Watching for file changes with StatReloader
+INFO 2026-02-03 15:51:00,230 agents 15036 8020 DjangoSaver initialized successfully
+INFO 2026-02-03 15:52:06,551 autoreload 15036 8020 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\serializers.py changed, reloading.
+INFO 2026-02-03 15:52:07,499 autoreload 3276 892 Watching for file changes with StatReloader
+INFO 2026-02-03 15:52:10,121 agents 3276 892 DjangoSaver initialized successfully
+INFO 2026-02-03 15:52:25,959 basehttp 3276 11676 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:52:26,125 basehttp 3276 6852 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:52:26,125 basehttp 3276 11676 "GET /api/messages/ HTTP/1.1" 200 22137
+INFO 2026-02-03 15:52:26,188 basehttp 3276 6852 "GET /api/messages/ HTTP/1.1" 200 22137
+WARNING 2026-02-03 15:52:31,344 log 3276 6852 Bad Request: /api/clear-chat/
+WARNING 2026-02-03 15:52:31,345 basehttp 3276 6852 "POST /api/clear-chat/ HTTP/1.1" 400 39
+WARNING 2026-02-03 15:52:41,701 log 3276 14904 Unauthorized: /api/clear-chat/
+WARNING 2026-02-03 15:52:41,701 basehttp 3276 14904 "GET /api/clear-chat/ HTTP/1.1" 401 3845
+INFO 2026-02-03 15:53:38,252 basehttp 3276 6852 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:53:38,400 basehttp 3276 11676 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:53:38,492 basehttp 3276 6852 "GET /api/messages/ HTTP/1.1" 200 22137
+INFO 2026-02-03 15:53:38,575 basehttp 3276 11676 "GET /api/messages/ HTTP/1.1" 200 22137
+INFO 2026-02-03 15:53:45,653 agents 3276 11676 Cleared chat and profile for user 11
+INFO 2026-02-03 15:53:45,653 views 3276 11676 Cleared chat for user: Ali
+INFO 2026-02-03 15:53:45,654 basehttp 3276 11676 "POST /api/clear-chat/ HTTP/1.1" 200 77
+INFO 2026-02-03 15:53:52,029 basehttp 3276 11676 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:53:52,092 basehttp 3276 6852 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:53:52,133 basehttp 3276 11676 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:53:52,250 basehttp 3276 6852 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:54:05,948 basehttp 3276 11972 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:54:06,002 basehttp 3276 11972 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:54:09,222 basehttp 3276 11972 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:54:09,347 basehttp 3276 9080 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 15:54:09,371 basehttp 3276 11972 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:54:09,549 basehttp 3276 9080 "GET /api/messages/ HTTP/1.1" 200 89
+INFO 2026-02-03 15:54:15,812 views 3276 9080 Conversation - User: Ali, Thread: user_11_career_chat
+INFO 2026-02-03 15:54:15,813 basehttp 3276 9080 "POST /api/chat/ HTTP/1.1" 200 638
+INFO 2026-02-03 15:54:30,746 views 3276 9080 Conversation - User: Ali, Thread: user_11_career_chat
+INFO 2026-02-03 15:54:30,747 basehttp 3276 9080 "POST /api/chat/ HTTP/1.1" 200 1421
+INFO 2026-02-03 15:54:44,502 views 3276 9080 Conversation - User: Ali, Thread: user_11_career_chat
+INFO 2026-02-03 15:54:44,503 basehttp 3276 9080 "POST /api/chat/ HTTP/1.1" 200 6355
+INFO 2026-02-03 15:55:11,118 views 3276 9080 Conversation - User: Ali, Thread: user_11_career_chat
+INFO 2026-02-03 15:55:11,119 basehttp 3276 9080 "POST /api/chat/ HTTP/1.1" 200 12971
+INFO 2026-02-03 16:00:24,065 basehttp 3276 11780 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:00:24,121 basehttp 3276 14344 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:00:24,130 basehttp 3276 11780 "GET /api/messages/ HTTP/1.1" 200 10910
+INFO 2026-02-03 16:00:24,271 basehttp 3276 14344 "GET /api/messages/ HTTP/1.1" 200 10910
+INFO 2026-02-03 16:00:28,256 basehttp 3276 14344 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:00:28,312 basehttp 3276 11780 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:00:28,314 basehttp 3276 14344 "GET /api/messages/ HTTP/1.1" 200 10910
+INFO 2026-02-03 16:00:28,354 basehttp 3276 14344 "GET /api/messages/ HTTP/1.1" 200 10910
+INFO 2026-02-03 16:03:56,919 autoreload 3276 892 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:03:57,870 autoreload 8672 11484 Watching for file changes with StatReloader
+INFO 2026-02-03 16:04:00,371 agents 8672 11484 DjangoSaver initialized successfully
+INFO 2026-02-03 16:04:07,652 autoreload 8672 11484 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:04:08,516 autoreload 11008 14532 Watching for file changes with StatReloader
+INFO 2026-02-03 16:04:10,824 agents 11008 14532 DjangoSaver initialized successfully
+INFO 2026-02-03 16:04:31,048 autoreload 11008 14532 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:04:32,038 autoreload 15064 10856 Watching for file changes with StatReloader
+INFO 2026-02-03 16:04:47,996 autoreload 15064 10856 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:04:48,567 autoreload 15044 14632 Watching for file changes with StatReloader
+INFO 2026-02-03 16:05:30,761 autoreload 15044 14632 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:05:31,351 autoreload 5108 12012 Watching for file changes with StatReloader
+INFO 2026-02-03 16:05:33,595 agents 5108 12012 DjangoSaver initialized successfully
+INFO 2026-02-03 16:05:37,603 autoreload 5108 12012 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:05:38,514 autoreload 8784 5296 Watching for file changes with StatReloader
+INFO 2026-02-03 16:05:40,605 agents 8784 5296 DjangoSaver initialized successfully
+INFO 2026-02-03 16:05:51,132 autoreload 8784 5296 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:05:52,030 autoreload 3020 12436 Watching for file changes with StatReloader
+INFO 2026-02-03 16:05:54,114 agents 3020 12436 DjangoSaver initialized successfully
+INFO 2026-02-03 16:05:55,928 autoreload 3020 12436 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:05:56,943 autoreload 10264 7596 Watching for file changes with StatReloader
+INFO 2026-02-03 16:05:59,013 agents 10264 7596 DjangoSaver initialized successfully
+INFO 2026-02-03 16:06:17,044 autoreload 10264 7596 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:06:17,919 autoreload 10752 15352 Watching for file changes with StatReloader
+INFO 2026-02-03 16:06:36,975 autoreload 10752 15352 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:06:37,595 autoreload 11780 2584 Watching for file changes with StatReloader
+INFO 2026-02-03 16:06:39,870 agents 11780 2584 DjangoSaver initialized successfully
+INFO 2026-02-03 16:07:09,746 autoreload 11780 2584 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:07:10,665 autoreload 11816 11808 Watching for file changes with StatReloader
+INFO 2026-02-03 16:07:35,004 autoreload 11816 11808 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:07:35,615 autoreload 14220 4540 Watching for file changes with StatReloader
+INFO 2026-02-03 16:07:52,600 autoreload 14220 4540 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:07:53,207 autoreload 15228 1308 Watching for file changes with StatReloader
+INFO 2026-02-03 16:07:55,321 agents 15228 1308 DjangoSaver initialized successfully
+INFO 2026-02-03 16:07:57,118 autoreload 15228 1308 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:07:57,969 autoreload 14200 14356 Watching for file changes with StatReloader
+INFO 2026-02-03 16:08:00,133 agents 14200 14356 DjangoSaver initialized successfully
+INFO 2026-02-03 16:08:14,975 basehttp 14200 14736 "POST /api/token/refresh/ HTTP/1.1" 200 245
+INFO 2026-02-03 16:08:14,975 basehttp 14200 9944 "POST /api/token/refresh/ HTTP/1.1" 200 245
+INFO 2026-02-03 16:08:15,198 basehttp 14200 9944 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:08:15,286 basehttp 14200 14736 "GET /users/me/ HTTP/1.1" 200 206
+INFO 2026-02-03 16:08:15,342 basehttp 14200 9944 "GET /api/messages/ HTTP/1.1" 200 9860
+INFO 2026-02-03 16:08:15,435 basehttp 14200 14736 "GET /api/messages/ HTTP/1.1" 200 9860
+INFO 2026-02-03 16:08:28,886 views 14200 14736 Conversation - User: Ali, Thread: user_11_career_chat
+INFO 2026-02-03 16:08:28,887 basehttp 14200 14736 "POST /api/chat/ HTTP/1.1" 200 20046
+INFO 2026-02-03 16:08:46,866 autoreload 14200 14356 C:\Users\Zeeshan\Desktop\Career-Advisor\backend\api\agents.py changed, reloading.
+INFO 2026-02-03 16:08:47,713 autoreload 14588 5852 Watching for file changes with StatReloader
+INFO 2026-02-03 16:08:49,954 agents 14588 5852 DjangoSaver initialized successfully
