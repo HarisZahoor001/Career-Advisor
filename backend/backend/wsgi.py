@@ -1,61 +1,63 @@
 """
 WSGI config for backend project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/5.2/howto/deployment/wsgi/
 """
 
 import os
 import sys
-from django.core.wsgi import get_wsgi_application
 
-def apply_monkey_patches():
+# ========== VERCEL PATCH ==========
+def apply_vercel_patches():
     """
-    Apply necessary monkey patches before Django starts
+    Apply all necessary patches for Vercel deployment
     """
-    print("🔧 Initializing monkey patches...")
+    print("🚀 [Vercel] Starting patch application...")
     
-    # Add current directory to path to ensure imports work
+    # Add current directory to Python path
     current_dir = os.path.dirname(os.path.abspath(__file__))
     if current_dir not in sys.path:
         sys.path.insert(0, current_dir)
     
+    # Check if we're on Vercel
+    is_vercel = os.environ.get('VERCEL', '0') == '1'
+    print(f"[Vercel] Environment: {'Vercel' if is_vercel else 'Local'}")
+    
     patches_applied = []
     
     try:
-        # Patch 1: DjangoSaver JsonPlusSerializer fix
-        from api.monkey_patches.django_saver_patch import patch_django_saver
-        if patch_django_saver():
+        # Patch 1: DjangoSaver replacement
+        print("[Vercel] Applying DjangoSaver replacement...")
+        from api.monkey_patches.django_saver_complete_replacement import apply_complete_replacement
+        
+        if apply_complete_replacement():
             patches_applied.append("DjangoSaver")
-            print("✅ DjangoSaver patch applied")
+            print("✅ [Vercel] DjangoSaver patch applied")
+        else:
+            print("⚠ [Vercel] DjangoSaver patch failed")
+            
     except ImportError as e:
-        print(f"⚠ DjangoSaver patch not available: {e}")
+        print(f"⚠ [Vercel] Could not import patch module: {e}")
     except Exception as e:
-        print(f"⚠ Error applying DjangoSaver patch: {e}")
-    
-    # Add more patches here as needed
+        print(f"⚠ [Vercel] Error applying patches: {e}")
+        import traceback
+        traceback.print_exc()
     
     if patches_applied:
-        print(f"✅ Applied patches: {', '.join(patches_applied)}")
+        print(f"✅ [Vercel] Applied patches: {', '.join(patches_applied)}")
     else:
-        print("⚠ No patches were applied")
+        print("⚠ [Vercel] No patches applied")
     
     return len(patches_applied) > 0
 
-# Apply patches BEFORE setting up Django
-apply_monkey_patches()
+# Apply patches IMMEDIATELY on module import
+# This happens before Django setup
+apply_vercel_patches()
+# ========== END VERCEL PATCH ==========
 
-# Setup Django environment
+from django.core.wsgi import get_wsgi_application
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 
-try:
-    application = get_wsgi_application()
-    print("✅ WSGI application loaded successfully")
-except Exception as e:
-    print(f"❌ Failed to load WSGI application: {e}")
-    raise
+application = get_wsgi_application()
 
 # For Vercel compatibility
 app = application
