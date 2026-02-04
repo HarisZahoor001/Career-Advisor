@@ -1,7 +1,8 @@
 import axios from "axios";
 import { ACCESS_TOKEN } from "./constants";
 
-const apiUrl = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000/";
+// const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:8000/";
+const apiUrl = process.env.REACT_APP_API_URL || "https://career-advisor-rosy.vercel.app/";
 
 const api = axios.create({
   baseURL: apiUrl,
