@@ -1,21 +1,13 @@
 {
-  "builds": [
-    {
-      "src": "backend/wsgi.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "backend/wsgi.py"
-    }
-  ],
-  "env": {
-    "PYTHONPATH": "/var/task:/var/task/backend",
-    "DJANGO_SETTINGS_MODULE": "backend.settings",
-    "VERCEL": "1"
-  },
-  "buildCommand": "bash vercel-build.sh",
-  "installCommand": "pip install -r requirements.txt"
+    "builds": [{
+        "src": "backend/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.13.7" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "backend/wsgi.py"
+        }
+    ]
 }

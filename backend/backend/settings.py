@@ -38,11 +38,17 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'zeeshanaftababbasi@gmail.com'
-EMAIL_HOST_PASSWORD = 'pfscicwqifsujgdt' 
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = 'zeeshanaftababbasi@gmail.com'
 
+
 # ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '.vercel.app').split(',')
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    ".vercel.app",
+]
+
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -86,12 +92,19 @@ MIDDLEWARE = [
 ]
 
 # CORS Configuration
-CORS_ALLOW_ALL_ORIGINS = DEBUG  # Only allow all origins in development
-CORS_ALLOWED_ORIGINS = os.getenv(
-    'CORS_ALLOWED_ORIGINS',
-    'http://localhost:3000,http://127.0.0.1:3000'
-).split(',') if not DEBUG else []
+CORS_ALLOW_ALL_ORIGINS = False
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "https://career-advisor-1bdo.vercel.app",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://career-advisor-1bdo.vercel.app",
+]
 
 
 ROOT_URLCONF = 'backend.urls'
