@@ -41,8 +41,8 @@ EMAIL_HOST_USER = 'zeeshanaftababbasi@gmail.com'
 EMAIL_HOST_PASSWORD = 'pfscicwqifsujgdt' 
 DEFAULT_FROM_EMAIL = 'zeeshanaftababbasi@gmail.com'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '.vercel.app').split(',')
-# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,https://career-advisor-demo.vercel.app').split(',')
+# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '.vercel.app').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -119,17 +119,18 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
-#         'NAME': os.getenv('DB_NAME', 'CareerAdvisor'),
-#         'USER': os.getenv('DB_USER', 'postgres'),
-#         'PASSWORD': os.getenv('DB_PASSWORD', '548878447'),
-#         'HOST': os.getenv('DB_HOST', 'localhost'),
-#         'PORT': os.getenv('DB_PORT', '5432'),
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'CareerAdvisor',
+#         'USER':'postgres',
+#         'PASSWORD': '548878447',
+#         'HOST': 'localhost',
+#         'PORT':  '5432',
 #         'OPTIONS': {
 #             'sslmode': 'disable',
 #         },
 #     }
 # }
+
 DATABASES = {
     'default': {
         'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
@@ -161,7 +162,39 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# your_project/settings.py
+"""
+Django settings for your_project
+"""
 
+# Monkey patch settings
+ENABLE_MONKEY_PATCHES = True  # Set to False to disable all patches
+
+# Individual patch controls (optional)
+ENABLE_DJANGO_SAVER_PATCH = True
+ENABLE_OTHER_PATCH = True
+
+# # Add to LOGGING if you want to see patch messages
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'root': {
+#         'handlers': ['console'],
+#         'level': 'INFO',
+#     },
+#     'loggers': {
+#         'monkey_patches': {
+#             'handlers': ['console'],
+#             'level': 'INFO',
+#             'propagate': False,
+#         },
+#     },
+# }
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
