@@ -17,6 +17,7 @@ from api.views import (
     chat,
     jobs,
 )
+from api.views import check_patch_status
 
 urlpatterns = [
     # CREATE USER (Signup)
@@ -48,6 +49,11 @@ urlpatterns = [
     # Jobs API
     path('jobs/', jobs, name="jobs"),
 
+   
+
+
+   
+    path('api/patch-status/', check_patch_status, name='patch-status'),
 
 
 

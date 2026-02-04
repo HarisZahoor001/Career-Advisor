@@ -18,7 +18,7 @@ def patch():
 
 def patch_django_saver():
     """
-    Patch DjangoSaver at the correct import path
+    Patch DjangoSaver to fix JsonPlusSerializer 'dumps' issue
     """
     try:
         print("🔧 Attempting to patch DjangoSaver...")
@@ -51,7 +51,8 @@ def patch_django_saver():
             Checkpoint, 
             CheckpointMetadata,
             ChannelVersions,
-            get_checkpoint_id
+            get_checkpoint_id,
+            get_checkpoint_metadata
         )
         from langgraph.checkpoint.serde.base import SerializerProtocol
         from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
@@ -62,7 +63,7 @@ def patch_django_saver():
         # Create the patched class
         class PatchedDjangoSaver(original_class):
             """
-            Patched DjangoSaver with custom metadata handling
+            Patched DjangoSaver with FIXED JsonPlusSerializer issue
             """
             
             def __init__(
@@ -73,6 +74,119 @@ def patch_django_saver():
                 # Call parent's __init__
                 super().__init__(serde=serde)
                 print(f"   [DEBUG] PatchedDjangoSaver instance created")
+                
+                # Check JsonPlusSerializer methods
+                if hasattr(self, 'jsonplus_serde'):
+                    serializer = self.jsonplus_serde
+                    print(f"   [DEBUG] JsonPlusSerializer methods: {[m for m in dir(serializer) if not m.startswith('_')]}")
+            
+            def put(
+                self,
+                config: RunnableConfig,
+                checkpoint: Checkpoint,
+                metadata: CheckpointMetadata,
+                new_versions: ChannelVersions,
+            ) -> RunnableConfig:
+                """
+                FIXED: Override put method to handle JsonPlusSerializer properly
+                """
+                print(f"   [DEBUG] Patched put called - fixing JsonPlusSerializer issue")
+                
+                try:
+                    # Get configurable parameters
+                    configurable = config["configurable"].copy()
+                    thread_id = configurable.pop("thread_id")
+                    checkpoint_ns = configurable.pop("checkpoint_ns")
+                    checkpoint_id = configurable.pop("checkpoint_id", configurable.pop("thread_ts", None))
+                    
+                    # Serialize checkpoint
+                    type_, serialized_checkpoint = self.serde.dumps_typed(checkpoint)
+                    
+                    # FIX: Handle metadata serialization properly
+                    metadata_dict = get_checkpoint_metadata(config, metadata)
+                    
+                    # Clean metadata first
+                    cleaned_metadata = self._clean_metadata(metadata_dict)
+                    
+                    # Try different serialization methods for JsonPlusSerializer
+                    serialized_metadata = {}
+                    try:
+                        # Check what methods are available
+                        serializer = self.jsonplus_serde
+                        
+                        # Method 1: Try dump() method
+                        if hasattr(serializer, 'dump') and callable(serializer.dump):
+                            serialized_bytes = serializer.dump(cleaned_metadata)
+                        # Method 2: Try dumps() method  
+                        elif hasattr(serializer, 'dumps') and callable(serializer.dumps):
+                            serialized_bytes = serializer.dumps(cleaned_metadata)
+                        # Method 3: Try serialize() method
+                        elif hasattr(serializer, 'serialize') and callable(serializer.serialize):
+                            serialized_bytes = serializer.serialize(cleaned_metadata)
+                        # Method 4: Use json.dumps as fallback
+                        else:
+                            print(f"   [WARNING] JsonPlusSerializer missing dump/dumps methods, using json.dumps")
+                            serialized_bytes = json.dumps(cleaned_metadata, ensure_ascii=False).encode('utf-8')
+                        
+                        # Convert to string if needed
+                        if isinstance(serialized_bytes, bytes):
+                            serialized_str = serialized_bytes.decode('utf-8', errors='replace')
+                        else:
+                            serialized_str = str(serialized_bytes)
+                        
+                        # Clean null characters
+                        serialized_str = serialized_str.replace('\u0000', '')
+                        
+                        # Parse to dict for JSONField
+                        if serialized_str:
+                            serialized_metadata = json.loads(serialized_str)
+                        else:
+                            serialized_metadata = {}
+                            
+                        print(f"   [DEBUG] Metadata serialized successfully")
+                        
+                    except Exception as e:
+                        print(f"   [WARNING] Failed to serialize metadata with JsonPlusSerializer: {e}")
+                        # Fallback to simple dict
+                        serialized_metadata = cleaned_metadata
+                    
+                    # Prepare next config
+                    next_config = {
+                        "configurable": {
+                            "thread_id": thread_id,
+                            "checkpoint_ns": checkpoint_ns,
+                            "checkpoint_id": checkpoint["id"],
+                        }
+                    }
+                    
+                    # Import the model
+                    from langgraph.checkpoint.django.checkpoint.models import Checkpoint as CheckpointModel
+                    
+                    # Create composite ID
+                    composite_id = f"{thread_id}-{checkpoint_ns}-{checkpoint['id']}"
+                    
+                    # Save to database
+                    CheckpointModel.objects.update_or_create(
+                        composite_id=composite_id,
+                        thread_id=thread_id,
+                        checkpoint_ns=checkpoint_ns,
+                        checkpoint_id=checkpoint["id"],
+                        defaults={
+                            "parent_checkpoint_id": checkpoint_id,
+                            "type": type_,
+                            "checkpoint": serialized_checkpoint,
+                            "metadata": serialized_metadata,
+                        },
+                    )
+                    
+                    print(f"   [DEBUG] Checkpoint saved successfully")
+                    return next_config
+                    
+                except Exception as e:
+                    print(f"   [ERROR] in patched put: {e}")
+                    # Fallback to original method with cleaned metadata
+                    cleaned_metadata = self._clean_metadata(metadata)
+                    return super().put(config, checkpoint, cleaned_metadata, new_versions)
             
             def get_tuple(self, config: RunnableConfig) -> Any:
                 """
@@ -94,29 +208,6 @@ def patch_django_saver():
                     print(f"   [ERROR] in patched get_tuple: {e}")
                     # Fallback to parent
                     return super().get_tuple(config)
-            
-            def put(
-                self,
-                config: RunnableConfig,
-                checkpoint: Checkpoint,
-                metadata: CheckpointMetadata,
-                new_versions: ChannelVersions,
-            ) -> RunnableConfig:
-                """
-                Override put with better metadata handling
-                """
-                print(f"   [DEBUG] Patched put called")
-                
-                try:
-                    # Clean metadata before passing to parent
-                    cleaned_metadata = self._clean_metadata(metadata)
-                    print(f"   [DEBUG] Metadata cleaned before put")
-                    
-                    return super().put(config, checkpoint, cleaned_metadata, new_versions)
-                except Exception as e:
-                    print(f"   [ERROR] in patched put: {e}")
-                    # Fallback with original metadata
-                    return super().put(config, checkpoint, metadata, new_versions)
             
             def _clean_metadata(self, metadata: Any) -> Dict:
                 """
@@ -140,7 +231,11 @@ def patch_django_saver():
                                 cleaned[key] = str(value)
                         
                         elif isinstance(value, (str, int, float, bool)):
-                            cleaned[key] = value
+                            # Ensure strings don't have null characters
+                            if isinstance(value, str):
+                                cleaned[key] = value.replace('\u0000', '')
+                            else:
+                                cleaned[key] = value
                         
                         elif isinstance(value, (list, dict)):
                             # Recursively clean nested structures
@@ -154,47 +249,28 @@ def patch_django_saver():
                         
                         else:
                             # Convert other types to string
-                            cleaned[key] = str(value)
+                            cleaned[key] = str(value).replace('\u0000', '')
                     
                     return cleaned
                 
                 elif isinstance(metadata, str):
+                    # Clean string
+                    cleaned_str = metadata.replace('\u0000', '')
                     try:
-                        parsed = json.loads(metadata)
+                        parsed = json.loads(cleaned_str)
                         return self._clean_metadata(parsed)
                     except json.JSONDecodeError:
-                        return {"raw_text": metadata}
+                        return {"raw_text": cleaned_str}
                 
                 else:
-                    return {"value": str(metadata)}
-            
-            def list(self, *args, **kwargs):
-                """
-                Override list method to clean metadata in results
-                """
-                print(f"   [DEBUG] Patched list called")
-                
-                try:
-                    results = super().list(*args, **kwargs)
-                    
-                    # Process each result if it's a generator
-                    def process_results():
-                        for result in results:
-                            if hasattr(result, 'metadata') and result.metadata:
-                                result.metadata = self._clean_metadata(result.metadata)
-                            yield result
-                    
-                    return process_results()
-                    
-                except Exception as e:
-                    print(f"   [ERROR] in patched list: {e}")
-                    return super().list(*args, **kwargs)
+                    # Convert to string and clean
+                    return {"value": str(metadata).replace('\u0000', '')}
         
         # Replace the class in the module
         module.DjangoSaver = PatchedDjangoSaver
         print(f"   ✓ Replaced DjangoSaver with PatchedDjangoSaver")
         
-        # Update other modules that might have imported DjangoSaver
+        # Update other modules
         patch_count = 0
         for mod_name, mod in list(sys.modules.items()):
             if mod is not None:
@@ -209,8 +285,10 @@ def patch_django_saver():
             print(f"   ✓ Updated DjangoSaver in {patch_count} other modules")
         
         print(f"\n✅ SUCCESS: DjangoSaver patched successfully!")
-        print(f"   Original class saved as: module._OriginalDjangoSaver")
-        print(f"   New class: {PatchedDjangoSaver}")
+        print(f"   Fixes applied:")
+        print(f"   1. JsonPlusSerializer 'dumps' method handling")
+        print(f"   2. Metadata cleaning with null character removal")
+        print(f"   3. Fallback serialization methods")
         
         return True
         
@@ -251,7 +329,7 @@ def restore():
             restore_count = 0
             patched_class = None
             
-            # First find what the patched class was
+            # Find the patched class
             for mod_name, mod in list(sys.modules.items()):
                 if mod is not None and hasattr(mod, 'DjangoSaver'):
                     if not hasattr(mod.DjangoSaver, '_OriginalDjangoSaver'):

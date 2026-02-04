@@ -578,3 +578,47 @@ class ClearUserChatView(generics.GenericAPIView):
                 )
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+
+from django.http import JsonResponse
+from django.views.decorators.http import require_GET
+
+@require_GET
+def check_patch_status(request):
+    """
+    API endpoint to check if patches are applied
+    """
+    status = {
+        'django_saver_patch': False,
+        'error': None
+    }
+    
+    try:
+        import langgraph.checkpoint.django.saver as saver_module
+        
+        # Check if patch is applied
+        if hasattr(saver_module, '_OriginalDjangoSaver'):
+            status['django_saver_patch'] = True
+            status['message'] = 'DjangoSaver patch is active'
+            
+            # Test the patch
+            from langgraph.checkpoint.django.saver import DjangoSaver
+            saver = DjangoSaver()
+            
+            # Test metadata cleaning
+            test_data = {'test': 'value', 'none': None}
+            cleaned = saver._clean_metadata(test_data)
+            
+            status['test_passed'] = 'none' not in cleaned
+            status['test_result'] = cleaned
+            
+        else:
+            status['message'] = 'DjangoSaver patch is NOT active'
+            
+    except ImportError as e:
+        status['error'] = f'langgraph not available: {e}'
+    except Exception as e:
+        status['error'] = str(e)
+    
+    return JsonResponse(status)
