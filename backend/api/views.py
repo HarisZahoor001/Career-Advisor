@@ -580,45 +580,70 @@ class ClearUserChatView(generics.GenericAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
-
+# api/views.py
 from django.http import JsonResponse
 from django.views.decorators.http import require_GET
 
 @require_GET
-def check_patch_status(request):
+def test_jsonplus_serializer(request):
     """
-    API endpoint to check if patches are applied
+    Test if JsonPlusSerializer is fixed
     """
-    status = {
-        'django_saver_patch': False,
-        'error': None
+    result = {
+        'fixed': False,
+        'errors': [],
+        'methods': [],
+        'test_passed': False
     }
     
     try:
-        import langgraph.checkpoint.django.saver as saver_module
+        # Test 1: Import JsonPlusSerializer
+        from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
         
-        # Check if patch is applied
-        if hasattr(saver_module, '_OriginalDjangoSaver'):
-            status['django_saver_patch'] = True
-            status['message'] = 'DjangoSaver patch is active'
-            
-            # Test the patch
-            from langgraph.checkpoint.django.saver import DjangoSaver
-            saver = DjangoSaver()
-            
-            # Test metadata cleaning
-            test_data = {'test': 'value', 'none': None}
-            cleaned = saver._clean_metadata(test_data)
-            
-            status['test_passed'] = 'none' not in cleaned
-            status['test_result'] = cleaned
-            
+        # Test 2: Create instance
+        serializer = JsonPlusSerializer()
+        result['instance_created'] = True
+        
+        # Test 3: Check methods
+        methods = [m for m in dir(serializer) if not m.startswith('_')]
+        result['methods'] = methods
+        
+        # Test 4: Test loads method
+        test_data = b'{"test": "data"}'
+        if hasattr(serializer, 'loads'):
+            loaded = serializer.loads(test_data)
+            result['loads_works'] = True
+            result['loaded_data'] = loaded
         else:
-            status['message'] = 'DjangoSaver patch is NOT active'
-            
-    except ImportError as e:
-        status['error'] = f'langgraph not available: {e}'
+            result['errors'].append('loads method missing')
+        
+        # Test 5: Test dumps method
+        test_obj = {"hello": "world", "number": 42}
+        if hasattr(serializer, 'dumps'):
+            dumped = serializer.dumps(test_obj)
+            result['dumps_works'] = True
+            result['dumped_type'] = type(dumped).__name__
+        else:
+            result['errors'].append('dumps method missing')
+        
+        # Test 6: Test loads_typed
+        if hasattr(serializer, 'loads_typed'):
+            typed_result = serializer.loads_typed(('dict', b'{"test": "typed"}'))
+            result['loads_typed_works'] = typed_result is not None
+        
+        # Test 7: Test dumps_typed
+        if hasattr(serializer, 'dumps_typed'):
+            typed_dump = serializer.dumps_typed(test_obj)
+            result['dumps_typed_works'] = len(typed_dump) == 2
+        
+        # Overall result
+        result['fixed'] = (
+            result.get('loads_works', False) and 
+            result.get('dumps_works', False)
+        )
+        result['test_passed'] = result['fixed']
+        
     except Exception as e:
-        status['error'] = str(e)
+        result['errors'].append(str(e))
     
-    return JsonResponse(status)
+    return JsonResponse(result)

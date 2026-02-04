@@ -5,52 +5,50 @@ WSGI config for backend project.
 import os
 import sys
 
-# ========== VERCEL PATCH ==========
-def apply_vercel_patches():
+# ========== VERCEL PATCH - APPLY IMMEDIATELY ==========
+def apply_vercel_patches_immediately():
     """
-    Apply all necessary patches for Vercel deployment
+    Apply patches immediately on module import
     """
-    print("🚀 [Vercel] Starting patch application...")
+    print("🔧 [Vercel-WSGI] Starting immediate patch application...")
     
-    # Add current directory to Python path
+    # Add paths
     current_dir = os.path.dirname(os.path.abspath(__file__))
     if current_dir not in sys.path:
         sys.path.insert(0, current_dir)
     
-    # Check if we're on Vercel
-    is_vercel = os.environ.get('VERCEL', '0') == '1'
-    print(f"[Vercel] Environment: {'Vercel' if is_vercel else 'Local'}")
-    
-    patches_applied = []
-    
+    # Try to apply patches
     try:
-        # Patch 1: DjangoSaver replacement
-        print("[Vercel] Applying DjangoSaver replacement...")
-        from api.monkey_patches.django_saver_complete_replacement import apply_complete_replacement
+        # Try the unified patch manager first
+        from api.monkey_patches.vercel_patch_manager import apply_all_vercel_patches
         
-        if apply_complete_replacement():
-            patches_applied.append("DjangoSaver")
-            print("✅ [Vercel] DjangoSaver patch applied")
+        if apply_all_vercel_patches():
+            print("✅ [Vercel-WSGI] Patches applied via manager")
         else:
-            print("⚠ [Vercel] DjangoSaver patch failed")
+            # Fallback to direct patches
+            print("⚠ [Vercel-WSGI] Manager failed, trying direct patches...")
             
-    except ImportError as e:
-        print(f"⚠ [Vercel] Could not import patch module: {e}")
+            # Try JsonPlusSerializer fix
+            try:
+                from api.monkey_patches.jsonplus_fix import fix_jsonplus_serializer
+                fix_jsonplus_serializer()
+            except:
+                pass
+            
+            # Try DjangoSaver override
+            try:
+                from api.monkey_patches.django_saver_override import override_django_saver
+                override_django_saver()
+            except:
+                pass
+            
+            print("✅ [Vercel-WSGI] Direct patches attempted")
+            
     except Exception as e:
-        print(f"⚠ [Vercel] Error applying patches: {e}")
-        import traceback
-        traceback.print_exc()
-    
-    if patches_applied:
-        print(f"✅ [Vercel] Applied patches: {', '.join(patches_applied)}")
-    else:
-        print("⚠ [Vercel] No patches applied")
-    
-    return len(patches_applied) > 0
+        print(f"⚠ [Vercel-WSGI] Patch application error: {e}")
 
-# Apply patches IMMEDIATELY on module import
-# This happens before Django setup
-apply_vercel_patches()
+# Apply patches RIGHT NOW
+apply_vercel_patches_immediately()
 # ========== END VERCEL PATCH ==========
 
 from django.core.wsgi import get_wsgi_application
@@ -59,5 +57,5 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 
 application = get_wsgi_application()
 
-# For Vercel compatibility
+# For Vercel
 app = application

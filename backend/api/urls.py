@@ -17,7 +17,7 @@ from api.views import (
     chat,
     jobs,
 )
-from api.views import check_patch_status
+from api.views import test_jsonplus_serializer
 
 urlpatterns = [
     # CREATE USER (Signup)
@@ -53,7 +53,7 @@ urlpatterns = [
 
 
    
-    path('api/patch-status/', check_patch_status, name='patch-status'),
+    path('api/test-jsonplus/', test_jsonplus_serializer, name='test-jsonplus'),
 
 
 
