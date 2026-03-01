@@ -15,8 +15,8 @@ export default function Jobs() {
     const resultsPerPage = 20;
 
     // Adzuna API credentials - In production, these should be in environment variables
-    const APP_ID = '69cf489d'; // Replace with your actual App ID
-    const APP_KEY = 'fc11d0a0c326a4b958531d0c684992f6'; // Replace with your actual App Key
+    const APP_ID = '2db8ae6b'; // Replace with your actual App ID
+    const APP_KEY = 'ddfeb64da1307c4727741a19766a0e3a'; // Replace with your actual App Key
     
     // Country codes mapping for Adzuna
     const countryCodes = {
