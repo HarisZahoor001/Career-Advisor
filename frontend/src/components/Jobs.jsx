@@ -14,9 +14,9 @@ export default function Jobs() {
     const [sortBy, setSortBy] = useState('relevance');
     const resultsPerPage = 20;
 
-    // Adzuna API credentials - In production, these should be in environment variables
-    const APP_ID = '2db8ae6b'; // Replace with your actual App ID
-    const APP_KEY = 'ddfeb64da1307c4727741a19766a0e3a'; // Replace with your actual App Key
+    // Adzuna API credentials
+    const APP_ID = '69cf489d';
+    const APP_KEY = 'fc11d0a0c326a4b958531d0c684992f6';
     
     // Country codes mapping for Adzuna
     const countryCodes = {
@@ -43,7 +43,8 @@ export default function Jobs() {
         try {
             const countryCode = countryCodes[location] || 'us';
             
-            // Build Adzuna API URL
+            // Use a CORS proxy for development
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
             const baseUrl = `https://api.adzuna.com/v1/api/jobs/${countryCode}/search/${page}`;
             
             // Build query parameters
@@ -57,7 +58,16 @@ export default function Jobs() {
                 content_type: 'application/json'
             });
 
-            const response = await fetch(`${baseUrl}?${params.toString()}`);
+            // For development - try without proxy first, then with proxy if needed
+            let response;
+            try {
+                // Try direct fetch first
+                response = await fetch(`${baseUrl}?${params.toString()}`);
+            } catch (directError) {
+                console.log('Direct fetch failed, trying with proxy...');
+                // If direct fetch fails, try with proxy
+                response = await fetch(`${proxyUrl}${baseUrl}?${params.toString()}`);
+            }
             
             if (!response.ok) {
                 throw new Error(`API request failed with status ${response.status}`);
@@ -72,7 +82,7 @@ export default function Jobs() {
                 // Calculate total pages
                 const total = data.count || 0;
                 const calculatedPages = Math.ceil(total / resultsPerPage);
-                setTotalPages(Math.min(calculatedPages, 50)); // Adzuna limits to 50 pages
+                setTotalPages(Math.min(calculatedPages, 50));
             } else {
                 setJobs([]);
                 setTotalPages(0);
@@ -80,11 +90,84 @@ export default function Jobs() {
         } catch (error) {
             console.error('Error fetching jobs:', error);
             setError('Unable to fetch jobs. Please try again later.');
-            setJobs([]);
-            setTotalPages(0);
+            // Set mock data for development
+            setJobs(getMockJobs());
+            setTotalPages(5);
+            setTotalResults(100);
         } finally {
             setLoading(false);
         }
+    };
+
+    // Mock data function for development
+    const getMockJobs = () => {
+        return [
+            {
+                id: '1',
+                title: 'Senior Software Engineer',
+                company: { display_name: 'Google' },
+                location: { display_name: 'Mountain View, CA' },
+                description: 'We are looking for a Senior Software Engineer to join our team...',
+                salary_min: 150000,
+                salary_max: 250000,
+                salary_currency: 'USD',
+                created: new Date().toISOString(),
+                redirect_url: '#',
+                category: { label: 'Software Engineering' }
+            },
+            {
+                id: '2',
+                title: 'Frontend Developer',
+                company: { display_name: 'Microsoft' },
+                location: { display_name: 'Seattle, WA' },
+                description: 'Join our team to build amazing user experiences...',
+                salary_min: 120000,
+                salary_max: 180000,
+                salary_currency: 'USD',
+                created: new Date().toISOString(),
+                redirect_url: '#',
+                category: { label: 'Frontend Development' }
+            },
+            {
+                id: '3',
+                title: 'DevOps Engineer',
+                company: { display_name: 'Amazon' },
+                location: { display_name: 'Austin, TX' },
+                description: 'Looking for a DevOps engineer to help scale our infrastructure...',
+                salary_min: 130000,
+                salary_max: 190000,
+                salary_currency: 'USD',
+                created: new Date().toISOString(),
+                redirect_url: '#',
+                category: { label: 'DevOps' }
+            },
+            {
+                id: '4',
+                title: 'Data Scientist',
+                company: { display_name: 'Meta' },
+                location: { display_name: 'New York, NY' },
+                description: 'Join our data science team to solve complex problems...',
+                salary_min: 140000,
+                salary_max: 210000,
+                salary_currency: 'USD',
+                created: new Date().toISOString(),
+                redirect_url: '#',
+                category: { label: 'Data Science' }
+            },
+            {
+                id: '5',
+                title: 'Product Manager',
+                company: { display_name: 'Apple' },
+                location: { display_name: 'Cupertino, CA' },
+                description: 'Lead product development for our consumer applications...',
+                salary_min: 160000,
+                salary_max: 240000,
+                salary_currency: 'USD',
+                created: new Date().toISOString(),
+                redirect_url: '#',
+                category: { label: 'Product' }
+            }
+        ];
     };
 
     useEffect(() => {
@@ -250,7 +333,7 @@ export default function Jobs() {
 
     return (
         <div className="w-full min-h-screen relative overflow-hidden bg-black flex flex-col">
-            {/* Grid Background - FIXED POSITION */}
+            {/* Grid Background */}
             <div
                 className="fixed inset-0 z-0"
                 style={{
@@ -263,7 +346,7 @@ export default function Jobs() {
                 }}
             />
 
-            {/* Shadow Overlay - FIXED POSITION */}
+            {/* Shadow Overlay */}
             <div className="fixed inset-0 z-1">
                 <img src={shadow1} alt="Shadow Overlay" className="w-full h-full object-cover opacity-70" />
             </div>
@@ -342,7 +425,7 @@ export default function Jobs() {
                     {/* Error Message */}
                     {error && (
                         <div className="bg-red-900/50 border border-red-700 text-red-200 px-4 py-3 rounded-lg mb-6">
-                            {error}
+                            {error} {!jobs.length && " Showing mock data for development."}
                         </div>
                     )}
 
