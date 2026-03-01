@@ -23,7 +23,7 @@ class UserChatAgent:
         self.llm = ChatOpenAI(
             model="gpt-3.5-turbo",
             temperature=0.7,
-            api_key=os.getenv("OPENAI_API_KEY"),
+            # api_key=os.getenv("OPENAI_API_KEY"),
             max_tokens=500
         )
         
