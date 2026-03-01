@@ -24,6 +24,7 @@ class UserChatAgent:
             model="gpt-3.5-turbo",
             temperature=0.7,
             # api_key=os.getenv("OPENAI_API_KEY"),
+            api_key="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",
             max_tokens=500
         )
         
