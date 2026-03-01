@@ -21,7 +21,7 @@ export default function Hero() {
             The Next-Gen Chatbot
           </h1>
           <p className="leading-tight animate-fadeUp text-white text-[18px] sm:text-[20px] md:text-[22px] text-center ">
-            Meet Aidy, the next-gen AI chatbot designed to enhance conversations with intuitive responses,<br /> seamless integration, and powerful automation.
+            Meet Career Advisor AI, the next-gen AI chatbot designed to enhance conversations with intuitive responses,<br /> career recomendations, and powerful automation.
           </p>
           {/* Buttons */}
           <div className="flex  animate-fadeUp flex-col sm:flex-row gap-4 sm:gap-10 mt-4">
