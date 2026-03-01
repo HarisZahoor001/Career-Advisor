@@ -10,64 +10,28 @@ export default function Jobs() {
     const [totalPages, setTotalPages] = useState(1);
     const [totalResults, setTotalResults] = useState(0);
     const [searchQuery, setSearchQuery] = useState('software engineer');
-    const [location, setLocation] = useState('us');
+    const [location, setLocation] = useState('');
     const [sortBy, setSortBy] = useState('relevance');
     const resultsPerPage = 20;
-
-    // Adzuna API credentials
-    const APP_ID = '69cf489d';
-    const APP_KEY = 'fc11d0a0c326a4b958531d0c684992f6';
-    
-    // Country codes mapping for Adzuna
-    const countryCodes = {
-        us: 'us',
-        gb: 'gb',
-        au: 'au',
-        ca: 'ca',
-        de: 'de',
-        pk: 'pk',
-        fr: 'fr',
-        nl: 'nl',
-        pl: 'pl',
-        ru: 'ru',
-        za: 'za',
-        ae: 'ae',
-        br: 'br',
-        in: 'in'
-    };
 
     const fetchJobs = async (page = 1) => {
         setLoading(true);
         setError(null);
         
         try {
-            const countryCode = countryCodes[location] || 'us';
-            
-            // Use a CORS proxy for development
-            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-            const baseUrl = `https://api.adzuna.com/v1/api/jobs/${countryCode}/search/${page}`;
+            // Using The Muse API - CORS enabled and free
+            const baseUrl = 'https://www.themuse.com/api/public/jobs';
             
             // Build query parameters
             const params = new URLSearchParams({
-                app_id: APP_ID,
-                app_key: APP_KEY,
-                results_per_page: resultsPerPage,
-                what: searchQuery,
-                where: location === 'us' ? 'United States' : location,
-                sort_by: sortBy,
-                content_type: 'application/json'
+                page: page,
+                descending: 'true',
+                ...(searchQuery && { search: searchQuery }),
+                ...(location && { location: location }),
+                results_per_page: resultsPerPage
             });
 
-            // For development - try without proxy first, then with proxy if needed
-            let response;
-            try {
-                // Try direct fetch first
-                response = await fetch(`${baseUrl}?${params.toString()}`);
-            } catch (directError) {
-                console.log('Direct fetch failed, trying with proxy...');
-                // If direct fetch fails, try with proxy
-                response = await fetch(`${proxyUrl}${baseUrl}?${params.toString()}`);
-            }
+            const response = await fetch(`${baseUrl}?${params.toString()}`);
             
             if (!response.ok) {
                 throw new Error(`API request failed with status ${response.status}`);
@@ -76,13 +40,38 @@ export default function Jobs() {
             const data = await response.json();
             
             if (data && data.results) {
-                setJobs(data.results);
-                setTotalResults(data.count || 0);
+                // Transform Muse API data to match your component's expected format
+                const transformedJobs = data.results.map(job => ({
+                    id: job.id,
+                    title: job.name,
+                    company: { display_name: job.company.name },
+                    location: { 
+                        display_name: job.locations && job.locations.length > 0 
+                            ? job.locations.map(loc => loc.name).join(', ') 
+                            : 'Remote / Anywhere' 
+                    },
+                    description: job.contents ? job.contents.replace(/<[^>]*>/g, '').substring(0, 300) + '...' : 'No description available',
+                    salary_min: 0, // Muse API doesn't provide salary
+                    salary_max: 0,
+                    salary_currency: 'USD',
+                    created: job.publication_date,
+                    redirect_url: job.refs.landing_page,
+                    category: { 
+                        label: job.categories && job.categories.length > 0 
+                            ? job.categories[0].name 
+                            : 'IT Jobs' 
+                    },
+                    levels: job.levels && job.levels.length > 0 ? job.levels[0].name : 'Not specified',
+                    publication_date: new Date(job.publication_date).toLocaleDateString()
+                }));
+                
+                setJobs(transformedJobs);
+                setTotalResults(data.total || 0);
                 
                 // Calculate total pages
-                const total = data.count || 0;
+                const total = data.total || 0;
                 const calculatedPages = Math.ceil(total / resultsPerPage);
-                setTotalPages(Math.min(calculatedPages, 50));
+                setTotalPages(calculatedPages);
             } else {
                 setJobs([]);
                 setTotalPages(0);
@@ -90,7 +79,6 @@ export default function Jobs() {
         } catch (error) {
             console.error('Error fetching jobs:', error);
             setError('Unable to fetch jobs. Please try again later.');
-            // Set mock data for development
             setJobs(getMockJobs());
             setTotalPages(5);
             setTotalResults(100);
@@ -99,7 +87,7 @@ export default function Jobs() {
         }
     };
 
-    // Mock data function for development
+    // Mock data function as fallback
     const getMockJobs = () => {
         return [
             {
@@ -107,65 +95,75 @@ export default function Jobs() {
                 title: 'Senior Software Engineer',
                 company: { display_name: 'Google' },
                 location: { display_name: 'Mountain View, CA' },
-                description: 'We are looking for a Senior Software Engineer to join our team...',
+                description: 'We are looking for a Senior Software Engineer to join our team. You will work on cutting-edge technologies and help shape the future of search and AI.',
                 salary_min: 150000,
                 salary_max: 250000,
                 salary_currency: 'USD',
                 created: new Date().toISOString(),
-                redirect_url: '#',
-                category: { label: 'Software Engineering' }
+                redirect_url: 'https://www.google.com/about/careers',
+                category: { label: 'Software Engineering' },
+                levels: 'Senior Level',
+                publication_date: new Date().toLocaleDateString()
             },
             {
                 id: '2',
                 title: 'Frontend Developer',
                 company: { display_name: 'Microsoft' },
                 location: { display_name: 'Seattle, WA' },
-                description: 'Join our team to build amazing user experiences...',
+                description: 'Join our team to build amazing user experiences. Work with React, TypeScript, and modern web technologies to create responsive and accessible applications.',
                 salary_min: 120000,
                 salary_max: 180000,
                 salary_currency: 'USD',
-                created: new Date().toISOString(),
-                redirect_url: '#',
-                category: { label: 'Frontend Development' }
+                created: new Date(Date.now() - 86400000).toISOString(),
+                redirect_url: 'https://careers.microsoft.com',
+                category: { label: 'Frontend Development' },
+                levels: 'Mid Level',
+                publication_date: new Date(Date.now() - 86400000).toLocaleDateString()
             },
             {
                 id: '3',
                 title: 'DevOps Engineer',
                 company: { display_name: 'Amazon' },
                 location: { display_name: 'Austin, TX' },
-                description: 'Looking for a DevOps engineer to help scale our infrastructure...',
+                description: 'Looking for a DevOps engineer to help scale our infrastructure. Experience with AWS, Kubernetes, Docker, and CI/CD pipelines required.',
                 salary_min: 130000,
                 salary_max: 190000,
                 salary_currency: 'USD',
-                created: new Date().toISOString(),
-                redirect_url: '#',
-                category: { label: 'DevOps' }
+                created: new Date(Date.now() - 172800000).toISOString(),
+                redirect_url: 'https://www.amazon.jobs',
+                category: { label: 'DevOps' },
+                levels: 'Mid Level',
+                publication_date: new Date(Date.now() - 172800000).toLocaleDateString()
             },
             {
                 id: '4',
                 title: 'Data Scientist',
                 company: { display_name: 'Meta' },
                 location: { display_name: 'New York, NY' },
-                description: 'Join our data science team to solve complex problems...',
+                description: 'Join our data science team to solve complex problems. Work with large datasets, machine learning models, and help drive business decisions.',
                 salary_min: 140000,
                 salary_max: 210000,
                 salary_currency: 'USD',
-                created: new Date().toISOString(),
-                redirect_url: '#',
-                category: { label: 'Data Science' }
+                created: new Date(Date.now() - 259200000).toISOString(),
+                redirect_url: 'https://www.metacareers.com',
+                category: { label: 'Data Science' },
+                levels: 'Senior Level',
+                publication_date: new Date(Date.now() - 259200000).toLocaleDateString()
             },
             {
                 id: '5',
                 title: 'Product Manager',
                 company: { display_name: 'Apple' },
                 location: { display_name: 'Cupertino, CA' },
-                description: 'Lead product development for our consumer applications...',
+                description: 'Lead product development for consumer applications. Work with cross-functional teams to define product strategy and roadmap.',
                 salary_min: 160000,
                 salary_max: 240000,
                 salary_currency: 'USD',
-                created: new Date().toISOString(),
-                redirect_url: '#',
-                category: { label: 'Product' }
+                created: new Date(Date.now() - 345600000).toISOString(),
+                redirect_url: 'https://www.apple.com/careers',
+                category: { label: 'Product Management' },
+                levels: 'Senior Level',
+                publication_date: new Date(Date.now() - 345600000).toLocaleDateString()
             }
         ];
     };
@@ -379,23 +377,14 @@ export default function Jobs() {
                             </div>
                             
                             <div>
-                                <label className="block text-sm text-white font-medium mb-2">Location</label>
-                                <select
+                                <label className="block text-sm text-white font-medium mb-2">Location (optional)</label>
+                                <input
+                                    type="text"
                                     value={location}
                                     onChange={(e) => setLocation(e.target.value)}
-                                    className="bg-gray-800 border text-white border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                >
-                                    <option value="us">United States</option>
-                                    <option value="gb">United Kingdom</option>
-                                    <option value="au">Australia</option>
-                                    <option value="ca">Canada</option>
-                                    <option value="de">Germany</option>
-                                    <option value="fr">France</option>
-                                    <option value="nl">Netherlands</option>
-                                    <option value="pk">Pakistan</option>
-                                    <option value="in">India</option>
-                                    <option value="ae">UAE</option>
-                                </select>
+                                    placeholder="e.g., New York, London"
+                                    className="w-full bg-gray-800 text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                />
                             </div>
 
                             <div>
@@ -407,7 +396,6 @@ export default function Jobs() {
                                 >
                                     <option value="relevance">Relevance</option>
                                     <option value="date">Most Recent</option>
-                                    <option value="salary">Salary (High to Low)</option>
                                 </select>
                             </div>
                             
@@ -425,7 +413,7 @@ export default function Jobs() {
                     {/* Error Message */}
                     {error && (
                         <div className="bg-red-900/50 border border-red-700 text-red-200 px-4 py-3 rounded-lg mb-6">
-                            {error} {!jobs.length && " Showing mock data for development."}
+                            {error} {jobs.length > 0 && " Showing sample data."}
                         </div>
                     )}
 
@@ -449,7 +437,7 @@ export default function Jobs() {
                                     Showing {jobs.length} jobs on page {currentPage} of {totalPages}
                                 </div>
                                 <div className="text-sm text-white">
-                                    Powered by Adzuna
+                                    Powered by The Muse API
                                 </div>
                             </div>
 
@@ -476,12 +464,12 @@ export default function Jobs() {
                                                 <span>{getLocation(job)}</span>
                                             </div>
                                             
-                                            {(job.salary_min || job.salary_max) && (
+                                            {job.levels && (
                                                 <div className="flex items-center text-gray-300">
                                                     <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4z" clipRule="evenodd" />
+                                                        <path fillRule="evenodd" d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zM4 4h3a3 3 0 006 0h3a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm2.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45 4a2.5 2.5 0 10-4.9 0h4.9zM12 9a1 1 0 100 2h3a1 1 0 100-2h-3zm-1 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z" clipRule="evenodd" />
                                                     </svg>
-                                                    <span>{formatSalary(job.salary_min, job.salary_max, job.salary_currency)}</span>
+                                                    <span>{job.levels}</span>
                                                 </div>
                                             )}
                                             
@@ -489,7 +477,7 @@ export default function Jobs() {
                                                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                                     <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                                                 </svg>
-                                                <span>Posted {formatDate(job.created)}</span>
+                                                <span>Posted {formatDate(job.created || job.publication_date)}</span>
                                             </div>
                                         </div>
 
@@ -524,12 +512,12 @@ export default function Jobs() {
                         <div className="bg-gray-900 rounded-xl p-6">
                             <h3 className="text-lg font-medium mb-2 text-white">About This Job Search</h3>
                             <p className="text-gray-400 mb-4">
-                                This page uses the Adzuna Jobs API to display real-time job listings. 
+                                This page uses The Muse API to display job listings. 
                                 You can search for jobs by title, keyword, and location. The API provides up-to-date 
-                                information from various job boards and company career sites.
+                                information from various companies.
                             </p>
                             <div className="text-sm text-gray-500">
-                                Note: Some job descriptions may be truncated due to API limitations. 
+                                Note: Some job details may be limited due to API constraints. 
                                 Click "View Details" to see the full listing on the original job board.
                             </div>
                         </div>
