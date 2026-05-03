@@ -3,168 +3,42 @@ import api from "../api";
 import { useNavigate, Link } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import LoadingIndicator from "./LoadingIndicator";
-import { validateField } from "../utils/validation";
 
 export default function Form({ route, method }) {
   const navigate = useNavigate();
   const isLogin = method === "login";
 
-  // Common fields
+  // auth fields
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  // Signup-only fields
-  const [fullName, setFullName] = useState("");
-  const [age, setAge] = useState("");
-  const [education, setEducation] = useState("");
-  const [studyField, setStudyField] = useState("");
-  const [cgpa, setCgpa] = useState("");
-  const [skills, setSkills] = useState("");
-  const [interests, setInterests] = useState("");
+  // signup fields
   const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
 
   const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState({});
-  const [touched, setTouched] = useState({});
-
-  // Map backend field names → frontend
-  const mapBackendField = (key) => {
-    const mapping = {
-      full_name: "fullName",
-      field_of_study: "studyField",
-    };
-    return mapping[key] || key;
-  };
-
-  // Handle blur
-  const handleBlur = (field) => {
-    setTouched((prev) => ({ ...prev, [field]: true }));
-
-    const valueMap = {
-      username,
-      password,
-      email,
-      fullName,
-      age,
-      cgpa,
-      studyField,
-      education,
-    };
-
-    const error = validateField(field, valueMap[field]);
-
-    if (error) {
-      setErrors((prev) => ({ ...prev, [field]: error }));
-    } else {
-      setErrors((prev) => {
-        const newErrors = { ...prev };
-        delete newErrors[field];
-        return newErrors;
-      });
-    }
-  };
-
-  // Handle input change
-  const handleInputChange = (field, value) => {
-    const setters = {
-      username: setUsername,
-      password: setPassword,
-      email: setEmail,
-      fullName: setFullName,
-      age: setAge,
-      education: setEducation,
-      studyField: setStudyField,
-      cgpa: setCgpa,
-      skills: setSkills,
-      interests: setInterests,
-    };
-
-    setters[field]?.(value);
-
-    if (touched[field]) {
-      const error = validateField(field, value);
-
-      if (error) {
-        setErrors((prev) => ({ ...prev, [field]: error }));
-      } else {
-        setErrors((prev) => {
-          const newErrors = { ...prev };
-          delete newErrors[field];
-          return newErrors;
-        });
-      }
-    }
-  };
-
-  // Validate form
-  const validateForm = () => {
-    const newErrors = {};
-
-    const fields = isLogin
-      ? ["username", "password"]
-      : ["username", "password", "email", "fullName", "age", "cgpa"];
-
-    const valueMap = {
-      username,
-      password,
-      email,
-      fullName,
-      age,
-      cgpa,
-    };
-
-    fields.forEach((field) => {
-      const error = validateField(field, valueMap[field]);
-      if (error) newErrors[field] = error;
-    });
-
-    return newErrors;
-  };
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const allFields = isLogin
-      ? ["username", "password"]
-      : ["username", "password", "email", "fullName", "age", "cgpa"];
-
-    setTouched(Object.fromEntries(allFields.map((f) => [f, true])));
-
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-
+    setError("");
     setLoading(true);
-    setErrors({});
-
-    let body = { username, password };
-
-    if (!isLogin) {
-      body = {
-        username,
-        password,
-        full_name: fullName,
-        age: age || null,
-        education_level: education || "",
-        field_of_study: studyField || "",
-        cgpa: cgpa || null,
-        skills: (skills || "")
-          .split(",")
-          .map((s) => s.trim())
-          .filter(Boolean)
-          .join(","),
-        interests: (interests || "")
-          .split(",")
-          .map((i) => i.trim())
-          .filter(Boolean)
-          .join(","),
-        email,
-      };
-    }
 
     try {
+      let body = {
+        username,
+        password,
+      };
+
+      if (!isLogin) {
+        body = {
+          username,
+          password,
+          email,
+          full_name: fullName,
+        };
+      }
+
       const res = await api.post(route, body);
 
       if (isLogin) {
@@ -175,154 +49,103 @@ export default function Form({ route, method }) {
         navigate("/login");
       }
     } catch (err) {
-      let errorMessage = "An error occurred. Please try again.";
-
-      if (err.response?.data) {
-        const data = err.response.data;
-
-        if (typeof data === "object") {
-          const fieldErrors = {};
-
-          Object.keys(data).forEach((key) => {
-            const mappedKey = mapBackendField(key);
-            const error = data[key];
-
-            fieldErrors[mappedKey] = Array.isArray(error)
-              ? error[0]
-              : error;
-          });
-
-          if (Object.keys(fieldErrors).length > 0) {
-            setErrors(fieldErrors);
-            return;
-          }
-
-          const firstError = Object.values(data)[0];
-          errorMessage = Array.isArray(firstError)
-            ? firstError[0]
-            : firstError;
-        } else {
-          errorMessage = data;
-        }
-      } else if (err.message) {
-        errorMessage = err.message;
-      }
-
-      setErrors({ general: errorMessage });
+      setError(
+        err.response?.data?.detail ||
+        err.response?.data?.error ||
+        "Something went wrong"
+      );
     } finally {
       setLoading(false);
     }
   };
 
-  const getFieldError = (field) =>
-    touched[field] && errors[field] ? errors[field] : "";
-
   return (
-    <div className="bg-black flex justify-center items-center min-h-screen w-full px-4 py-8">
-      <div className="w-full max-w-md">
-        <form
-          onSubmit={handleSubmit}
-          className="p-6 rounded-xl bg-black border border-gray-800"
+    <div className="flex justify-center items-center min-h-screen bg-black px-4">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-md bg-black border border-gray-800 p-6 rounded-xl"
+      >
+        <h1 className="text-white text-2xl mb-6 text-center">
+          {isLogin ? "Login" : "Signup"}
+        </h1>
+
+        {error && (
+          <p className="text-red-400 text-sm mb-3 text-center">
+            {error}
+          </p>
+        )}
+
+        {/* Username */}
+        <input
+          className="w-full p-3 mb-3 bg-gray-900 text-white border border-gray-700 rounded"
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+
+        {/* Password */}
+        <input
+          className="w-full p-3 mb-3 bg-gray-900 text-white border border-gray-700 rounded"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        {/* Signup fields only */}
+        {!isLogin && (
+          <>
+            <input
+              className="w-full p-3 mb-3 bg-gray-900 text-white border border-gray-700 rounded"
+              type="text"
+              placeholder="Full Name"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              required
+            />
+
+            <input
+              className="w-full p-3 mb-3 bg-gray-900 text-white border border-gray-700 rounded"
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </>
+        )}
+
+        {loading && <LoadingIndicator />}
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full bg-white text-black p-3 rounded mt-2"
         >
-          <h1 className="text-2xl font-bold text-white mb-6 text-center">
-            {isLogin ? "Login" : "Create Account"}
-          </h1>
+          {loading ? "Loading..." : isLogin ? "Login" : "Signup"}
+        </button>
 
-          {errors.general && (
-            <div className="mb-4 p-3 bg-red-900/30 border border-red-500 text-red-400 text-sm">
-              {errors.general}
-            </div>
-          )}
-
-          {/* Username */}
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) =>
-              handleInputChange("username", e.target.value)
-            }
-            onBlur={() => handleBlur("username")}
-            className="w-full p-3 mb-2 bg-gray-900 text-white border border-gray-700 rounded"
-          />
-          {getFieldError("username") && (
-            <p className="text-red-400 text-sm">
-              {getFieldError("username")}
-            </p>
-          )}
-
-          {/* Password */}
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) =>
-              handleInputChange("password", e.target.value)
-            }
-            onBlur={() => handleBlur("password")}
-            className="w-full p-3 mb-2 bg-gray-900 text-white border border-gray-700 rounded"
-          />
-          {getFieldError("password") && (
-            <p className="text-red-400 text-sm">
-              {getFieldError("password")}
-            </p>
-          )}
-
-          {!isLogin && (
+        <p className="text-gray-400 text-sm mt-4 text-center">
+          {isLogin ? (
             <>
-              <input
-                type="text"
-                placeholder="Full Name"
-                value={fullName}
-                onChange={(e) =>
-                  handleInputChange("fullName", e.target.value)
-                }
-                onBlur={() => handleBlur("fullName")}
-                className="w-full p-3 mb-2 bg-gray-900 text-white border border-gray-700 rounded"
-              />
-
-              <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) =>
-                  handleInputChange("email", e.target.value)
-                }
-                onBlur={() => handleBlur("email")}
-                className="w-full p-3 mb-2 bg-gray-900 text-white border border-gray-700 rounded"
-              />
+              Don’t have an account?{" "}
+              <Link className="text-blue-400" to="/signup">
+                Signup
+              </Link>
+            </>
+          ) : (
+            <>
+              Already have an account?{" "}
+              <Link className="text-blue-400" to="/login">
+                Login
+              </Link>
             </>
           )}
-
-          {loading && <LoadingIndicator />}
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-white text-black p-3 rounded mt-4"
-          >
-            {loading ? "Processing..." : isLogin ? "Login" : "Signup"}
-          </button>
-
-          <div className="text-center mt-4 text-gray-400">
-            {isLogin ? (
-              <p>
-                Don't have an account?{" "}
-                <Link to="/signup" className="text-blue-400">
-                  Sign up
-                </Link>
-              </p>
-            ) : (
-              <p>
-                Already have an account?{" "}
-                <Link to="/login" className="text-blue-400">
-                  Login
-                </Link>
-              </p>
-            )}
-          </div>
-        </form>
-      </div>
+        </p>
+      </form>
     </div>
   );
 }
