@@ -178,7 +178,7 @@ export default function Jobs() {
                     ))}
                 </select>
 
-                <button className="bg-blue-600 px-4 py-2 rounded">
+                <button className="btn px-4 py-2 rounded">
                     Search
                 </button>
             </form>
