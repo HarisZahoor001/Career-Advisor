@@ -2,71 +2,25 @@ import { useState, useEffect, useCallback } from 'react';
 import shadow1 from '../assets/s1.png';
 import Navbar from './Navbar';
 
+// ─── Adzuna Credentials ───────────────────────────────────────────────────────
+const ADZUNA_APP_ID  = '69cf489d';
+const ADZUNA_APP_KEY = 'fc11d0a0c326a4b958531d0c684992f6';
 const RESULTS_PER_PAGE = 20;
 
-const getMockJobs = () => [
-    {
-        id: '1',
-        title: 'Senior Software Engineer',
-        company: { display_name: 'Google' },
-        location: { display_name: 'Mountain View, CA' },
-        description: 'We are looking for a Senior Software Engineer to join our team. You will work on cutting-edge technologies and help shape the future of search and AI.',
-        salary_min: 150000, salary_max: 250000, salary_currency: 'USD',
-        created: new Date().toISOString(),
-        redirect_url: 'https://www.google.com/about/careers',
-        category: { label: 'Software Engineering' },
-        levels: 'Senior Level',
-    },
-    {
-        id: '2',
-        title: 'Frontend Developer',
-        company: { display_name: 'Microsoft' },
-        location: { display_name: 'Seattle, WA' },
-        description: 'Join our team to build amazing user experiences. Work with React, TypeScript, and modern web technologies to create responsive and accessible applications.',
-        salary_min: 120000, salary_max: 180000, salary_currency: 'USD',
-        created: new Date(Date.now() - 86400000).toISOString(),
-        redirect_url: 'https://careers.microsoft.com',
-        category: { label: 'Frontend Development' },
-        levels: 'Mid Level',
-    },
-    {
-        id: '3',
-        title: 'DevOps Engineer',
-        company: { display_name: 'Amazon' },
-        location: { display_name: 'Austin, TX' },
-        description: 'Looking for a DevOps engineer to help scale our infrastructure. Experience with AWS, Kubernetes, Docker, and CI/CD pipelines required.',
-        salary_min: 130000, salary_max: 190000, salary_currency: 'USD',
-        created: new Date(Date.now() - 172800000).toISOString(),
-        redirect_url: 'https://www.amazon.jobs',
-        category: { label: 'DevOps' },
-        levels: 'Mid Level',
-    },
-    {
-        id: '4',
-        title: 'Data Scientist',
-        company: { display_name: 'Meta' },
-        location: { display_name: 'New York, NY' },
-        description: 'Join our data science team to solve complex problems. Work with large datasets, machine learning models, and help drive business decisions.',
-        salary_min: 140000, salary_max: 210000, salary_currency: 'USD',
-        created: new Date(Date.now() - 259200000).toISOString(),
-        redirect_url: 'https://www.metacareers.com',
-        category: { label: 'Data Science' },
-        levels: 'Senior Level',
-    },
-    {
-        id: '5',
-        title: 'Product Manager',
-        company: { display_name: 'Apple' },
-        location: { display_name: 'Cupertino, CA' },
-        description: 'Lead product development for consumer applications. Work with cross-functional teams to define product strategy and roadmap.',
-        salary_min: 160000, salary_max: 240000, salary_currency: 'USD',
-        created: new Date(Date.now() - 345600000).toISOString(),
-        redirect_url: 'https://www.apple.com/careers',
-        category: { label: 'Product Management' },
-        levels: 'Senior Level',
-    },
+const COUNTRIES = [
+    { code: 'us', label: 'United States' },
+    { code: 'gb', label: 'United Kingdom' },
+    { code: 'ca', label: 'Canada' },
+    { code: 'au', label: 'Australia' },
+    { code: 'de', label: 'Germany' },
+    { code: 'fr', label: 'France' },
+    { code: 'in', label: 'India' },
+    { code: 'sg', label: 'Singapore' },
+    { code: 'nl', label: 'Netherlands' },
+    { code: 'br', label: 'Brazil' },
 ];
 
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 const formatDate = (dateString) => {
     if (!dateString) return 'Date not specified';
     try {
@@ -78,22 +32,17 @@ const formatDate = (dateString) => {
     }
 };
 
-const formatSalary = (min, max, currency = 'USD') => {
+const formatSalary = (min, max) => {
     if (!min && !max) return null;
     const fmt = (n) =>
         new Intl.NumberFormat('en-US', {
-            style: 'currency', currency, minimumFractionDigits: 0, maximumFractionDigits: 0,
+            style: 'currency', currency: 'USD',
+            minimumFractionDigits: 0, maximumFractionDigits: 0,
         }).format(n);
     if (min && max) return min === max ? fmt(min) : `${fmt(min)} – ${fmt(max)}`;
     if (min) return `From ${fmt(min)}`;
     return `Up to ${fmt(max)}`;
 };
-
-const getCompanyName = (job) =>
-    job.company?.display_name || job.company_name || 'Company not specified';
-
-const getLocation = (job) =>
-    job.location?.display_name || (typeof job.location === 'string' ? job.location : 'Location not specified');
 
 const getDescription = (job) => {
     if (!job.description) return 'No description available.';
@@ -101,24 +50,32 @@ const getDescription = (job) => {
     return plain.length > 220 ? plain.substring(0, 220) + '…' : plain;
 };
 
-// ─── Job Card ────────────────────────────────────────────────────────────────
+const contractBadge = (job) => {
+    const parts = [];
+    if (job.contract_time) parts.push(job.contract_time.replace('_', ' '));
+    if (job.contract_type) parts.push(job.contract_type);
+    return parts.length ? parts.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' · ') : null;
+};
+
+// ─── Job Card ─────────────────────────────────────────────────────────────────
 function JobCard({ job }) {
-    const salary = formatSalary(job.salary_min, job.salary_max, job.salary_currency);
+    const salary = formatSalary(job.salary_min, job.salary_max);
+    const badge  = contractBadge(job);
 
     return (
-        <div className="group bg-gray-900 border border-gray-800 rounded-2xl p-6 flex flex-col gap-4 hover:border-blue-500/50 hover:bg-gray-800/60 transition-all duration-200">
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 flex flex-col gap-4 hover:border-blue-500/50 hover:bg-gray-800/60 transition-all duration-200">
             {/* Top row */}
             <div className="flex justify-between items-start gap-3">
                 <div className="flex-1 min-w-0">
-                    <h3 className="text-white font-semibold text-base leading-snug truncate">
+                    <h3 className="text-white font-semibold text-base leading-snug line-clamp-2">
                         {job.title}
                     </h3>
-                    <p className="text-blue-400 text-sm font-medium mt-0.5">
-                        {getCompanyName(job)}
+                    <p className="text-blue-400 text-sm font-medium mt-0.5 truncate">
+                        {job.company?.display_name || 'Company not specified'}
                     </p>
                 </div>
                 {job.category?.label && (
-                    <span className="shrink-0 text-xs text-gray-400 bg-gray-800 border border-gray-700 px-2.5 py-1 rounded-full">
+                    <span className="shrink-0 text-xs text-gray-400 bg-gray-800 border border-gray-700 px-2.5 py-1 rounded-full whitespace-nowrap">
                         {job.category.label}
                     </span>
                 )}
@@ -128,17 +85,17 @@ function JobCard({ job }) {
             <div className="flex flex-col gap-1.5 text-sm text-gray-400">
                 <span className="flex items-center gap-2">
                     <LocationIcon />
-                    {getLocation(job)}
+                    {job.location?.display_name || 'Location not specified'}
                 </span>
-                {job.levels && job.levels !== 'Not specified' && (
+                {badge && (
                     <span className="flex items-center gap-2">
-                        <LevelIcon />
-                        {job.levels}
+                        <BriefcaseIcon />
+                        {badge}
                     </span>
                 )}
                 <span className="flex items-center gap-2">
                     <CalendarIcon />
-                    Posted {formatDate(job.created || job.publication_date)}
+                    Posted {formatDate(job.created)}
                 </span>
                 {salary && (
                     <span className="flex items-center gap-2 text-emerald-400 font-medium">
@@ -159,7 +116,7 @@ function JobCard({ job }) {
                     href={job.redirect_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors duration-150"
+                    className="bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors duration-150"
                 >
                     View Details →
                 </a>
@@ -171,15 +128,14 @@ function JobCard({ job }) {
     );
 }
 
-// ─── Pagination ──────────────────────────────────────────────────────────────
+// ─── Pagination ───────────────────────────────────────────────────────────────
 function Pagination({ currentPage, totalPages, totalResults, onPageChange }) {
     if (totalPages <= 1) return null;
 
     const maxButtons = 5;
     let start = Math.max(1, currentPage - Math.floor(maxButtons / 2));
-    let end = Math.min(totalPages, start + maxButtons - 1);
+    let end   = Math.min(totalPages, start + maxButtons - 1);
     if (end - start + 1 < maxButtons) start = Math.max(1, end - maxButtons + 1);
-
     const pages = Array.from({ length: end - start + 1 }, (_, i) => start + i);
 
     const Btn = ({ page, label, disabled, active }) => (
@@ -231,25 +187,27 @@ function Pagination({ currentPage, totalPages, totalResults, onPageChange }) {
     );
 }
 
-// ─── Main Component ──────────────────────────────────────────────────────────
+// ─── Main Component ───────────────────────────────────────────────────────────
 export default function Jobs() {
-    const [jobs, setJobs] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
+    const [jobs, setJobs]                 = useState([]);
+    const [loading, setLoading]           = useState(true);
+    const [error, setError]               = useState(null);
+    const [currentPage, setCurrentPage]   = useState(1);
+    const [totalPages, setTotalPages]     = useState(1);
     const [totalResults, setTotalResults] = useState(0);
 
-    // Input state (controlled fields — NOT used to trigger fetches)
-    const [searchInput, setSearchInput] = useState('software engineer');
+    // Input fields (controlled — do NOT trigger fetches on change)
+    const [searchInput,   setSearchInput]   = useState('software engineer');
     const [locationInput, setLocationInput] = useState('');
-    const [sortInput, setSortInput] = useState('relevance');
+    const [sortInput,     setSortInput]     = useState('relevance');
+    const [countryInput,  setCountryInput]  = useState('us');
 
-    // Submitted state — fetches only fire when this changes
+    // Submitted state — fetch only fires when this changes (on form submit)
     const [submitted, setSubmitted] = useState({
-        query: 'software engineer',
+        query:    'software engineer',
         location: '',
-        sort: 'relevance',
+        sort:     'relevance',
+        country:  'us',
     });
 
     const fetchJobs = useCallback(async (page = 1) => {
@@ -257,87 +215,61 @@ export default function Jobs() {
         setError(null);
 
         try {
-            // The Muse API uses 0-based page indexing
+            // Adzuna endpoint: /v1/api/jobs/{country}/search/{page}  (1-indexed)
+            const base = `https://api.adzuna.com/v1/api/jobs/${submitted.country}/search/${page}`;
+
             const params = new URLSearchParams({
-                page: page - 1,
-                descending: submitted.sort === 'date' ? 'true' : 'false',
+                app_id:           ADZUNA_APP_ID,
+                app_key:          ADZUNA_APP_KEY,
                 results_per_page: RESULTS_PER_PAGE,
-                ...(submitted.query && { search: submitted.query }),
+                sort_by:          submitted.sort,
+                content_type:     'application/json',
+                ...(submitted.query    && { what:  submitted.query }),
+                ...(submitted.location && { where: submitted.location }),
             });
 
-            // Location must be appended as "location[]" array param
-            if (submitted.location.trim()) {
-                params.append('location[]', submitted.location.trim());
-            }
-
-            const response = await fetch(
-                `https://www.themuse.com/api/public/jobs?${params.toString()}`
-            );
+            const response = await fetch(`${base}?${params.toString()}`);
 
             if (!response.ok) {
-                throw new Error(`API error: ${response.status}`);
+                throw new Error(`Adzuna API error: ${response.status}`);
             }
 
             const data = await response.json();
 
             if (data?.results?.length) {
-                const transformed = data.results.map((job) => ({
-                    id: job.id,
-                    title: job.name,
-                    company: { display_name: job.company?.name ?? 'Unknown' },
-                    location: {
-                        display_name:
-                            job.locations?.length
-                                ? job.locations.map((l) => l.name).join(', ')
-                                : 'Remote / Anywhere',
-                    },
-                    description: job.contents
-                        ? job.contents.replace(/<[^>]*>/g, '').substring(0, 300) + '…'
-                        : 'No description available.',
-                    salary_min: 0,
-                    salary_max: 0,
-                    salary_currency: 'USD',
-                    created: job.publication_date,
-                    redirect_url: job.refs?.landing_page ?? '#',
-                    category: {
-                        label: job.categories?.length ? job.categories[0].name : 'General',
-                    },
-                    levels: job.levels?.length ? job.levels[0].name : 'Not specified',
-                    publication_date: job.publication_date,
-                }));
-
-                setJobs(transformed);
-                setTotalResults(data.total ?? 0);
-                setTotalPages(Math.max(1, Math.ceil((data.total ?? 0) / RESULTS_PER_PAGE)));
+                setJobs(data.results);
+                setTotalResults(data.count ?? 0);
+                setTotalPages(Math.max(1, Math.ceil((data.count ?? 0) / RESULTS_PER_PAGE)));
             } else {
                 setJobs([]);
                 setTotalPages(1);
                 setTotalResults(0);
             }
         } catch (err) {
-    console.error('fetchJobs error:', err);
-    setError('Could not reach the jobs API. Please try again.');
-    setJobs([]);          // ← show empty state, not fake jobs
-    setTotalPages(1);
-    setTotalResults(0);
-    } finally {
-    setLoading(false);
-    }
+            console.error('fetchJobs error:', err);
+            setError('Could not reach the Adzuna API. Please check your connection and try again.');
+            setJobs([]);
+            setTotalPages(1);
+            setTotalResults(0);
         } finally {
             setLoading(false);
         }
-    }, [submitted]); // ← only re-creates when submitted changes
+    }, [submitted]);
 
-    // Fetch whenever submitted params OR page changes
     useEffect(() => {
         fetchJobs(currentPage);
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [currentPage, submitted]); // ← NOT searchInput / locationInput
+    }, [currentPage, submitted]);
 
     const handleSearch = (e) => {
         e.preventDefault();
         setCurrentPage(1);
-        setSubmitted({ query: searchInput, location: locationInput, sort: sortInput });
+        setSubmitted({
+            query:    searchInput,
+            location: locationInput,
+            sort:     sortInput,
+            country:  countryInput,
+        });
     };
 
     const handlePageChange = (page) => {
@@ -366,7 +298,6 @@ export default function Jobs() {
 
             <Navbar />
 
-            {/* Content */}
             <main className="relative z-10 flex-1 px-4 py-8 lg:px-8">
                 <div className="max-w-7xl mx-auto">
 
@@ -375,9 +306,7 @@ export default function Jobs() {
                         <h1 className="text-3xl lg:text-4xl font-bold text-white tracking-tight">
                             Job Listings
                         </h1>
-                        <p className="text-gray-400 mt-1">
-                            Find your next career opportunity
-                        </p>
+                        <p className="text-gray-400 mt-1">Find your next career opportunity</p>
                     </div>
 
                     {/* Search Form */}
@@ -386,6 +315,8 @@ export default function Jobs() {
                         className="bg-gray-900 border border-gray-800 rounded-2xl p-6 mb-8"
                     >
                         <div className="flex flex-col lg:flex-row gap-4">
+
+                            {/* Keywords */}
                             <div className="flex-1">
                                 <label className="block text-white text-sm font-medium mb-2">
                                     Job Title / Keywords
@@ -394,12 +325,13 @@ export default function Jobs() {
                                     type="text"
                                     value={searchInput}
                                     onChange={(e) => setSearchInput(e.target.value)}
-                                    placeholder="e.g. software engineer, data scientist"
+                                    placeholder="e.g. graphic designer, data scientist"
                                     className="w-full bg-gray-800 text-white border border-gray-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-600"
                                 />
                             </div>
 
-                            <div className="lg:w-56">
+                            {/* Location */}
+                            <div className="lg:w-48">
                                 <label className="block text-white text-sm font-medium mb-2">
                                     Location
                                     <span className="ml-1 text-gray-500 font-normal">(optional)</span>
@@ -408,12 +340,29 @@ export default function Jobs() {
                                     type="text"
                                     value={locationInput}
                                     onChange={(e) => setLocationInput(e.target.value)}
-                                    placeholder="e.g. New York, NY, US"
+                                    placeholder="e.g. New York, London"
                                     className="w-full bg-gray-800 text-white border border-gray-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-600"
                                 />
                             </div>
 
+                            {/* Country */}
                             <div className="lg:w-44">
+                                <label className="block text-white text-sm font-medium mb-2">
+                                    Country
+                                </label>
+                                <select
+                                    value={countryInput}
+                                    onChange={(e) => setCountryInput(e.target.value)}
+                                    className="w-full bg-gray-800 text-white border border-gray-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                >
+                                    {COUNTRIES.map((c) => (
+                                        <option key={c.code} value={c.code}>{c.label}</option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            {/* Sort */}
+                            <div className="lg:w-40">
                                 <label className="block text-white text-sm font-medium mb-2">
                                     Sort By
                                 </label>
@@ -424,9 +373,11 @@ export default function Jobs() {
                                 >
                                     <option value="relevance">Relevance</option>
                                     <option value="date">Most Recent</option>
+                                    <option value="salary">Salary</option>
                                 </select>
                             </div>
 
+                            {/* Submit */}
                             <div className="flex items-end">
                                 <button
                                     type="submit"
@@ -437,7 +388,7 @@ export default function Jobs() {
                             </div>
                         </div>
 
-                        {/* Active filters hint */}
+                        {/* Active filter tags */}
                         {(submitted.query || submitted.location) && (
                             <div className="mt-4 flex flex-wrap gap-2 text-xs">
                                 {submitted.query && (
@@ -450,6 +401,9 @@ export default function Jobs() {
                                         📍 {submitted.location}
                                     </span>
                                 )}
+                                <span className="bg-gray-800 border border-gray-700 text-gray-400 px-3 py-1 rounded-full">
+                                    🌍 {COUNTRIES.find(c => c.code === submitted.country)?.label}
+                                </span>
                             </div>
                         )}
                     </form>
@@ -474,7 +428,7 @@ export default function Jobs() {
                             <p className="text-4xl mb-4">🔍</p>
                             <h3 className="text-xl font-semibold text-white mb-2">No jobs found</h3>
                             <p className="text-gray-400 text-sm">
-                                Try a different keyword or broader location.
+                                Try a different keyword, broader location, or switch country.
                             </p>
                         </div>
 
@@ -483,7 +437,8 @@ export default function Jobs() {
                             {/* Results meta */}
                             <div className="flex flex-wrap justify-between items-center mb-5 gap-2">
                                 <p className="text-gray-400 text-sm">
-                                    Showing <span className="text-white font-medium">{jobs.length}</span> jobs
+                                    Showing <span className="text-white font-medium">{jobs.length}</span> of{' '}
+                                    <span className="text-white font-medium">{totalResults.toLocaleString()}</span> jobs
                                     {submitted.query && (
                                         <> for <span className="text-white font-medium">"{submitted.query}"</span></>
                                     )}
@@ -491,7 +446,7 @@ export default function Jobs() {
                                         <> in <span className="text-white font-medium">{submitted.location}</span></>
                                     )}
                                 </p>
-                                <p className="text-gray-600 text-xs">Powered by The Muse API</p>
+                                <p className="text-gray-600 text-xs">Powered by Adzuna</p>
                             </div>
 
                             {/* Grid */}
@@ -510,31 +465,39 @@ export default function Jobs() {
                         </>
                     )}
 
-                    {/* Footer note */}
+                    {/* Footer */}
                     <div className="mt-12 pt-8 border-t border-gray-800">
                         <p className="text-gray-600 text-sm">
-                            Job data sourced from The Muse API. Location filter works best with
-                            city-level names like <span className="text-gray-400">"New York, NY, US"</span> or{' '}
-                            <span className="text-gray-400">"London, England, UK"</span>.
-                            Click "View Details" for the full listing.
+                            Job data sourced from{' '}
+                            <a
+                                href="https://www.adzuna.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-400 hover:text-white transition-colors"
+                            >
+                                Adzuna
+                            </a>
+                            . Click "View Details" to see the full listing on the original job board.
                         </p>
                     </div>
+
                 </div>
             </main>
         </div>
     );
 }
 
-// ─── SVG Icons ───────────────────────────────────────────────────────────────
+// ─── Icons ────────────────────────────────────────────────────────────────────
 const LocationIcon = () => (
     <svg className="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
         <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
     </svg>
 );
 
-const LevelIcon = () => (
+const BriefcaseIcon = () => (
     <svg className="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+        <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
+        <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
     </svg>
 );
 
