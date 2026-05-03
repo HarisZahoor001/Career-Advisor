@@ -315,12 +315,14 @@ export default function Jobs() {
                 setTotalResults(0);
             }
         } catch (err) {
-            console.error('fetchJobs error:', err);
-            setError('Could not reach the jobs API. Showing sample listings.');
-            const mock = getMockJobs();
-            setJobs(mock);
-            setTotalPages(5);
-            setTotalResults(mock.length);
+    console.error('fetchJobs error:', err);
+    setError('Could not reach the jobs API. Please try again.');
+    setJobs([]);          // ← show empty state, not fake jobs
+    setTotalPages(1);
+    setTotalResults(0);
+    } finally {
+    setLoading(false);
+    }
         } finally {
             setLoading(false);
         }
