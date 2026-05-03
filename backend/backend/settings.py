@@ -31,6 +31,14 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-^qnm$#a$b0-&3yx1=^!tr%go%_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
 
 # For production (example with Gmail):
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -41,7 +49,21 @@ EMAIL_HOST_USER = 'zeeshanaftababbasi@gmail.com'
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = 'zeeshanaftababbasi@gmail.com'
 
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://career-advisor-1bdo.vercel.app",
+    "https://career-advisor-theta.vercel.app",
+]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 # ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '.vercel.app').split(',')
 ALLOWED_HOSTS = [
     "localhost",
