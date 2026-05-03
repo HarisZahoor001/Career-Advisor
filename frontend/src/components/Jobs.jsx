@@ -1,7 +1,237 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import shadow1 from '../assets/s1.png';
 import Navbar from './Navbar';
 
+const RESULTS_PER_PAGE = 20;
+
+const getMockJobs = () => [
+    {
+        id: '1',
+        title: 'Senior Software Engineer',
+        company: { display_name: 'Google' },
+        location: { display_name: 'Mountain View, CA' },
+        description: 'We are looking for a Senior Software Engineer to join our team. You will work on cutting-edge technologies and help shape the future of search and AI.',
+        salary_min: 150000, salary_max: 250000, salary_currency: 'USD',
+        created: new Date().toISOString(),
+        redirect_url: 'https://www.google.com/about/careers',
+        category: { label: 'Software Engineering' },
+        levels: 'Senior Level',
+    },
+    {
+        id: '2',
+        title: 'Frontend Developer',
+        company: { display_name: 'Microsoft' },
+        location: { display_name: 'Seattle, WA' },
+        description: 'Join our team to build amazing user experiences. Work with React, TypeScript, and modern web technologies to create responsive and accessible applications.',
+        salary_min: 120000, salary_max: 180000, salary_currency: 'USD',
+        created: new Date(Date.now() - 86400000).toISOString(),
+        redirect_url: 'https://careers.microsoft.com',
+        category: { label: 'Frontend Development' },
+        levels: 'Mid Level',
+    },
+    {
+        id: '3',
+        title: 'DevOps Engineer',
+        company: { display_name: 'Amazon' },
+        location: { display_name: 'Austin, TX' },
+        description: 'Looking for a DevOps engineer to help scale our infrastructure. Experience with AWS, Kubernetes, Docker, and CI/CD pipelines required.',
+        salary_min: 130000, salary_max: 190000, salary_currency: 'USD',
+        created: new Date(Date.now() - 172800000).toISOString(),
+        redirect_url: 'https://www.amazon.jobs',
+        category: { label: 'DevOps' },
+        levels: 'Mid Level',
+    },
+    {
+        id: '4',
+        title: 'Data Scientist',
+        company: { display_name: 'Meta' },
+        location: { display_name: 'New York, NY' },
+        description: 'Join our data science team to solve complex problems. Work with large datasets, machine learning models, and help drive business decisions.',
+        salary_min: 140000, salary_max: 210000, salary_currency: 'USD',
+        created: new Date(Date.now() - 259200000).toISOString(),
+        redirect_url: 'https://www.metacareers.com',
+        category: { label: 'Data Science' },
+        levels: 'Senior Level',
+    },
+    {
+        id: '5',
+        title: 'Product Manager',
+        company: { display_name: 'Apple' },
+        location: { display_name: 'Cupertino, CA' },
+        description: 'Lead product development for consumer applications. Work with cross-functional teams to define product strategy and roadmap.',
+        salary_min: 160000, salary_max: 240000, salary_currency: 'USD',
+        created: new Date(Date.now() - 345600000).toISOString(),
+        redirect_url: 'https://www.apple.com/careers',
+        category: { label: 'Product Management' },
+        levels: 'Senior Level',
+    },
+];
+
+const formatDate = (dateString) => {
+    if (!dateString) return 'Date not specified';
+    try {
+        return new Date(dateString).toLocaleDateString('en-US', {
+            year: 'numeric', month: 'short', day: 'numeric',
+        });
+    } catch {
+        return 'Invalid date';
+    }
+};
+
+const formatSalary = (min, max, currency = 'USD') => {
+    if (!min && !max) return null;
+    const fmt = (n) =>
+        new Intl.NumberFormat('en-US', {
+            style: 'currency', currency, minimumFractionDigits: 0, maximumFractionDigits: 0,
+        }).format(n);
+    if (min && max) return min === max ? fmt(min) : `${fmt(min)} – ${fmt(max)}`;
+    if (min) return `From ${fmt(min)}`;
+    return `Up to ${fmt(max)}`;
+};
+
+const getCompanyName = (job) =>
+    job.company?.display_name || job.company_name || 'Company not specified';
+
+const getLocation = (job) =>
+    job.location?.display_name || (typeof job.location === 'string' ? job.location : 'Location not specified');
+
+const getDescription = (job) => {
+    if (!job.description) return 'No description available.';
+    const plain = job.description.replace(/<[^>]*>/g, '');
+    return plain.length > 220 ? plain.substring(0, 220) + '…' : plain;
+};
+
+// ─── Job Card ────────────────────────────────────────────────────────────────
+function JobCard({ job }) {
+    const salary = formatSalary(job.salary_min, job.salary_max, job.salary_currency);
+
+    return (
+        <div className="group bg-gray-900 border border-gray-800 rounded-2xl p-6 flex flex-col gap-4 hover:border-blue-500/50 hover:bg-gray-800/60 transition-all duration-200">
+            {/* Top row */}
+            <div className="flex justify-between items-start gap-3">
+                <div className="flex-1 min-w-0">
+                    <h3 className="text-white font-semibold text-base leading-snug truncate">
+                        {job.title}
+                    </h3>
+                    <p className="text-blue-400 text-sm font-medium mt-0.5">
+                        {getCompanyName(job)}
+                    </p>
+                </div>
+                {job.category?.label && (
+                    <span className="shrink-0 text-xs text-gray-400 bg-gray-800 border border-gray-700 px-2.5 py-1 rounded-full">
+                        {job.category.label}
+                    </span>
+                )}
+            </div>
+
+            {/* Meta */}
+            <div className="flex flex-col gap-1.5 text-sm text-gray-400">
+                <span className="flex items-center gap-2">
+                    <LocationIcon />
+                    {getLocation(job)}
+                </span>
+                {job.levels && job.levels !== 'Not specified' && (
+                    <span className="flex items-center gap-2">
+                        <LevelIcon />
+                        {job.levels}
+                    </span>
+                )}
+                <span className="flex items-center gap-2">
+                    <CalendarIcon />
+                    Posted {formatDate(job.created || job.publication_date)}
+                </span>
+                {salary && (
+                    <span className="flex items-center gap-2 text-emerald-400 font-medium">
+                        <SalaryIcon />
+                        {salary}
+                    </span>
+                )}
+            </div>
+
+            {/* Description */}
+            <p className="text-gray-500 text-sm leading-relaxed line-clamp-3 flex-1">
+                {getDescription(job)}
+            </p>
+
+            {/* Actions */}
+            <div className="flex items-center justify-between pt-2 border-t border-gray-800">
+                <a
+                    href={job.redirect_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors duration-150"
+                >
+                    View Details →
+                </a>
+                <button className="text-gray-500 hover:text-white text-sm transition-colors duration-150">
+                    Save
+                </button>
+            </div>
+        </div>
+    );
+}
+
+// ─── Pagination ──────────────────────────────────────────────────────────────
+function Pagination({ currentPage, totalPages, totalResults, onPageChange }) {
+    if (totalPages <= 1) return null;
+
+    const maxButtons = 5;
+    let start = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+    let end = Math.min(totalPages, start + maxButtons - 1);
+    if (end - start + 1 < maxButtons) start = Math.max(1, end - maxButtons + 1);
+
+    const pages = Array.from({ length: end - start + 1 }, (_, i) => start + i);
+
+    const Btn = ({ page, label, disabled, active }) => (
+        <button
+            onClick={() => !disabled && onPageChange(page)}
+            disabled={disabled}
+            className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
+                active
+                    ? 'bg-blue-600 text-white'
+                    : disabled
+                    ? 'bg-gray-900 text-gray-600 cursor-not-allowed'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
+            }`}
+        >
+            {label ?? page}
+        </button>
+    );
+
+    return (
+        <div className="flex flex-wrap justify-center items-center gap-2 mt-10">
+            <Btn page={currentPage - 1} label="← Prev" disabled={currentPage === 1} />
+
+            {start > 1 && (
+                <>
+                    <Btn page={1} />
+                    {start > 2 && <span className="text-gray-600 px-1">…</span>}
+                </>
+            )}
+
+            {pages.map((p) => (
+                <Btn key={p} page={p} active={p === currentPage} />
+            ))}
+
+            {end < totalPages && (
+                <>
+                    {end < totalPages - 1 && <span className="text-gray-600 px-1">…</span>}
+                    <Btn page={totalPages} />
+                </>
+            )}
+
+            <Btn page={currentPage + 1} label="Next →" disabled={currentPage === totalPages} />
+
+            {totalResults > 0 && (
+                <span className="ml-4 text-gray-500 text-sm">
+                    Page {currentPage} / {totalPages} &nbsp;·&nbsp; {totalResults.toLocaleString()} jobs
+                </span>
+            )}
+        </div>
+    );
+}
+
+// ─── Main Component ──────────────────────────────────────────────────────────
 export default function Jobs() {
     const [jobs, setJobs] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -9,521 +239,312 @@ export default function Jobs() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [totalResults, setTotalResults] = useState(0);
-    const [searchQuery, setSearchQuery] = useState('software engineer');
-    const [location, setLocation] = useState('');
-    const [sortBy, setSortBy] = useState('relevance');
-    const resultsPerPage = 20;
 
-    const fetchJobs = async (page = 1) => {
+    // Input state (controlled fields — NOT used to trigger fetches)
+    const [searchInput, setSearchInput] = useState('software engineer');
+    const [locationInput, setLocationInput] = useState('');
+    const [sortInput, setSortInput] = useState('relevance');
+
+    // Submitted state — fetches only fire when this changes
+    const [submitted, setSubmitted] = useState({
+        query: 'software engineer',
+        location: '',
+        sort: 'relevance',
+    });
+
+    const fetchJobs = useCallback(async (page = 1) => {
         setLoading(true);
         setError(null);
-        
+
         try {
-            // Using The Muse API - CORS enabled and free
-            const baseUrl = 'https://www.themuse.com/api/public/jobs';
-            
-            // Build query parameters
+            // The Muse API uses 0-based page indexing
             const params = new URLSearchParams({
-                page: page,
-                descending: 'true',
-                ...(searchQuery && { search: searchQuery }),
-                ...(location && { location: location }),
-                results_per_page: resultsPerPage
+                page: page - 1,
+                descending: submitted.sort === 'date' ? 'true' : 'false',
+                results_per_page: RESULTS_PER_PAGE,
+                ...(submitted.query && { search: submitted.query }),
             });
 
-            const response = await fetch(`${baseUrl}?${params.toString()}`);
-            
+            // Location must be appended as "location[]" array param
+            if (submitted.location.trim()) {
+                params.append('location[]', submitted.location.trim());
+            }
+
+            const response = await fetch(
+                `https://www.themuse.com/api/public/jobs?${params.toString()}`
+            );
+
             if (!response.ok) {
-                throw new Error(`API request failed with status ${response.status}`);
+                throw new Error(`API error: ${response.status}`);
             }
 
             const data = await response.json();
-            
-            if (data && data.results) {
-                // Transform Muse API data to match your component's expected format
-                const transformedJobs = data.results.map(job => ({
+
+            if (data?.results?.length) {
+                const transformed = data.results.map((job) => ({
                     id: job.id,
                     title: job.name,
-                    company: { display_name: job.company.name },
-                    location: { 
-                        display_name: job.locations && job.locations.length > 0 
-                            ? job.locations.map(loc => loc.name).join(', ') 
-                            : 'Remote / Anywhere' 
+                    company: { display_name: job.company?.name ?? 'Unknown' },
+                    location: {
+                        display_name:
+                            job.locations?.length
+                                ? job.locations.map((l) => l.name).join(', ')
+                                : 'Remote / Anywhere',
                     },
-                    description: job.contents ? job.contents.replace(/<[^>]*>/g, '').substring(0, 300) + '...' : 'No description available',
-                    salary_min: 0, // Muse API doesn't provide salary
+                    description: job.contents
+                        ? job.contents.replace(/<[^>]*>/g, '').substring(0, 300) + '…'
+                        : 'No description available.',
+                    salary_min: 0,
                     salary_max: 0,
                     salary_currency: 'USD',
                     created: job.publication_date,
-                    redirect_url: job.refs.landing_page,
-                    category: { 
-                        label: job.categories && job.categories.length > 0 
-                            ? job.categories[0].name 
-                            : 'IT Jobs' 
+                    redirect_url: job.refs?.landing_page ?? '#',
+                    category: {
+                        label: job.categories?.length ? job.categories[0].name : 'General',
                     },
-                    levels: job.levels && job.levels.length > 0 ? job.levels[0].name : 'Not specified',
-                    publication_date: new Date(job.publication_date).toLocaleDateString()
+                    levels: job.levels?.length ? job.levels[0].name : 'Not specified',
+                    publication_date: job.publication_date,
                 }));
-                
-                setJobs(transformedJobs);
-                setTotalResults(data.total || 0);
-                
-                // Calculate total pages
-                const total = data.total || 0;
-                const calculatedPages = Math.ceil(total / resultsPerPage);
-                setTotalPages(calculatedPages);
+
+                setJobs(transformed);
+                setTotalResults(data.total ?? 0);
+                setTotalPages(Math.max(1, Math.ceil((data.total ?? 0) / RESULTS_PER_PAGE)));
             } else {
                 setJobs([]);
-                setTotalPages(0);
+                setTotalPages(1);
+                setTotalResults(0);
             }
-        } catch (error) {
-            console.error('Error fetching jobs:', error);
-            setError('Unable to fetch jobs. Please try again later.');
-            setJobs(getMockJobs());
+        } catch (err) {
+            console.error('fetchJobs error:', err);
+            setError('Could not reach the jobs API. Showing sample listings.');
+            const mock = getMockJobs();
+            setJobs(mock);
             setTotalPages(5);
-            setTotalResults(100);
+            setTotalResults(mock.length);
         } finally {
             setLoading(false);
         }
-    };
+    }, [submitted]); // ← only re-creates when submitted changes
 
-    // Mock data function as fallback
-    const getMockJobs = () => {
-        return [
-            {
-                id: '1',
-                title: 'Senior Software Engineer',
-                company: { display_name: 'Google' },
-                location: { display_name: 'Mountain View, CA' },
-                description: 'We are looking for a Senior Software Engineer to join our team. You will work on cutting-edge technologies and help shape the future of search and AI.',
-                salary_min: 150000,
-                salary_max: 250000,
-                salary_currency: 'USD',
-                created: new Date().toISOString(),
-                redirect_url: 'https://www.google.com/about/careers',
-                category: { label: 'Software Engineering' },
-                levels: 'Senior Level',
-                publication_date: new Date().toLocaleDateString()
-            },
-            {
-                id: '2',
-                title: 'Frontend Developer',
-                company: { display_name: 'Microsoft' },
-                location: { display_name: 'Seattle, WA' },
-                description: 'Join our team to build amazing user experiences. Work with React, TypeScript, and modern web technologies to create responsive and accessible applications.',
-                salary_min: 120000,
-                salary_max: 180000,
-                salary_currency: 'USD',
-                created: new Date(Date.now() - 86400000).toISOString(),
-                redirect_url: 'https://careers.microsoft.com',
-                category: { label: 'Frontend Development' },
-                levels: 'Mid Level',
-                publication_date: new Date(Date.now() - 86400000).toLocaleDateString()
-            },
-            {
-                id: '3',
-                title: 'DevOps Engineer',
-                company: { display_name: 'Amazon' },
-                location: { display_name: 'Austin, TX' },
-                description: 'Looking for a DevOps engineer to help scale our infrastructure. Experience with AWS, Kubernetes, Docker, and CI/CD pipelines required.',
-                salary_min: 130000,
-                salary_max: 190000,
-                salary_currency: 'USD',
-                created: new Date(Date.now() - 172800000).toISOString(),
-                redirect_url: 'https://www.amazon.jobs',
-                category: { label: 'DevOps' },
-                levels: 'Mid Level',
-                publication_date: new Date(Date.now() - 172800000).toLocaleDateString()
-            },
-            {
-                id: '4',
-                title: 'Data Scientist',
-                company: { display_name: 'Meta' },
-                location: { display_name: 'New York, NY' },
-                description: 'Join our data science team to solve complex problems. Work with large datasets, machine learning models, and help drive business decisions.',
-                salary_min: 140000,
-                salary_max: 210000,
-                salary_currency: 'USD',
-                created: new Date(Date.now() - 259200000).toISOString(),
-                redirect_url: 'https://www.metacareers.com',
-                category: { label: 'Data Science' },
-                levels: 'Senior Level',
-                publication_date: new Date(Date.now() - 259200000).toLocaleDateString()
-            },
-            {
-                id: '5',
-                title: 'Product Manager',
-                company: { display_name: 'Apple' },
-                location: { display_name: 'Cupertino, CA' },
-                description: 'Lead product development for consumer applications. Work with cross-functional teams to define product strategy and roadmap.',
-                salary_min: 160000,
-                salary_max: 240000,
-                salary_currency: 'USD',
-                created: new Date(Date.now() - 345600000).toISOString(),
-                redirect_url: 'https://www.apple.com/careers',
-                category: { label: 'Product Management' },
-                levels: 'Senior Level',
-                publication_date: new Date(Date.now() - 345600000).toLocaleDateString()
-            }
-        ];
-    };
-
+    // Fetch whenever submitted params OR page changes
     useEffect(() => {
         fetchJobs(currentPage);
-    }, [currentPage, searchQuery, location, sortBy]);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [currentPage, submitted]); // ← NOT searchInput / locationInput
 
     const handleSearch = (e) => {
         e.preventDefault();
         setCurrentPage(1);
-        fetchJobs(1);
+        setSubmitted({ query: searchInput, location: locationInput, sort: sortInput });
     };
 
     const handlePageChange = (page) => {
-        if (page >= 1 && page <= totalPages) {
-            setCurrentPage(page);
-            window.scrollTo(0, 0);
-        }
-    };
-
-    const formatSalary = (min, max, currency = 'USD') => {
-        if (!min && !max) return 'Salary not specified';
-        
-        const formatAmount = (amount) => {
-            return new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: currency,
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0
-            }).format(amount);
-        };
-
-        if (min && max) {
-            if (min === max) {
-                return formatAmount(min);
-            }
-            return `${formatAmount(min)} - ${formatAmount(max)}`;
-        }
-        if (min) return `From ${formatAmount(min)}`;
-        if (max) return `Up to ${formatAmount(max)}`;
-        return 'Salary not specified';
-    };
-
-    const formatDate = (dateString) => {
-        if (!dateString) return 'Date not specified';
-        
-        try {
-            const date = new Date(dateString);
-            return date.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
-            });
-        } catch (error) {
-            return 'Invalid date';
-        }
-    };
-
-    const getCompanyName = (job) => {
-        if (job.company && job.company.display_name) {
-            return job.company.display_name;
-        }
-        return job.company_name || 'Company not specified';
-    };
-
-    const getLocation = (job) => {
-        if (job.location && job.location.display_name) {
-            return job.location.display_name;
-        }
-        if (job.location) {
-            return job.location;
-        }
-        return 'Location not specified';
-    };
-
-    const getDescription = (job) => {
-        if (job.description) {
-            // Remove HTML tags and truncate
-            const plainText = job.description.replace(/<[^>]*>/g, '');
-            return plainText.length > 200 ? plainText.substring(0, 200) + '...' : plainText;
-        }
-        return 'No description available';
-    };
-
-    const Pagination = () => {
-        const pageNumbers = [];
-        const maxPageButtons = 5;
-        
-        let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
-        let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
-        
-        if (endPage - startPage + 1 < maxPageButtons) {
-            startPage = Math.max(1, endPage - maxPageButtons + 1);
-        }
-
-        for (let i = startPage; i <= endPage; i++) {
-            pageNumbers.push(i);
-        }
-
-        return (
-            <div className="flex flex-wrap justify-center items-center gap-2 mt-8">
-                <button
-                    onClick={() => handlePageChange(currentPage - 1)}
-                    disabled={currentPage === 1}
-                    className="px-4 py-2 bg-gray-800 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-700 transition"
-                >
-                    Previous
-                </button>
-                
-                {startPage > 1 && (
-                    <>
-                        <button
-                            onClick={() => handlePageChange(1)}
-                            className="px-3 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition"
-                        >
-                            1
-                        </button>
-                        {startPage > 2 && <span className="px-2 text-white">...</span>}
-                    </>
-                )}
-                
-                {pageNumbers.map(page => (
-                    <button
-                        key={page}
-                        onClick={() => handlePageChange(page)}
-                        className={`px-4 py-2 rounded-lg transition ${
-                            currentPage === page
-                                ? 'bg-blue-600 text-white'
-                                : 'bg-gray-800 text-white hover:bg-gray-700'
-                        }`}
-                    >
-                        {page}
-                    </button>
-                ))}
-                
-                {endPage < totalPages && (
-                    <>
-                        {endPage < totalPages - 1 && <span className="px-2 text-white">...</span>}
-                        <button
-                            onClick={() => handlePageChange(totalPages)}
-                            className="px-3 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition"
-                        >
-                            {totalPages}
-                        </button>
-                    </>
-                )}
-                
-                <button
-                    onClick={() => handlePageChange(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                    className="px-4 py-2 bg-gray-800 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-700 transition"
-                >
-                    Next
-                </button>
-                
-                {totalResults > 0 && (
-                    <div className="ml-4 text-white">
-                        Page {currentPage} of {totalPages} ({totalResults} jobs)
-                    </div>
-                )}
-            </div>
-        );
+        if (page >= 1 && page <= totalPages) setCurrentPage(page);
     };
 
     return (
         <div className="w-full min-h-screen relative overflow-hidden bg-black flex flex-col">
-            {/* Grid Background */}
+            {/* Grid background */}
             <div
-                className="fixed inset-0 z-0"
+                className="fixed inset-0 z-0 pointer-events-none"
                 style={{
                     backgroundImage: `
-                        repeating-linear-gradient(0deg, #d1d5db 0px, #d1d5db 1px, transparent 1px, transparent 100px),
+                        repeating-linear-gradient(0deg,  #d1d5db 0px, #d1d5db 1px, transparent 1px, transparent 100px),
                         repeating-linear-gradient(90deg, #d1d5db 0px, #d1d5db 1px, transparent 1px, transparent 100px)
                     `,
                     backgroundSize: '100px 100px',
-                    opacity: 0.1,
+                    opacity: 0.07,
                 }}
             />
 
-            {/* Shadow Overlay */}
-            <div className="fixed inset-0 z-1">
-                <img src={shadow1} alt="Shadow Overlay" className="w-full h-full object-cover opacity-70" />
+            {/* Shadow overlay */}
+            <div className="fixed inset-0 z-[1] pointer-events-none">
+                <img src={shadow1} alt="" className="w-full h-full object-cover opacity-70" />
             </div>
 
-            <div>
-                <Navbar />
-            </div>
+            <Navbar />
 
-            {/* Main Content */}
-            <div className="relative z-10 flex-1 p-4 lg:p-8">
+            {/* Content */}
+            <main className="relative z-10 flex-1 px-4 py-8 lg:px-8">
                 <div className="max-w-7xl mx-auto">
+
                     {/* Header */}
                     <div className="mb-8">
-                        <h1 className="text-3xl lg:text-4xl font-bold mb-2 text-white">Job Listings</h1>
-                        <p className="text-gray-400">Find your next career opportunity</p>
+                        <h1 className="text-3xl lg:text-4xl font-bold text-white tracking-tight">
+                            Job Listings
+                        </h1>
+                        <p className="text-gray-400 mt-1">
+                            Find your next career opportunity
+                        </p>
                     </div>
 
                     {/* Search Form */}
-                    <div className="bg-gray-900 rounded-xl p-6 mb-8">
-                        <form onSubmit={handleSearch} className="flex flex-col lg:flex-row gap-4">
+                    <form
+                        onSubmit={handleSearch}
+                        className="bg-gray-900 border border-gray-800 rounded-2xl p-6 mb-8"
+                    >
+                        <div className="flex flex-col lg:flex-row gap-4">
                             <div className="flex-1">
-                                <label className="block text-white text-sm font-medium mb-2">Job Title / Keywords</label>
+                                <label className="block text-white text-sm font-medium mb-2">
+                                    Job Title / Keywords
+                                </label>
                                 <input
                                     type="text"
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    placeholder="e.g., software engineer, data scientist"
-                                    className="w-full bg-gray-800 text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                />
-                            </div>
-                            
-                            <div>
-                                <label className="block text-sm text-white font-medium mb-2">Location (optional)</label>
-                                <input
-                                    type="text"
-                                    value={location}
-                                    onChange={(e) => setLocation(e.target.value)}
-                                    placeholder="e.g., New York, London"
-                                    className="w-full bg-gray-800 text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    value={searchInput}
+                                    onChange={(e) => setSearchInput(e.target.value)}
+                                    placeholder="e.g. software engineer, data scientist"
+                                    className="w-full bg-gray-800 text-white border border-gray-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-600"
                                 />
                             </div>
 
-                            <div>
-                                <label className="block text-sm text-white font-medium mb-2">Sort By</label>
+                            <div className="lg:w-56">
+                                <label className="block text-white text-sm font-medium mb-2">
+                                    Location
+                                    <span className="ml-1 text-gray-500 font-normal">(optional)</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    value={locationInput}
+                                    onChange={(e) => setLocationInput(e.target.value)}
+                                    placeholder="e.g. New York, NY, US"
+                                    className="w-full bg-gray-800 text-white border border-gray-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-600"
+                                />
+                            </div>
+
+                            <div className="lg:w-44">
+                                <label className="block text-white text-sm font-medium mb-2">
+                                    Sort By
+                                </label>
                                 <select
-                                    value={sortBy}
-                                    onChange={(e) => setSortBy(e.target.value)}
-                                    className="bg-gray-800 border text-white border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    value={sortInput}
+                                    onChange={(e) => setSortInput(e.target.value)}
+                                    className="w-full bg-gray-800 text-white border border-gray-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 >
                                     <option value="relevance">Relevance</option>
                                     <option value="date">Most Recent</option>
                                 </select>
                             </div>
-                            
+
                             <div className="flex items-end">
                                 <button
                                     type="submit"
-                                    className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition hover:bg-blue-700"
+                                    className="w-full lg:w-auto bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold transition-colors duration-150"
                                 >
-                                    Search Jobs
+                                    Search
                                 </button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
 
-                    {/* Error Message */}
+                        {/* Active filters hint */}
+                        {(submitted.query || submitted.location) && (
+                            <div className="mt-4 flex flex-wrap gap-2 text-xs">
+                                {submitted.query && (
+                                    <span className="bg-blue-900/40 border border-blue-700/50 text-blue-300 px-3 py-1 rounded-full">
+                                        🔍 {submitted.query}
+                                    </span>
+                                )}
+                                {submitted.location && (
+                                    <span className="bg-blue-900/40 border border-blue-700/50 text-blue-300 px-3 py-1 rounded-full">
+                                        📍 {submitted.location}
+                                    </span>
+                                )}
+                            </div>
+                        )}
+                    </form>
+
+                    {/* Error banner */}
                     {error && (
-                        <div className="bg-red-900/50 border border-red-700 text-red-200 px-4 py-3 rounded-lg mb-6">
-                            {error} {jobs.length > 0 && " Showing sample data."}
+                        <div className="flex items-start gap-3 bg-red-950/50 border border-red-800 text-red-300 px-4 py-3 rounded-xl mb-6 text-sm">
+                            <span className="mt-0.5">⚠️</span>
+                            <span>{error}</span>
                         </div>
                     )}
 
-                    {/* Jobs Grid */}
+                    {/* Loading */}
                     {loading ? (
-                        <div className="flex justify-center items-center h-64">
-                            <div className="text-center">
-                                <div className="inline-block text-white animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mb-4"></div>
-                                <p className="text-gray-400">Loading job listings...</p>
-                            </div>
+                        <div className="flex flex-col justify-center items-center h-64 gap-4">
+                            <div className="w-10 h-10 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+                            <p className="text-gray-400 text-sm">Loading job listings…</p>
                         </div>
+
                     ) : jobs.length === 0 ? (
-                        <div className="text-center py-12 bg-gray-900 rounded-xl">
-                            <h3 className="text-xl font-medium mb-2 text-white">No jobs found</h3>
-                            <p className="text-gray-400">Try adjusting your search criteria</p>
+                        <div className="text-center py-16 bg-gray-900 border border-gray-800 rounded-2xl">
+                            <p className="text-4xl mb-4">🔍</p>
+                            <h3 className="text-xl font-semibold text-white mb-2">No jobs found</h3>
+                            <p className="text-gray-400 text-sm">
+                                Try a different keyword or broader location.
+                            </p>
                         </div>
+
                     ) : (
                         <>
-                            <div className="mb-4 flex text-white justify-between items-center">
-                                <div className="text-white">
-                                    Showing {jobs.length} jobs on page {currentPage} of {totalPages}
-                                </div>
-                                <div className="text-sm text-white">
-                                    Powered by The Muse API
-                                </div>
+                            {/* Results meta */}
+                            <div className="flex flex-wrap justify-between items-center mb-5 gap-2">
+                                <p className="text-gray-400 text-sm">
+                                    Showing <span className="text-white font-medium">{jobs.length}</span> jobs
+                                    {submitted.query && (
+                                        <> for <span className="text-white font-medium">"{submitted.query}"</span></>
+                                    )}
+                                    {submitted.location && (
+                                        <> in <span className="text-white font-medium">{submitted.location}</span></>
+                                    )}
+                                </p>
+                                <p className="text-gray-600 text-xs">Powered by The Muse API</p>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                            {/* Grid */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
                                 {jobs.map((job) => (
-                                    <div key={job.id} className="bg-gray-900 rounded-xl p-6 hover:bg-gray-800 transition border border-gray-800 hover:border-gray-700">
-                                        <div className="flex justify-between items-start mb-4">
-                                            <div>
-                                                <h3 className="text-lg font-semibold mb-1 text-white">{job.title}</h3>
-                                                <p className="text-blue-400 font-medium">{getCompanyName(job)}</p>
-                                            </div>
-                                            {job.category && (
-                                                <span className="text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded">
-                                                    {job.category.label || 'IT Jobs'}
-                                                </span>
-                                            )}
-                                        </div>
-
-                                        <div className="space-y-3 mb-4">
-                                            <div className="flex items-center text-gray-300">
-                                                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                                                </svg>
-                                                <span>{getLocation(job)}</span>
-                                            </div>
-                                            
-                                            {job.levels && (
-                                                <div className="flex items-center text-gray-300">
-                                                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path fillRule="evenodd" d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zM4 4h3a3 3 0 006 0h3a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm2.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45 4a2.5 2.5 0 10-4.9 0h4.9zM12 9a1 1 0 100 2h3a1 1 0 100-2h-3zm-1 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z" clipRule="evenodd" />
-                                                    </svg>
-                                                    <span>{job.levels}</span>
-                                                </div>
-                                            )}
-                                            
-                                            <div className="flex items-center text-gray-300">
-                                                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                                                </svg>
-                                                <span>Posted {formatDate(job.created || job.publication_date)}</span>
-                                            </div>
-                                        </div>
-
-                                        <p className="text-gray-400 text-sm mb-6 line-clamp-3">
-                                            {getDescription(job)}
-                                        </p>
-
-                                        <div className="flex justify-between items-center">
-                                            <a
-                                                href={job.redirect_url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition hover:bg-blue-700"
-                                            >
-                                                View Details
-                                            </a>
-                                            <button className="text-gray-400 hover:text-white text-sm">
-                                                Save Job
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <JobCard key={job.id} job={job} />
                                 ))}
                             </div>
 
-                            {/* Pagination */}
-                            <Pagination />
+                            <Pagination
+                                currentPage={currentPage}
+                                totalPages={totalPages}
+                                totalResults={totalResults}
+                                onPageChange={handlePageChange}
+                            />
                         </>
                     )}
 
-                    {/* API Info */}
+                    {/* Footer note */}
                     <div className="mt-12 pt-8 border-t border-gray-800">
-                        <div className="bg-gray-900 rounded-xl p-6">
-                            <h3 className="text-lg font-medium mb-2 text-white">About This Job Search</h3>
-                            <p className="text-gray-400 mb-4">
-                                This page uses The Muse API to display job listings. 
-                                You can search for jobs by title, keyword, and location. The API provides up-to-date 
-                                information from various companies.
-                            </p>
-                            <div className="text-sm text-gray-500">
-                                Note: Some job details may be limited due to API constraints. 
-                                Click "View Details" to see the full listing on the original job board.
-                            </div>
-                        </div>
+                        <p className="text-gray-600 text-sm">
+                            Job data sourced from The Muse API. Location filter works best with
+                            city-level names like <span className="text-gray-400">"New York, NY, US"</span> or{' '}
+                            <span className="text-gray-400">"London, England, UK"</span>.
+                            Click "View Details" for the full listing.
+                        </p>
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
     );
 }
+
+// ─── SVG Icons ───────────────────────────────────────────────────────────────
+const LocationIcon = () => (
+    <svg className="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+    </svg>
+);
+
+const LevelIcon = () => (
+    <svg className="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+    </svg>
+);
+
+const CalendarIcon = () => (
+    <svg className="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+    </svg>
+);
+
+const SalaryIcon = () => (
+    <svg className="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clipRule="evenodd" />
+    </svg>
+);
