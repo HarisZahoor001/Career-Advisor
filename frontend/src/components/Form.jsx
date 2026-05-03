@@ -123,7 +123,7 @@ export default function Form({ route, method }) {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-white text-black p-3 rounded mt-2"
+          className="w-full btn text-black font-semibold p-3 sm:p-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] mt-2"
         >
           {loading ? "Loading..." : isLogin ? "Login" : "Signup"}
         </button>
