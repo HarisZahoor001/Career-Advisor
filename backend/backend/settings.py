@@ -117,10 +117,11 @@ MIDDLEWARE = [
 # CORS Configuration
 CORS_ALLOW_ALL_ORIGINS = False
 
+# ✅ Fix
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "career-advisor-1bdo.vercel.app",
+    "https://career-advisor-1bdo.vercel.app",  # ← Add https://
 ]
 
 CORS_ALLOW_CREDENTIALS = True
