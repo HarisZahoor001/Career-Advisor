@@ -162,11 +162,11 @@ export default function Jobs() {
                     className="p-2 rounded bg-gray-800"
                 />
 
-                <input
+                {/* <input
                     value={locationInput}
                     onChange={(e) => setLocationInput(e.target.value)}
                     className="p-2 rounded bg-gray-800"
-                />
+                /> */}
 
                 <select
                     value={countryInput}
