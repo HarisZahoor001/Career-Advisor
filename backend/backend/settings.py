@@ -126,6 +126,7 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ALLOW_CREDENTIALS = True
 
+# Keep only this one
 CSRF_TRUSTED_ORIGINS = [
     "https://career-advisor-1bdo.vercel.app",
 ]
